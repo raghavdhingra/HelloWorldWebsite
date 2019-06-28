@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+
+
+    <!--Meta Blocks-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="title" content="{{meta_title}}" />
+    <meta name="description" content="{{meta_description}}" />
+    <!--Meta Blocks____________________-->
+
+
+    <!--Links-->
+    <link rel="icon" href="{% static 'assets/logo/Logo.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <!--Links____________________________-->
+
+
+    <!--Title-->
+    <title>{{title}}</title>
+    <!--Title___________________________-->
+
+
+    <!--Scripts-->
+    <script src="https://kit.fontawesome.com/b72052645a.js"></script>
+    <!--Scripts____________________-->
+
+
+    <!--Header Block-->
+    {% block header %}
+    {% endblock %}
+    <!--Header Block________________________-->
+
+
+</head>
+<body>
+
+
+    <!--Nav Bar-->
+    <div class="nav" id="main_nav">
+        <div class="nav-inner">
+            <div class="nav-grid"> 
+                <div><img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" alt="Hello World LOGO">
+                    <span class="nav-logo-text">Hello World</span>
+                </div>   
+                <div>
+                    <ul class="nav_element2">
+                        {% if user.is_authenticated %}
+                        <a href="#"><li>Hello! Raghav</li></a>
+                        {% else %}
+                        <a href="#"><li>SignIn / SignUp</li></a>
+                        {% endif %}
+                    </ul>
+                    <ul class="nav_element">
+                        <li><a href="{% url 'home' %}"><span class="nav-active1">home</span></a></li>
+                        <li><a href="{% url 'about' %}"><span class="nav-active2">about</span></a></li>
+                        <li id="drop_contact1"><a href="{% url 'contact' %}"><span class="nav-active3">contact</span></a></li>
+                        <li id="drop_login1"><a href="#"><span>SignIn / SignUp</span></a></li>
+                        <li id="nav_more"><a><span class="nav-active4">more <i class="fas fa-sort-down"></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Nav Bar____________________-->
+<style>
+</style>
+    <!--NavBar Drop Down-->
+    <div class="nav-drop-down" id="nav_dropdown">
+        <a href="{% url 'contact' %}"><li id="drop_contact2">Contact</li></a>
+        <a href="#"><li id="drop_login2">SignIn / SignUp</li></a>
+        <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
+        <a href="{% url 'event' %}"><li class="drop-active2">Upcoming Events</li></a>
+    </div>
+    <!--NavBar Drop Down________________________-->
+
+
+    <!--Content block-->
+    {% block content %}
+    {% endblock %}
+    <!--Content block_____________________-->
+
+
+    <!--Footer-->
+    <footer>Footer</footer>
+    <!--Footer_______________________-->
+
+
+    <!--Scripts-->
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+    <!--Scripts_______________________-->
+
+
+    <!--Scripts Block-->
+    {% block script %}
+    {% endblock %}
+    <!--Scripts Block_________________-->
+</body>
+</html>

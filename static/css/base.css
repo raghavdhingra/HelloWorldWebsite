@@ -1,0 +1,225 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css?family=Roboto|Stylish&display=swap');
+/*Imports----------------------*/
+
+
+/*Defaults*/
+*{
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+li{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+body{
+    background: linear-gradient(35deg, rgb(201, 223, 241), rgb(187, 187, 187));
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+/*Defaults-------------------*/
+
+
+/*ScrollBar*/
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background: rgba(51, 51, 51, 0.5);
+}
+body::-webkit-scrollbar-track{
+    background: rgba(199, 230, 255, 0.445);
+}
+/*ScrollBar---------------*/
+
+
+/*NavBar CSS*/
+div.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 7em;
+    overflow: hidden;
+    max-height: 7em;
+    z-index: 10;
+    min-height: 7em;
+    background: rgba(0,0,0,0);
+    transition: 0.3s;
+    line-height: 7em;
+    vertical-align: middle;
+}
+
+div.nav-inner{
+    width: 95%;
+    margin: 0 2.5vw;
+}
+
+div.nav-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    height: inherit;
+}
+
+img.nav-logo{
+    margin-left: 1em;
+    line-height: 5em;
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+}
+
+span.nav-logo-text{
+    font-family: 'Stylish', sans-serif;
+    font-size: 2.5em;
+}
+
+ul.nav_element li, ul.nav_element2 li{
+    display: inline-block;
+    text-transform: capitalize;
+    margin: 0 0.5em;
+    font-size: 1.2em;
+}
+
+ul.nav_element2{
+    display: none;
+}
+
+ul.nav_element2 li{
+    float: right;
+    text-overflow: ellipsis;
+}
+
+ul.nav_element li span{
+    padding: 0.5em 1em;
+}
+
+ul.nav_element li span:hover{
+    background: rgba(0,0,0,0.15);
+    border-radius: 5px;
+}
+
+div.nav-drop-down{
+    position: fixed;
+    top: 5em;
+    border-radius: 0 0 10px 10px;
+    background: #eee;
+    box-shadow: 0 3px 10px 0.5px rgba(0,0,0, 0.5);
+    display: none;
+    transform: translateX(-1.5em);
+    transition: 0.3s;
+    padding: 0.5em;
+    z-index: 10;
+}
+
+div.nav-drop-down li{
+    padding: 1em;
+    transition: 0.2s;
+}
+
+div.nav-drop-down li:hover{
+    background: rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+div.nav-drop-down li:last-child{
+    margin: 0;
+}
+
+#drop_contact2{
+    display: none;
+}
+
+#drop_login2{
+    display: none;
+}
+/*NavBar CSS ---------*/
+
+
+/*Spacing After Main Nav Bar*/
+div.spacing{
+    height: 8em;
+}
+/*Spacing After Main Nav Bar----------------*/
+
+
+/*Media Query*/
+/*1400px*/
+@media screen and (max-width: 1285px){
+    #drop_login2{
+        display: block;
+    }
+    div.nav-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+    #drop_login1{
+        display: none;
+    }
+}
+
+/*1045px*/
+@media screen and (max-width: 1045px){
+    #drop_contact2{
+        display: block;
+    }
+    #drop_contact1{
+        display: none;
+    }
+}
+
+/*800px*/
+@media screen and (max-width: 800px){
+    ul.nav_element{
+        display: none;
+    }
+    ul.nav_element2{
+        display: block;
+    }
+}
+
+/*650px*/
+@media screen and (max-width: 650px){
+    span.nav-logo-text{
+        font-size: 2em;
+        margin: 0;
+    }
+    img.nav-logo{
+        margin: 0 -1em;
+    }
+}
+
+/*500px*/
+@media screen and (max-width: 500px){
+    span.nav-logo-text{
+        font-size: 1.5em;
+    }
+    img.nav-logo{
+        height: 75px;
+        width: 75px;
+    }    
+    ul.nav_element2 li{
+        font-size: 0.7em;
+    }
+}
+
+/*340px*/
+@media screen and (max-width: 340px){
+    span.nav-logo-text{
+        font-size: 1.2em;
+    }
+    img.nav-logo{
+        height: 65px;
+        width: 65px;
+    }
+}
+/*Media Query-----------------------*/
