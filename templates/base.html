@@ -15,7 +15,7 @@
 
     <!--Links-->
     <link rel="icon" href="{% static 'assets/logo/Logo.png' %}" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/BaseNavBar.css' %}" />
     <!--Links____________________________-->
 
 
@@ -43,15 +43,15 @@
     <div class="nav" id="main_nav">
         <div class="nav-inner">
             <div class="nav-grid"> 
-                <div><img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" alt="Hello World LOGO">
-                    <span class="nav-logo-text">Hello World</span>
+                <div><img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="Hello World LOGO">
+                    <span class="nav-logo-text" id="nav-logo-text">Hello World</span>
                 </div>   
                 <div>
                     <ul class="nav_element2">
                         {% if user.is_authenticated %}
-                        <a href="#"><li>Hello! Raghav</li></a>
+                        <li><a href="#"><span>SignIn / SignUp</span></a></li>
                         {% else %}
-                        <a href="#"><li>SignIn / SignUp</li></a>
+                        <li id="signedIn_more"><a href="#"><span>Hello! Raghav <i class="fas fa-sort-down"></i></span></a></li>
                         {% endif %}
                     </ul>
                     <ul class="nav_element">
@@ -75,6 +75,10 @@
         <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
         <a href="{% url 'event' %}"><li class="drop-active2">Upcoming Events</li></a>
     </div>
+    <div class="nav-drop-down2" id="nav_dropdown2">
+        <a href="{% url 'team' %}"><li>Profile</li></a>
+        <a href="{% url 'event' %}"><li>Logout</li></a>
+    </div>
     <!--NavBar Drop Down________________________-->
 
 
@@ -85,12 +89,12 @@
 
 
     <!--Footer-->
-    <footer>Footer</footer>
+    <footer><h1>Footer</h1></footer>
     <!--Footer_______________________-->
 
 
     <!--Scripts-->
-    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/BaseNavBar.js' %}"></script>
     <!--Scripts_______________________-->
 
 
