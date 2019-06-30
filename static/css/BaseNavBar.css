@@ -22,7 +22,7 @@ a{
 }
 
 body{
-    background: linear-gradient(35deg,  rgb(224, 224, 224),rgb(255, 255, 255), rgb(224, 224, 224));
+    background: linear-gradient(35deg,rgb(255, 249, 249),rgb(255, 255, 255),rgb(250, 250, 250));
     background-repeat: no-repeat;
     cursor: default;
     color: rgba(0,0,0, 0.87);
@@ -74,7 +74,6 @@ div.nav-grid{
 }
 
 img.nav-logo{
-    margin-left: 1em;
     line-height: 5em;
     height: 100px;
     vertical-align: middle;
@@ -115,7 +114,7 @@ div.nav-drop-down,div.nav-drop-down2{
     position: fixed;
     top: 5em;
     border-radius: 0 0 10px 10px;
-    background: #eee;
+    background: #fff;
     box-shadow: 0 3px 10px 0.5px rgba(0,0,0, 0.5);
     display: none;
     transform: translateX(-1.5em);
@@ -160,7 +159,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
 
 /*Spacing After Main Nav Bar*/
 div.spacing{
-    height: 8em;
+    height: 10em;
 }
 /*Spacing After Main Nav Bar----------------*/
 
@@ -210,9 +209,9 @@ div.spacing{
 }
 
 /*500px*/
-@media screen and (max-width: 500px){
+@media screen and (max-width: 510px){
     span.nav-logo-text{
-        font-size: 1.5em;
+        font-size: 0.95em;
     }
     img.nav-logo{
         height: 75px;
@@ -228,7 +227,7 @@ div.spacing{
 /*340px*/
 @media screen and (max-width: 340px){
     span.nav-logo-text{
-        font-size: 1.2em;
+        font-size: 0.8em;
     }
     img.nav-logo{
         height: 65px;
