@@ -18,7 +18,7 @@ const mainNavHeightControl = () => {
         main_nav.style.maxHeight = "3.7em";
         main_nav.style.lineHeight = "3.7em";
         main_nav.style.color = "5em";
-        main_nav.style.background = "#eee";
+        main_nav.style.background = "#fff";
         main_nav.style.boxShadow = "0 3px 30px 0.5px rgba(51, 51, 51, 0.589)";
         nav_dropdown.style.top = "3.7em";
         nav_dropdown2.style.top = "3.7em";
@@ -63,29 +63,6 @@ nav_dropdown.onmouseout = () => {
     nav_dropdown.style.display = 'none';
 }
 //NavBar More Button OffSet Checker on X-Axis
-
-
-
-//Nav Drop Down 2 Login/SignUp Mobile View
-signedIn_more.onmouseover = () => {
-    posX = signedIn_more.offsetLeft;
-    nav_dropdown2.style.left = `${posX}px`;
-    nav_dropdown2.style.display = 'block';    
-}
-
-signedIn_more.onmouseout = () => {
-    nav_dropdown2.style.display = 'none';
-}
-
-nav_dropdown2.onmouseover = () => {
-    nav_dropdown2.style.display = 'block';
-}
-
-nav_dropdown2.onmouseout = () => {
-    nav_dropdown2.style.display = 'none';
-}
-
-//Nav Drop Down 2 Login/SignUp Mobile View
 
 
 //Window OnScroll Event
