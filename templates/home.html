@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 
 {% block header %}
 
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
 /*For Nav Bar Active Element Displaying the current page----------------*/
 ul.nav_element span.nav-active1{
@@ -21,23 +23,42 @@ ul.nav_element span.nav-active1{
 <div class="spacing"></div>
 <!--For Spacing after the navbar as it's position is fixed-->
 <!--Spacing Block_______________________-->
-This is the content
-content<Br><Br>
-<div><span id="width"></span></div><button onclick="fun();">See Your Device width</button>
-<Br><Br>
-<script>
-const fun = () => {
-    document.getElementById("width").innerText = `${window.innerWidth}px`;
+
+<div class="container">
+    
+
+    content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
+        content<Br>content<Br>content<Br>content<Br>content<Br>
+            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
+                content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
+                    content<Br>content
+                        </div>
+<!--Parallax content-->
+<style>
+#parallax1 {
+    height: 30em;
+    background: url("{% static 'assets/background/Background.jpg' %}") no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
 }
-</script>
-<br>
-Font Used: "Open Sans"<Br>
-<Br>
-    content<Br>content<Br>content<Br>content<Br>content<Br>
-        content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>
-                content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                    content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                        content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-        content<Br>content<Br>content<Br>content<Br>content<Br><Br><Br><Br>
+@media screen and (max-width: 460px){
+    #parallax1{
+        height: 25em;
+        background: url("{% static 'assets/background/Background-mob.jpg' %}") no-repeat center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+}
+</style>
+<div id="parallax1" class="parallax-slide"></div>
+  <div id="content1" class="content-slide">
+    <h1>Content</h1>
+  </div>
+<!--Parallax content_______________________-->
+
+{% endblock %}
+
+
+{% block script %}
+<script src="{% static 'js/home.js' %}" type="text/javascript"></script>
 {% endblock %}

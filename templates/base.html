@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load staticfiles %}
+{% load static %}
 <head>
 
 
@@ -49,12 +49,12 @@
                 <div>
                     <ul class="nav_element2">
                         {% if user.is_authenticated %}
-                        <li><a href="#"><span>SignIn / SignUp</span></a></li>
-                        {% else %}
                         <li id="signedIn_more"><a href="#"><span>Hello! Raghav <i class="fas fa-sort-down"></i></span></a></li>
+                        {% else %}
+                        <li><a href="#"><span>SignIn / SignUp</span></a></li>
                         {% endif %}
                     </ul>
-                    <ul class="nav_element">
+                    <ul class="nav_element" style="float: right;">
                         <li><a href="{% url 'home' %}"><span class="nav-active1">home</span></a></li>
                         <li><a href="{% url 'about' %}"><span class="nav-active2">about</span></a></li>
                         <li id="drop_contact1"><a href="{% url 'contact' %}"><span class="nav-active3">contact</span></a></li>
@@ -95,6 +95,31 @@
 
     <!--Scripts-->
     <script type="text/javascript" src="{% static 'js/BaseNavBar.js' %}"></script>
+    <script>
+    //Nav Drop Down 2 Login/SignUp Mobile View
+    //{% if user.is_authenticated %}
+    signedIn_more.onmouseover = () => {
+        posX = signedIn_more.offsetLeft;
+        nav_dropdown2.style.left = `${posX}px`;
+        nav_dropdown2.style.display = 'block';    
+    }
+
+    signedIn_more.onmouseout = () => {
+        nav_dropdown2.style.display = 'none';
+    }
+
+    nav_dropdown2.onmouseover = () => {
+        nav_dropdown2.style.display = 'block';
+    }
+
+    nav_dropdown2.onmouseout = () => {
+        nav_dropdown2.style.display = 'none';
+    }
+    //{% else %}
+    //{% endif %}
+
+    //Nav Drop Down 2 Login/SignUp Mobile View
+    </script>
     <!--Scripts_______________________-->
 
 
