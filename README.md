@@ -13,7 +13,39 @@ The Website is made with the help of Django Framework. So the contributor having
   1.) Clone the projectc onto your local machine.<Br>
   2.) Unzip the folder and open it in some IDE or some code-editor like - PyCharm, VS-Code, Atom, etc.<br>
   3.) Set up a virtual environment fot it.<Br>
+  Open the terminal in the current folder and write the given command.
 
 ```
 virtualenc <foldername> <path>
 ```
+*For Example:*
+```
+virtualenc venv .
+```
+It will create a virtual environment with a folder name - *venv* in the current directory<br>
+4.) Now activate the virtual environment by writing the following command: <br>
+*FOR WINDOWS*<Br>
+```
+cd venv/scripts
+```
+then 
+```
+activate .
+```
+<Br>
+ *FOR MACBOOK*<br>
+```
+source venv/scripts/activate
+```
+  
+This will activate the virtual environment. You can assure it by seeing *(venv)* in front of the C:/path
+5.) Change the path to the main folder (where the manage.py and requirements.txt files are present)<br>
+6.) Install all the requirements in the requirements.txt file by using pip
+```
+pip install -r requirements.txt
+```
+7.) After installing you can verify whether all the requirements have been installed or not by using:
+```
+pip freeze
+```
+8.)After the installation process have been finished, you can run the server 
