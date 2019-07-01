@@ -13,6 +13,7 @@ The Website is made with the help of Django Framework. So the contributor having
   1.) Clone the projectc onto your local machine.<Br>
   2.) Unzip the folder and open it in some IDE or some code-editor like - PyCharm, VS-Code, Atom, etc.<br>
   3.) Set up a virtual environment fot it.<Br>
-  ```
-  virtualenv <foldername> <path>
-  ```
+
+```
+virtualenc <foldername> <path>
+```
