@@ -33,11 +33,12 @@ then
 activate .
 ```
 <Br>
- *FOR MACBOOK*<br>
+  
+*FOR MACBOOK and LINUX*
+<br>
 ```
 source venv/scripts/activate
 ```
-  
 This will activate the virtual environment. You can assure it by seeing *(venv)* in front of the C:/path
 5.) Change the path to the main folder (where the manage.py and requirements.txt files are present)<br>
 6.) Install all the requirements in the requirements.txt file by using pip
@@ -48,4 +49,19 @@ pip install -r requirements.txt
 ```
 pip freeze
 ```
-8.)After the installation process have been finished, you can run the server 
+8.)After the installation process have been finished, you can run the development server by:<br>
+*FOR WINDOWS*
+```
+python manage.py runserver <port>
+```
+For Example: 
+```
+python manage.py runserver 8000
+```
+It will start the development server on port 8000, that's -> 127.0.0.1:8000 or localhost:8000
+<Br>
+*SAME FOR MACBAOOK and LINUX*
+<Br>
+```
+python3 manage.py runserver <port>
+```
