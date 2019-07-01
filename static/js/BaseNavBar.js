@@ -2,8 +2,8 @@
 const main_nav = document.getElementById("main_nav");
 const nav_more = document.getElementById("nav_more");
 const nav_dropdown = document.getElementById("nav_dropdown");
-const nav_dropdown2 = document.getElementById("nav_dropdown2");
-const signedIn_more = document.getElementById("signedIn_more");
+// const nav_dropdown2 = document.getElementById("nav_dropdown2");
+// const signedIn_more = document.getElementById("signedIn_more");
 const drop_contact = document.getElementById("drop_contact");
 const drop_login = document.getElementById("drop_login");
 const nav_logo_text = document.getElementById("nav-logo-text");

@@ -1,34 +1,65 @@
+/*Intro Upper content*/
+.intro-tagline{
+    font-family: "google-sans-bold";
+    font-size: 2.4em;
+    color:#555;
+}
+/*Intro Upper content-----------------*/
+
+
+/*Parallax Effect for hello world banner*/
 .parallax-slide {
     height: 100vh;
   }
+
   .content-slide {
     height: 100vh;
     background: #fff;
-    text-align: center;
   }
-  h1 {
-    padding-top: 10%;
-  }
+/*Parallax Effect for hello world banner------------------*/
 
 
+/*Bootstrap Container Concept*/
   .container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
   }
+
   @media (min-width: 768px) {
     .container {
       width: 750px;
     }
   }
+
   @media (min-width: 992px) {
     .container {
       width: 970px;
     }
   }
+
   @media (min-width: 1200px) {
     .container {
       width: 1170px;
     }
   }
+
+  /*Bootstrap container concept-------------------*/
+
+
+  /*Intro header grid*/
+
+  .intro-header-grid{
+      display: grid;
+      grid-template-columns: auto 1fr;
+  }
+
+  @media screen and (max-width: 600px){
+      .intro-header-grid{
+          grid-template-columns: 0;
+          grid-template-rows: auto auto;
+      }
+  }
+
+  /* Intro header grid ---------------------- */
