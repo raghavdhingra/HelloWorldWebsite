@@ -13,6 +13,20 @@
     <!--Meta Blocks____________________-->
 
 
+    <!--Styling-->
+    <style>
+    @font-face {
+        font-family: "google-sans-light";
+        src: url("{% static 'assets/google-sans/ProductSans-Light.woff' %}") format("woff");
+    }
+    @font-face {
+        font-family: "google-sans-bold";
+        src: url("{% static 'assets/google-sans/ProductSans-Bold.woff' %}") format("woff");
+    }
+    </style>
+    <!--Styling_____________-->
+
+
     <!--Links-->
     <link rel="icon" href="{% static 'assets/logo/Logo.png' %}" />
     <link rel="stylesheet" href="{% static 'css/BaseNavBar.css' %}" />
@@ -98,6 +112,7 @@
     <script>
     //Nav Drop Down 2 Login/SignUp Mobile View
     //{% if user.is_authenticated %}
+    const signedIn_more = document.getElementById("signedIn_more");
     signedIn_more.onmouseover = () => {
         posX = signedIn_more.offsetLeft;
         nav_dropdown2.style.left = `${posX}px`;
