@@ -41,6 +41,17 @@ source venv/scripts/activate
 ```
 This will activate the virtual environment. You can assure it by seeing *(venv)* in front of the C:/path
 <Br>5.) Change the path to the main folder (where the manage.py and requirements.txt files are present)<br>
+  You can change it by - change directory (cd) command.
+```
+cd <path name>
+```
+<Br>
+##For previous directory
+```
+cd ../
+```  
+## For current directory
+<br>
 <br>6.) Install all the requirements in the requirements.txt file by using pip
 ```
 pip install -r requirements.txt
