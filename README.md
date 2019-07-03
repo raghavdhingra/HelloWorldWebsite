@@ -18,6 +18,13 @@ JavaScript - It is a client sided scripting language. It means JavaScript script
   
 ### Server sided language used:
 Python - It is a general purpose scripting language. Nowadays, It is one of the most popular programming language. It is used to make WebApps, GUI, Mobile apps, etc. But here it is used to handle the server.
+<br>
+
+### Framework:
+#### Django - 
+This WebApp is made with the help of Django, which is a python Web Framework. Basically, A framework is a collection of programs that do something useful and which you can use to develop your own applications. It have some set of rules which one have to follow for making up the Application.
+All the languages mentioned above are bind together and used inside this framework. And all these make up our WebApp.
+
   <br><Br>
   <h3>Setting up the WebApp</h3>
   1.) Clone the projectc onto your local machine.<Br>
