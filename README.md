@@ -91,3 +91,32 @@ After writing the code for a particular division, please leave 2 lines after eac
 After defining css for a class, id, attribute, or the element tag itself, then:<br>
 -- Leave one line after defining the CSS for the the parent and its children block element in the HTML file.<br>
 -- Leave two lines after defining the CSS for the another parent element
+For example --> If you have made a 
+
+```
+<div class="class1">
+  <div class="child"></div>
+</div>
+
+<!--And-->
+
+<div class="class2">
+  <div class="child"></div>
+</div>
+```
+Then, You should make comments and while defining its CSS, the rule for it is: 
+
+```
+/*Comment-1*/
+.class1{ <CSS Property> }
+
+.child{ <CSS Property> }
+/*Comment Ends*/
+
+
+/*Comment-1*/
+.class2{ <CSS Property> }
+
+.child{ <CSS Property> }
+/*Comment Ends*/
+```
