@@ -46,13 +46,16 @@ This will activate the virtual environment. You can assure it by seeing *(venv)*
 cd <path name>
 ```
 <Br>
-##For previous directory
+## For previous directory
 ```
 cd ../
 ```  
 ## For current directory
+```
+cd ./
+```
 <br>
-<br>6.) Install all the requirements in the requirements.txt file by using pip
+6.) Install all the requirements in the requirements.txt file by using pip
 ```
 pip install -r requirements.txt
 ```
@@ -71,8 +74,8 @@ python manage.py runserver 8000
 ```
 It will start the development server on port 8000, that's -> 127.0.0.1:8000 or localhost:8000
 <Br>
-*SAME FOR MACBAOOK and LINUX*
-<Br>
+* SAME FOR MACBAOOK and LINUX *
+  
 ```
 python3 manage.py runserver <port>
 ```
