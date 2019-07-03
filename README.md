@@ -180,6 +180,6 @@ def function2(arg):
 
 ```
 
-### Copyright &copy; Hello World, GTBIT 2019
+Copyright &copy; Hello World, GTBIT 2019
 ## This is an Open and official Repository of Hello World Website
 # Happy Coding :)
