@@ -66,3 +66,14 @@ It will start the development server on port 8000, that's -> 127.0.0.1:8000 or l
 python3 manage.py runserver <port>
 ```
 <br>9.)Now you can go through the App and make changes and contribute to the Open Source
+  
+#Code of Conduct
+Please be specific in writing code. Before writing it, please understand how the previous code is regulated.
+
+##In HTML File:
+After writing the code for a particular division, please leave 2 lines after each block. Also, be sure to comment it before and after writing it. So, that if any other contributor wants some changes, then he/she can do it easily.
+
+##In CSS File:
+After defining css for a class, id, attribute, or the element tag itself, then:<br>
+-- Leave one line after defining the CSS for the the parent and its children block element in the HTML file.<br>
+-- Leave two lines after defining the CSS for the another parent element
