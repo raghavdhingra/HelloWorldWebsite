@@ -94,15 +94,19 @@ After defining css for a class, id, attribute, or the element tag itself, then:<
 For example --> If you have made a 
 
 ```
+<!--Comment 1 -->
 <div class="class1">
   <div class="child"></div>
 </div>
+<!--comment end -->
 
 <!--And-->
 
+<!--Comment-2 -->
 <div class="class2">
   <div class="child"></div>
 </div>
+<!--Comment Ends-->
 ```
 Then, You should make comments and while defining its CSS, the rule for it is: 
 
@@ -119,4 +123,42 @@ Then, You should make comments and while defining its CSS, the rule for it is:
 
 .child{ <CSS Property> }
 /*Comment Ends*/
+```
+
+Please make sure not to forget the comments as it provides other contributors to understand the code properly.
+
+### In JavaScript and Python:
+The same rule apply to these also. Commenting after each function and describing what the function does and leave 2 spaces after each function after defining.
+
+#### For Example-
+In Js:
+
+```
+//Comments here
+const function1 = (arg) => {
+//Function defined here                //ES6 functions using const
+} 
+//Comment ends
+
+
+//comment-2
+function function2(arg){
+//Function defined here                //Old fashioned function
+}
+//comment ends
+```
+
+Similarly, In python:
+
+```
+#Comment-1
+def function1(arg):
+  #define the function here
+#comment ends
+
+#Comment-1
+def function2(arg):
+  #define the function here
+#comment ends
+
 ```
