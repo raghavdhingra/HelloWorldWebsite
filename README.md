@@ -7,8 +7,18 @@ http://hello-world15.herokuapp.com/
 **Note: For the contributors-**
 You are free to make changes in this repository. Just be under some code of conduct while contributing and please follow the rules as mentioned
 <br>
-The Website is made with the help of Django Framework. So the contributor having knowledge of HTML, CSS, Javascript, Python can contribute to this repository.
+The Website is made with the help of Django Framework. So the contributor having knowledge of HTML, CSS, Javascript, Python can contribute to this repository.<br>
+### Client side languages used:
+HTML - (Hyper Text MarkUp Language) - It's not a language rather its just a markup which defines a webpage and tells the browser that how to display an element on it.
+<br>
+CSS - (Cascading Style Sheet) - It is used for the styling of the webpage. By using this we can define and apply different property to the HTML elements by the use of Classes and IDs.
+<br>
+JavaScript - It is a client sided scripting language. It means JavaScript scripts are read, interpreted and executed in the client, which is your Web browser. It is used to create responsive, interactive elements for web pages, enhancing the user experience.
 <bR>
+  
+### Server sided language used:
+Python - It is a general purpose scripting language. Nowadays, It is one of the most popular programming language. It is used to make WebApps, GUI, Mobile apps, etc. But here it is used to handle the server.
+  <br><Br>
   <h3>Setting up the WebApp</h3>
   1.) Clone the projectc onto your local machine.<Br>
   <Br>2.) Unzip the folder and open it in some IDE or some code-editor like - PyCharm, VS-Code, Atom, etc.<br>
