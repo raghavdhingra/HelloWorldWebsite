@@ -179,3 +179,7 @@ def function2(arg):
 #comment ends
 
 ```
+
+Copyright &copy; 2019
+## This is an Open and official Repository of Hello World Website
+# Happy Coding :)
