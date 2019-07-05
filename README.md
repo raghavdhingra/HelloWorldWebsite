@@ -59,33 +59,40 @@ source venv/scripts/activate
 This will activate the virtual environment. You can assure it by seeing *(venv)* in front of the C:/path
 <Br>5.) Change the path to the main folder (where the manage.py and requirements.txt files are present)<br>
   You can change it by - change directory (cd) command.
+  
 ```
 cd <path name>
 ```
 <Br>
 ## For previous directory
+  
 ```
 cd ../
 ```  
 ## For current directory
+
 ```
 cd ./
 ```
 <br>
   <span id="point6">6.)</span> Install all the requirements in the requirements.txt file by using pip
+  
 ```
 pip install -r requirements.txt
 ```
 <br>7.) After installing you can verify whether all the requirements have been installed or not by using:
+
 ```
 pip freeze
 ```
 <br>8.)After the installation process have been finished, you can run the development server by:<br>
 *FOR WINDOWS*
+
 ```
 python manage.py runserver <port>
 ```
 For Example: 
+
 ```
 python manage.py runserver 8000
 ```
