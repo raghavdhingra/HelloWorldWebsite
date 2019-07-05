@@ -190,7 +190,8 @@ razorpay==1.0.3
 
 ```
 Please write the requirements.txt file in alphabetical orderwise.
-
+<br>
+Again, if you wants to see which are the requirements which are already installed in the virtual environment
 <Br>
 Copyright &copy; Hello World 2019
 ## This is an Open and official Repository of Hello World Website
