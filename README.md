@@ -181,7 +181,16 @@ def function2(arg):
 ```
 ## Use of requirements.txt file
 If You want to use any other library or function which need an import or needed to be downloaded there is a file <b>requirements.txt</b>
-You can specify the library or function there also its version.
+You can specify the library or function there also its version.<br>
+For Example, if we have used any integration for payment like Razorpay having version 1.0.3, then:
+
+
+```
+razorpay==1.0.3
+
+```
+Please write the requirements.txt file in alphabetical orderwise.
+
 <Br>
 Copyright &copy; Hello World 2019
 ## This is an Open and official Repository of Hello World Website
