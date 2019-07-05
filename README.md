@@ -180,6 +180,9 @@ def function2(arg):
 
 ```
 
+If You want to use any other library or function which need an import or needed to be downloaded there is a file <b>requirements.txt</b>
+You can specify the library or function there also its version.
+<Br>
 Copyright &copy; Hello World 2019
 ## This is an Open and official Repository of Hello World Website
 # Happy Coding :)
