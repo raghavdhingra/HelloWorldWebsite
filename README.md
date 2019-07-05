@@ -72,7 +72,7 @@ cd ../
 cd ./
 ```
 <br>
-6.) Install all the requirements in the requirements.txt file by using pip
+  <span id="point6">6.)</span> Install all the requirements in the requirements.txt file by using pip
 ```
 pip install -r requirements.txt
 ```
@@ -190,9 +190,23 @@ razorpay==1.0.3
 
 ```
 Please write the requirements.txt file in alphabetical orderwise.
-<br>
+<br><br>
 Again, if you wants to see which are the requirements which are already installed in the virtual environment, then you can run the <b>pip freeze</b> command and it will show every requirement installed in your virtual environment (If You have not installed a virtual environment, <a href="#point3">please see point number 3 above</a>, or click on the link.)
-<Br>
+
+```
+pip freeze
+```
+This command will give all the requirements which is installed like if we have installed razorpay,
+<br>
+Then, it will give - 
+
+```
+razorpay==1.0.3
+```
+as a result.
+<br>
+If you don't know how to install requirements, please refer <a href="#point6">Point number 6</a>
+<Br><br>
 Copyright &copy; Hello World 2019
 ## This is an Open and official Repository of Hello World Website
 # Happy Coding :)
