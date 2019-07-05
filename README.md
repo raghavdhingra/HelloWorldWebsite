@@ -29,11 +29,11 @@ All the languages mentioned above are bind together and used inside this framewo
   <h3>Setting up the WebApp</h3>
   1.) Clone the projectc onto your local machine.<Br>
   <Br>2.) Unzip the folder and open it in some IDE or some code-editor like - PyCharm, VS-Code, Atom, etc.<br>
-  <br>3.) Set up a virtual environment fot it.<Br>
+    <br><span id="point3">3.)</span> Set up a virtual environment fot it.<Br>
   Open the terminal in the current folder and write the given command.
 
 ```
-virtualenc <foldername> <path>
+virtualenv <foldername> <path>
 ```
 *For Example:*
 ```
@@ -191,7 +191,7 @@ razorpay==1.0.3
 ```
 Please write the requirements.txt file in alphabetical orderwise.
 <br>
-Again, if you wants to see which are the requirements which are already installed in the virtual environment
+Again, if you wants to see which are the requirements which are already installed in the virtual environment, then you can run the <b>pip freeze</b> command and it will show every requirement installed in your virtual environment (If You have not installed a virtual environment, <a href="#point3">please see point number 3 above</a>, or click on the link.)
 <Br>
 Copyright &copy; Hello World 2019
 ## This is an Open and official Repository of Hello World Website
