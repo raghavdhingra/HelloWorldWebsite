@@ -57,8 +57,11 @@
     <div class="nav" id="main_nav">
         <div class="nav-inner">
             <div class="nav-grid"> 
-                <div><img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="Hello World LOGO">
-                    <span class="nav-logo-text" id="nav-logo-text">Hello World</span>
+                <div>
+                    <!-- <img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="Hello World LOGO"> -->
+                    <!-- <span class="nav-logo-text" id="nav-logo-text"> Hello World</span> -->
+                    <span class="nav-logo-text" id="nav-logo-text">&lt; / &gt; Hello World</span>
+                    
                 </div>   
                 <div>
                     <ul class="nav_element2">
@@ -87,7 +90,7 @@
         <a href="{% url 'contact' %}"><li id="drop_contact2">Contact</li></a>
         <a href="#"><li id="drop_login2">SignIn / SignUp</li></a>
         <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
-        <a href="{% url 'event' %}"><li class="drop-active2">Upcoming Events</li></a>
+        <a href="{% url 'event' %}"><li class="drop-active2">Upcoming / Past Events</li></a>
     </div>
     <div class="nav-drop-down2" id="nav_dropdown2">
         <a href="{% url 'team' %}"><li>Profile</li></a>
