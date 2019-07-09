@@ -1,19 +1,11 @@
-/*Intro Upper content*/
-.intro-tagline{
-    font-family: "google-sans-bold";
-    font-size: 2.4em;
-    color:#555;
-}
-/*Intro Upper content-----------------*/
-
-
 /*Parallax Effect for hello world banner*/
 .parallax-slide {
     height: 100vh;
   }
 
   .content-slide {
-    height: 100vh;
+    height: auto;
+    padding-bottom: 1.5em;
     background: #fff;
   }
 /*Parallax Effect for hello world banner------------------*/
@@ -48,6 +40,14 @@
   /*Bootstrap container concept-------------------*/
 
 
+/*Intro Upper content*/
+.intro-tagline{
+  font-family: "google-sans-bold";
+  color:#555;
+}
+/*Intro Upper content-----------------*/
+
+
   /*Intro header grid*/
 
   .intro-header-grid{
@@ -55,11 +55,73 @@
       grid-template-columns: auto 1fr;
   }
 
-  @media screen and (max-width: 600px){
-      .intro-header-grid{
-          grid-template-columns: 0;
-          grid-template-rows: auto auto;
-      }
+  .intro-header-grid div:nth-child(1){
+    margin: 0 0.4em;
+    font-size: 6em;
   }
 
   /* Intro header grid ---------------------- */
+
+  /*Join Us Button*/
+  .join-us {
+    background: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.5em 3em;
+    position: relative;
+    text-transform: capitalize;
+    border-radius:6px;
+    border:1px solid #5CB85C;
+    color: #5CB85C;
+    cursor: pointer;
+    margin-right: 0.5em;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.2s;
+    text-decoration:none;
+  }
+
+  .join-us:hover {
+    color: rgba(0,0,0,0.25);
+    border-color: rgba(0,0,0,0.25);
+  }
+  
+  .join-us:active {
+    position:relative;
+    top:2px;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  /*Join Us*/
+
+ 
+  /*Media Query*/
+
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    .intro-header-grid div:nth-child(1){
+      font-size: 3em;
+    }
+  }
+
+  @media screen and (max-width: 600px){
+    .intro-header-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+    .intro-header-grid > div {
+      text-align: center;
+    }
+    .intro-header-grid div:nth-child(1){
+      font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 415px) {
+  .join-us{
+    margin-right: 0;
+    margin-bottom: 0.5em;
+  }
+}
+/*Media Query*/
