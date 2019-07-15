@@ -87,6 +87,19 @@
     color: rgba(0,0,0,0.25);
     border-color: rgba(0,0,0,0.25);
   }
+
+  .light{
+    border-color: #fff;
+    color: #fff;
+    font-weight: lighter;
+  }
+
+  .light:hover {
+    border-color: rgba(0,0,0,0);
+    color: #5CB85C;
+    font-weight: bold;
+    background: #fff;
+  }
   
   .join-us:active {
     position:relative;
@@ -95,6 +108,28 @@
   }
   
   /*Join Us*/
+
+
+  /* About Us column*/
+  div.about_column{
+    height: auto;
+    background: linear-gradient(35deg,#4d9c4d,#5cbb5c,#4d9c4d);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: lighter;
+    padding: 3em 0em;
+  }
+
+  div.about-social a{
+    font-size: 1.7em;
+    transition: 0.2s;
+    margin-right: 1em;
+  }
+
+  div.about-social a:hover{
+    color: rgba(255, 255, 255, 0.6);
+  }
+  /* About Us column*/
 
  
   /*Media Query*/
@@ -115,6 +150,9 @@
     }
     .intro-header-grid div:nth-child(1){
       font-size: 4em;
+    }
+    div.about_column{
+      text-align: center;
     }
 }
 

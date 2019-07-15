@@ -157,6 +157,101 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
 /*NavBar CSS ---------*/
 
 
+/*Mobile Nav Bar*/
+.mobile_nav_bar{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100vw;
+    z-index: 997;
+    box-shadow: 0 -3px 10px 0 rgba(0,0,0, 0.5);
+    background: #ffffff;
+}
+
+.mobile_nav_bar_inner{
+    padding: 0.6em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.mobile_nav_elmt{
+    /* display: inline-block; */
+    font-size: 1.2em;
+    /* margin: 0 1em; */
+    color: #888;
+}
+
+.home-after::after{
+    content: "HOME";
+    display: block;
+    font-size: 0.5em;
+}
+.event-after::after{
+    content: "EVENTS";
+    display: block;
+    font-size: 0.5em;
+}
+.team-after::after{
+    content: "TEAM";
+    display: block;
+    font-size: 0.5em;
+}
+.about-after::after{
+    content: "ABOUT";
+    display: block;
+    font-size: 0.5em;
+}
+.more-after{
+    font-size: 2em;
+    z-index: 999;
+}
+
+.mobile_nav_bar2{
+    height: 0;
+    width: 100vw;
+    z-index: 1001;
+    box-shadow: 0 -3px 10px 0 rgba(0,0,0, 0.5);
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+}
+
+.mobile_nav_elmt2{
+    display: block;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: #888;
+    font-size: 1.4em;
+    margin: 1.5em 1em 1em 1.5em;
+    box-sizing: border-box;
+}
+.mobile_nav_elmt2::after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 30px;
+    transition: 0.7s;
+    background: #888;
+}
+.mobile_nav_elmt2:hover::after{
+    width: 100%;
+}
+
+.mobile_nav_elmt3{
+    position: fixed;
+    z-index: 1002;
+    display: none;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0.3em;
+    font-size: 2em;
+    color: #888888;
+}
+/*Mobile Nav Bar--------*/
+
+
 /*Spacing After Main Nav Bar*/
 div.spacing-1{height: 1em;}
 div.spacing-2{height: 2em;}
@@ -170,15 +265,44 @@ div.spacing-9{height: 9em;}
 /*Spacing After Main Nav Bar----------------*/
 
 
+/*Only For BaseNavBar.js File*/
+.main_nav_add{
+    min-height: 3.7em !important;
+    max-height: 3.7em !important;
+    line-height: 3.7em !important;
+    background: #ffffff !important;
+    box-shadow: 0 3px 30px 0.5px rgba(51, 51, 51, 0.589);
+}
+
+.nav_drop_add{
+    top: 3.7em !important;
+}
+/*Only For BaseNavBar.js File-----------------*/
+
+
+/*Animations*/
+@keyframes increaseHeight{
+    0%{height: 0;}
+    100%{height: 100vh;}
+}
+@keyframes decreaseHeight{
+    0%{height: 100vh;}
+    100%{height: 0;}
+}
+/*Animations--------------------*/
+
+
 /*Media Query*/
 /*1400px*/
 @media screen and (max-width: 1285px){
     #drop_login2{
         display: block;
     }
+
     div.nav-grid{
         grid-template-columns: 1fr 1fr;
     }
+
     #drop_login1{
         display: none;
     }
@@ -189,6 +313,7 @@ div.spacing-9{height: 9em;}
     #drop_contact2{
         display: block;
     }
+
     #drop_contact1{
         display: none;
     }
@@ -199,6 +324,15 @@ div.spacing-9{height: 9em;}
     ul.nav_element{
         display: none;
     }
+
+    .mobile_nav_bar{
+        display: block;
+    }
+
+    .mobile_nav_elmt3{
+        display: block;
+    }
+
     ul.nav_element2{
         display: block;
     }
@@ -209,6 +343,7 @@ div.spacing-9{height: 9em;}
     span.nav-logo-text{
         margin: 0;
     }
+
     img.nav-logo{
         margin: 0 -1em;
     }
