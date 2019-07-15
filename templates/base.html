@@ -99,6 +99,51 @@
     <!--NavBar Drop Down________________________-->
 
 
+    <!--Mobile Nav Bar-->
+    <div class="mobile_nav_bar" id="mobile_nav_bar">
+        <div class="mobile_nav_bar_inner">
+            <a href="{% url 'home' %}" class="mobile_nav_elmt home-after" title="HOME"><i class="fas fa-home"></i></a>
+            <a href="{% url 'about' %}" class="mobile_nav_elmt about-after" title="ABOUT"><i class="fas fa-list-ul"></i></a>
+            <a class="mobile_nav_elmt more-after" title="MORE"><i class="fas fa-plus-circle"></i></a>
+            <a href="{% url 'team' %}" class="mobile_nav_elmt team-after" title="TEAM"><i class="fas fa-users"></i></a>
+            <a href="{% url 'event' %}" class="mobile_nav_elmt event-after" title="EVENT"><i class="fas fa-clipboard-check"></i></a>
+        </div>
+    </div>
+    <div class="mobile_nav_bar2">
+        <div class="mobile_nav_bar_inner2">
+            <div class="nav-inner">
+                <div class="spacing-2"></div>
+                    <div class="nav-grid"> 
+                        <div>
+                            <span class="nav-logo-text">&lt; / &gt; Hello World</span>
+                        </div>   
+                        <div>
+                            <ul class="nav_element2">
+                                {% if user.is_authenticated %}
+                                <li><a href="#">Hello! <span>Raghav</span></a></li>
+                                {% else %}
+                                <li><a href="#"><span>SignIn / SignUp</span></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="spacing-2"></div>
+                </div>
+                
+            <div class="container">
+                <a href="{% url 'home' %}" class="mobile_nav_elmt2" title="HOME"><i class="fas fa-home"></i> Home</a>
+                <a href="{% url 'about' %}" class="mobile_nav_elmt2" title="ABOUT"><i class="fas fa-list-ul"></i> About</a>
+                <a href="{% url 'contact' %}" class="mobile_nav_elmt2" title="CONTACT"><i class="fas fa-user"></i> Contact</a>
+                <a href="#" class="mobile_nav_elmt2" title="SIGNIN/SIGNUP"><i class="fas fa-sign-in-alt"></i> SignIn / SignUp</a>
+                <a href="{% url 'team' %}" class="mobile_nav_elmt2" title="TEAM"><i class="fas fa-users"></i> Team</a>
+                <a href="{% url 'event' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="fas fa-clipboard-check"></i> Upcoming / Past Events</a>
+            </div>
+        </div>
+    </div>
+    <a class="mobile_nav_elmt3" onclick="openMobileNav();"><i class="fas fa-plus-circle" id="fa-plus-circle"></i></a>
+    <!--Mobile Nav Bar___________________________-->
+
+
     <!--Content block-->
     {% block content %}
     {% endblock %}
@@ -116,6 +161,7 @@
     //Nav Drop Down 2 Login/SignUp Mobile View
     //{% if user.is_authenticated %}
     const signedIn_more = document.getElementById("signedIn_more");
+    const nav_dropdown2 = document.getElementById("nav_dropdown2");
     signedIn_more.onmouseover = () => {
         posX = signedIn_more.offsetLeft;
         nav_dropdown2.style.left = `${posX}px`;
