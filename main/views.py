@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 def home(request):
     context = {
-        "title":"Hello World",
+        "title":"Home | Hello World",
         "meta_title":"Hello World | GTBIT",
         "meta_description":"This is the official website of HELLO WORLD, GTBIT"
     }
@@ -11,7 +11,7 @@ def home(request):
 
 def about(request):
     context = {
-        "title":"Hello World",
+        "title":"About | Hello World",
         "meta_title":"Hello World | GTBIT",
         "meta_description":"This is the official website of HELLO WORLD, GTBIT"
     }
@@ -19,7 +19,7 @@ def about(request):
 
 def contact(request):
     context = {
-        "title":"Hello World",
+        "title":"Contact | Hello World",
         "meta_title":"Hello World | GTBIT",
         "meta_description":"This is the official website of HELLO WORLD, GTBIT"
     }
@@ -27,7 +27,7 @@ def contact(request):
 
 def team(request):
     context = {
-        "title":"Hello World",
+        "title":"Team | Hello World",
         "meta_title":"Hello World | GTBIT",
         "meta_description":"This is the official website of HELLO WORLD, GTBIT"
     }
@@ -35,7 +35,7 @@ def team(request):
 
 def event(request):
     context = {
-        "title":"Hello World",
+        "title":"Events | Hello World",
         "meta_title":"Hello World | GTBIT",
         "meta_description":"This is the official website of HELLO WORLD, GTBIT"
     }
