@@ -29,6 +29,36 @@ body{
     background-size: cover;
     font-family: "google-sans-light";
 }
+
+
+/*Bootstrap Container Concept*/
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+
+  /*Bootstrap container concept-------------------*/
+
 /*Defaults-------------------*/
 
 
@@ -43,6 +73,21 @@ body::-webkit-scrollbar-track{
     background: rgba(199, 230, 255, 0.445);
 }
 /*ScrollBar---------------*/
+
+
+/*Heading*/
+.heading{
+    color: #777;
+}
+.heading::after{
+    content: "";
+    margin-top: 0.1em;
+    display: block;
+    height: 3px;
+    width: 3em;
+    background: #888;
+}
+/*Heading---------*/
 
 
 /*NavBar CSS*/
@@ -292,6 +337,26 @@ div.spacing-9{height: 9em;}
 /*Animations--------------------*/
 
 
+/*Footer Span*/
+footer span a{
+    margin: 0 0.5em;
+    font-size: 1.7em;
+}
+footer span a i{
+    transition: 0.2s;
+}
+footer span a:hover i{
+    color: #ccc !important;
+}
+.next-line{
+    display: none;
+}
+.next-line2{
+    display: none;
+}
+/*Footer Span---------------------*/
+
+
 /*Media Query*/
 /*1400px*/
 @media screen and (max-width: 1285px){
@@ -325,6 +390,10 @@ div.spacing-9{height: 9em;}
         display: none;
     }
 
+    .next-line2{
+        display: block;
+    }
+
     .mobile_nav_bar{
         display: block;
     }
@@ -353,6 +422,9 @@ div.spacing-9{height: 9em;}
 @media screen and (max-width: 510px){
     span.nav-logo-text{
         font-size: 0.95em;
+    }
+    .next-line{
+        display: block;
     }
     img.nav-logo{
         height: 75px;

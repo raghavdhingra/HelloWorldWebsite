@@ -11,35 +11,6 @@
 /*Parallax Effect for hello world banner------------------*/
 
 
-/*Bootstrap Container Concept*/
-  .container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      width: 750px;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .container {
-      width: 970px;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .container {
-      width: 1170px;
-    }
-  }
-
-  /*Bootstrap container concept-------------------*/
-
-
 /*Intro Upper content*/
 .intro-tagline{
   font-family: "google-sans-bold";
@@ -131,9 +102,92 @@
   }
   /* About Us column*/
 
+
+  /*Upcoming Events*/
+  .upevent{
+    margin: 1em 0;
+    transition: 0.3s;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background: #fff;
+    box-shadow: 1px 2px 5px 1px rgba(51, 51, 51, 0.39);
+  }
+
+  .upevent:hover{
+    box-shadow: 2px 7px 8px 1px rgba(51, 51, 51, 0.5);
+  }
+
+  .upevent_img{
+    margin: 1.5em 0.5em;
+  }
+
+  .event-head{
+    font-family: google-sans-bold;
+    font-size: 1.4em;
+    color: #0277bd;
+    margin: 0 0.8em;
+    margin-top: 0.7em;
+    letter-spacing: 0.05em;
+  }  
+  
+  .upevent div.time span{
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #888;
+    margin: 0 1em;
+  }
+  .upevent div.map{
+    font-size: 0.9em;
+    color: #888;
+    font-weight: 600;
+    margin: 0 1em;
+  }
+  .upevent div.map a{
+    color: #0277bd;
+    transition: 0.2s;
+  }
+  .upevent div.map a:hover{
+    color: #069bf1;
+  }
+  .upevent-content{
+    font-size: 1.13em !important;
+    color: #888;
+    margin: 1em;
+    margin-bottom: 1.5em;
+  }
+  
+  .upevent-btn{
+    padding: 0.5em 1.5em;
+    background: rgba(26,115,232,1);
+    color: #fff;
+    font-size: 0.95em;
+    font-family: google-sans-bold;
+    box-shadow: 1px 3px 5px 0.5px rgba(51, 51, 51, 0.445);
+    transition: 0.25s;
+    margin: 1em;
+    border-radius: 5px;
+  }
+  .upevent-btn:hover{
+    background: rgb(36, 129, 250);
+    box-shadow: 3px 4px 8px 1px rgba(51, 51, 51, 0.705);
+  }
+  .upevent-btn:active{
+    position: relative;
+    top: 2px;
+    box-shadow: 0 0 3px 0.5px rgba(51, 51, 51, 0.445);
+    background: rgb(20, 103, 211);
+  }
+  /*Upcoming Events*/
+
  
   /*Media Query*/
-
+  @media screen and (max-width: 992px){
+    .upevent{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+    }
+  }
   @media screen and (min-width: 600px) and (max-width: 700px) {
     .intro-header-grid div:nth-child(1){
       font-size: 3em;
