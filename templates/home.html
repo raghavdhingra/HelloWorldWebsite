@@ -102,7 +102,7 @@ ul.nav_element span.nav-active1{
 <div class="container">
 
     <!--Events-->
-    <h1 class="heading">Upcoming Events</h1>
+    <h1 class="heading">Upcoming Events: </h1>
     <br>
     <span style="color: #888;">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil adipisci similique nisi ab voluptate aliquid inventore eos, illum id harum, consequuntur in itaque commodi dolore. Autem perspiciatis sed suscipit cumque.
@@ -132,8 +132,36 @@ ul.nav_element span.nav-active1{
     <div class="spacing-3"></div>
     <!--Events___________________-->
 
+
+    <!--Our Team-->
+    <h1 class="heading">Our Team: </h1>
+    <div class="spacing-1"></div>
+    <div class="team-container">
+        <div class="team-arrow"><i class="fas fa-chevron-circle-left"></i></div>
+        <div class="team-member-inner">
+            <div class="team-member-inner-inner">
+
+                {% for i in iterator %}
+                <div class="team-member">
+                    <a href="">
+                        <center><img src="{% static 'assets/logo/Logo.png' %}" height="100px" width="150px" /></center>
+                        <div class="team-content">
+                            Raghav Dhingra<br>
+                            <span>Web Development Head</span>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="team-arrow"><i class="fas fa-chevron-circle-right"></i></div>
+    </div>
+    <div class="spacing-3"></div>
+    <!--Our Team_________________-->
+
+
     <!--Past Events-->
-    <h1 class="heading">Past Events -</h1>
+    <h1 class="heading">Past Events: </h1>
     <br>
     <span style="color: #888;">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus autem ducimus itaque? Praesentium voluptatum nobis blanditiis! Voluptas numquam ad cupiditate, ullam facere tenetur pariatur? Optio, iure ad? Ipsam, doloribus magni.
