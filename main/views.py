@@ -5,7 +5,8 @@ def home(request):
     context = {
         "title":"Home | Hello World",
         "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD, GTBIT"
+        "meta_description":"This is the official website of HELLO WORLD, GTBIT",
+        "iterator": range(0,10)
     }
     return render(request,'home.html',context)
 
