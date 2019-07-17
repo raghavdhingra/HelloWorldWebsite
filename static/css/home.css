@@ -180,6 +180,80 @@
   }
   /*Upcoming Events*/
 
+
+  /*Team Members*/
+  .team-container{
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 1px rgba(51, 51, 51, 0.151);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 1em;
+    overflow: hidden;
+    max-height: 15em;
+    height: 15em;
+    width: auto;
+  }
+
+  .team-container div.team-arrow{
+    font-size: 2.3em;
+    padding: 0 0.3em;
+    overflow: hidden;
+    transition: 0.2s;
+    line-height: 240px;
+    vertical-align: middle;
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+  }
+  .team-container div.team-arrow:hover{
+    color: rgb(110, 169, 247);
+  }
+  .team-container div.team-member-inner{
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .team-container div.team-member-inner-inner{
+    width: max-content;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .team-container div.team-member-inner::-webkit-scrollbar{
+    width: 5px;
+  }
+  .team-container div.team-member-inner::-webkit-scrollbar-thumb{
+      background: rgba(151, 151, 151, 0.2);
+      border-radius: 10px;
+  }
+  .team-container div.team-member-inner::-webkit-scrollbar-track{
+      background: rgba(195, 229, 255, 0.2);
+      border-radius: 10px;
+  }
+  .team-container div.team-member{
+    margin: 0.4em 1em;
+    display: inline-block;
+    width: 10em;
+    height: 90%;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 0.2em;
+    box-shadow: 0 0 5px 1px rgba(51, 51, 51, 0.548);
+  }
+  .team-container div.team-content{
+    font-size: 1.1em;
+    margin: 1em 0.5em 0.5em 0.5em;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: #555;
+  }
+  .team-container div.team-content span{
+    font-size: 0.8em;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+  }
+  /*Team Members*/
+
  
   /*Media Query*/
   @media screen and (max-width: 992px){
