@@ -1,3 +1,24 @@
+/*Variables*/
+*{
+  --white: #fff;
+  --black: #000;
+  --paleBlack: #555;
+  --paleWhite: #bbb;
+  --themeColor: #1a73e8;
+  --transparent: rgba(0,0,0,0);
+  --themeMid: #069bf1;
+  --themeLight: #59b7e2;
+  --joinHover: rgba(0,0,0,0.25);
+  --aboutBack: linear-gradient(35deg,#04669e,#0577b9,#04669e);
+  --upEventShadow: rgba(51, 51, 51, 0.4);
+  --fontColor: #616161;
+  --fontLight: #757575;
+  --teamMemberTrack: rgba(195, 229, 255, 0.2);
+  --teamMemberThumb: rgba(151, 151, 151, 0.2);
+}
+/*Variables--------------------*/
+
+
 /*Parallax Effect for hello world banner*/
 .parallax-slide {
     height: 100vh;
@@ -6,7 +27,7 @@
   .content-slide {
     height: auto;
     padding-bottom: 1.5em;
-    background: #fff;
+    background: var(--white);
   }
 /*Parallax Effect for hello world banner------------------*/
 
@@ -14,7 +35,7 @@
 /*Intro Upper content*/
 .intro-tagline{
   font-family: "google-sans-bold";
-  color:#555;
+  color: var(--paleBlack);
 }
 /*Intro Upper content-----------------*/
 
@@ -23,6 +44,7 @@
 
   .intro-header-grid{
       display: grid;
+      padding: 0 0.5em;
       grid-template-columns: auto 1fr;
   }
 
@@ -44,8 +66,8 @@
     position: relative;
     text-transform: capitalize;
     border-radius:6px;
-    border:1px solid #5CB85C;
-    color: #5CB85C;
+    background: var(--themeColor);
+    color: var(--white);
     cursor: pointer;
     margin-right: 0.5em;
     box-sizing: border-box;
@@ -54,28 +76,49 @@
     text-decoration:none;
   }
 
+  .join-us1{
+    border: 1px solid var(--themeColor);
+  }
+  .join-us2{
+    border:1px solid var(--themeLight);
+    color: var(--themeLight);
+    background: var(--transparent);
+  }
+
   .join-us:hover {
-    color: rgba(0,0,0,0.25);
-    border-color: rgba(0,0,0,0.25);
+    color: var(--joinHover);
+    border-color: var(--joinHover);
+    background: var(--transparent);
+  }
+  .join-us1:hover{
+    color: var(--white);
+    border-color: var(--themeMid);
+    background: var(--themeMid);
   }
 
   .light{
-    border-color: #fff;
-    color: #fff;
+    border: 1px solid var(--white);
+    color: var(--white);
+    background: var(--transparent);
     font-weight: lighter;
   }
 
   .light:hover {
-    border-color: rgba(0,0,0,0);
-    color: #5CB85C;
+    border-color: var(--transparent);
+    color: var(--themeColor);
     font-weight: bold;
-    background: #fff;
+    background: var(--white);
   }
   
   .join-us:active {
     position:relative;
     top:2px;
-    background: rgba(0,0,0,0.1);
+    background: inherit;
+    border-color: var(--paleWhite);
+    color: var(--paleWhite);
+  }
+  .light:active{
+    border: 1px solid var(--paleWhite);
   }
   
   /*Join Us*/
@@ -84,8 +127,8 @@
   /* About Us column*/
   div.about_column{
     height: auto;
-    background: linear-gradient(35deg,#4d9c4d,#5cbb5c,#4d9c4d);
-    color: #fff;
+    background: var(--aboutBack);
+    color: var(--white);
     font-size: 1.1em;
     font-weight: lighter;
     padding: 3em 0em;
@@ -98,7 +141,7 @@
   }
 
   div.about-social a:hover{
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--paleWhite);
   }
   /* About Us column*/
 
@@ -110,12 +153,12 @@
     border-radius: 5px;
     display: grid;
     grid-template-columns: auto 1fr;
-    background: #fff;
-    box-shadow: 1px 2px 5px 1px rgba(51, 51, 51, 0.39);
+    background: var(--white);
+    box-shadow: 1px 2px 5px 1px var(--upEventShadow);
   }
 
   .upevent:hover{
-    box-shadow: 2px 7px 8px 1px rgba(51, 51, 51, 0.5);
+    box-shadow: 2px 7px 8px 1px var(--upEventShadow);
   }
 
   .upevent_img{
@@ -125,7 +168,7 @@
   .event-head{
     font-family: google-sans-bold;
     font-size: 1.4em;
-    color: #0277bd;
+    color: var(--themeColor);
     margin: 0 0.8em;
     margin-top: 0.7em;
     letter-spacing: 0.05em;
@@ -134,58 +177,70 @@
   .upevent div.time span{
     font-size: 0.9em;
     font-weight: 600;
-    color: #888;
+    color: var(--fontColor);
     margin: 0 1em;
   }
   .upevent div.map{
     font-size: 0.9em;
-    color: #888;
+    color: var(--fontColor);
     font-weight: 600;
     margin: 0 1em;
   }
   .upevent div.map a{
-    color: #0277bd;
+    color: var(--themeColor);
     transition: 0.2s;
   }
   .upevent div.map a:hover{
-    color: #069bf1;
+    color: var(--themeMid);
   }
   .upevent-content{
-    font-size: 1.13em !important;
-    color: #888;
+    color: var(--fontLight);
     margin: 1em;
     margin-bottom: 1.5em;
   }
   
   .upevent-btn{
     padding: 0.5em 1.5em;
-    background: rgba(26,115,232,1);
-    color: #fff;
+    background: var(--themeColor);
+    color: var(--white);
     font-size: 0.95em;
     font-family: google-sans-bold;
-    box-shadow: 1px 3px 5px 0.5px rgba(51, 51, 51, 0.445);
+    box-shadow: 1px 3px 5px 0.5px var(--upEventShadow);
     transition: 0.25s;
     margin: 1em;
     border-radius: 5px;
   }
   .upevent-btn:hover{
-    background: rgb(36, 129, 250);
-    box-shadow: 3px 4px 8px 1px rgba(51, 51, 51, 0.705);
+    background: var(--themeMid);
+    box-shadow: 3px 4px 8px 1px var(--upEventShadow);
   }
   .upevent-btn:active{
     position: relative;
     top: 2px;
-    box-shadow: 0 0 3px 0.5px rgba(51, 51, 51, 0.445);
-    background: rgb(20, 103, 211);
+    box-shadow: 0 0 3px 0.5px var(--upEventShadow);
+    background: var(--themeColor);
+  }
+  .upevent-meetup{
+    color: #e51937;
+    font-size: 2em;
+    transition: 0.2s;
+    position: relative;
+    top: 0.3em;
+  }
+  .upevent-meetup:hover{
+    color: #f1576e;
+  }
+  .upevent-meetup:active{
+    top: 0.4em;
   }
   /*Upcoming Events*/
 
 
   /*Team Members*/
   .team-container{
-    background: #fff;
+    background: var(--white);
     border-radius: 10px;
-    box-shadow: 0 0 5px 1px rgba(51, 51, 51, 0.151);
+    box-shadow: 0 0 5px 1px var(--joinHover);
     display: grid;
     grid-template-columns: auto 1fr auto;
     padding: 1em;
@@ -197,16 +252,16 @@
 
   .team-container div.team-arrow{
     font-size: 2.3em;
-    padding: 0 0.3em;
+    padding: 0 0.2em;
     overflow: hidden;
     transition: 0.2s;
     line-height: 240px;
     vertical-align: middle;
-    color: rgb(26, 115, 232);
+    color: var(--themeColor);
     cursor: pointer;
   }
   .team-container div.team-arrow:hover{
-    color: rgb(110, 169, 247);
+    color: var(--themeMid);
   }
   .team-container div.team-member-inner{
     overflow-x: scroll;
@@ -222,11 +277,11 @@
     width: 5px;
   }
   .team-container div.team-member-inner::-webkit-scrollbar-thumb{
-      background: rgba(151, 151, 151, 0.2);
+      background: var(--teamMemberThumb);
       border-radius: 10px;
   }
   .team-container div.team-member-inner::-webkit-scrollbar-track{
-      background: rgba(195, 229, 255, 0.2);
+      background: var(--teamMemberTrack);
       border-radius: 10px;
   }
   .team-container div.team-member{
@@ -237,17 +292,17 @@
     overflow: hidden;
     border-radius: 5px;
     padding: 0.2em;
-    box-shadow: 0 0 5px 1px rgba(51, 51, 51, 0.548);
+    box-shadow: 0 0 5px 1px var(--upEventShadow);
   }
   .team-container div.team-content{
     font-size: 1.1em;
     margin: 1em 0.5em 0.5em 0.5em;
     text-transform: capitalize;
     font-weight: 600;
-    color: #555;
+    color: var(--paleBlack);
   }
   .team-container div.team-content span{
-    font-size: 0.8em;
+    font-size: 0.809em;
     font-weight: 100;
     margin: 0;
     padding: 0;
