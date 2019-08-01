@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="title" content="{{ meta_title }}" />
+    <meta name="description" content="{{ meta_description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <title>{{ title }}</title>
+
+
+    <link href="{% static 'css/auth.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/input.css' %}" rel="stylesheet" />
+
+    <link rel="icon" href="{% static 'assets/logo/Logo.png' %}" />
+
+
+    <!--Styling-->
+    <style>
+        @font-face {
+            font-family: "google-sans-light";
+            src: url("{% static 'assets/google-sans/ProductSans-Light.woff' %}") format("woff");
+        }
+        @font-face {
+            font-family: "google-sans-bold";
+            src: url("{% static 'assets/google-sans/ProductSans-Bold.woff' %}") format("woff");
+        }
+
+        body{
+            background: url('{% static "assets/background/auth-back.png" %}') no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <!--Styling_____________-->
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="auth-grid">
+            <div class="content-space adv1">
+                
+                    <div class="mobile_container"></div>
+                <!-- content-space-1 -->
+            </div>
+
+            <div class="auth-container" id="auth-container">
+                <h1 class="auth-logo"> &lt; / &gt; Hello World</h1>
+
+
+                <div id="loginContainer">
+                    <form method="POST" action="{% url 'home' %}">
+
+                        <h1 class="auth-below-header">Welcome Back</h1>
+                        <div class="auth-below-text"><center>Log in to your account using email and password</center></div>
+                        <div class="input-container">
+                            <div class="label label1" style="opacity: 0;">Your Username</div>
+                            <input type="text" class="inputField inputField1" name="username" placeholder="Username" />
+                            
+                            <div class="label label2">Your Password</div>
+                            <input type="password" class="inputField inputField2" name="password" placeholder="Password" />
+                            
+                            <div class="question">
+                                <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" name="coremember" /><label for="checkbox-1-1"></label>
+                                &nbsp;Are You a Core Member?
+                            </div>
+                            <!-- <input type="checkbox" class="checkbox" /> -->
+                            <div style="width: max-content;">
+                                <input type="submit" class="submit" value="Login" />
+                            </div>
+                            <a href="javascript:{}" class="forgotPass">Forgot Password?</a><Br><Br>
+                            <span class="forgotPass">New User?</span> 
+                            <a href="javascript:{}" class="forgotPass" onclick="signUp();">Sign Up here.</a>
+                        </div>
+
+                    </form>
+                </div>
+
+
+                <div id="signupContainer">
+                    <form method="POST" action="{% url 'home' %}">
+
+                        <h1 class="auth-below-header">Welcome!</h1>
+                        <div class="auth-below-text"><center>Create a new Account just by filling these fields.</center></div>
+                        <div class="input-container">
+                            <div class="label label1" style="opacity: 0;">Choose a Username</div>
+                            <input type="text" class="inputField inputField1" name="signuser" placeholder="Username" />
+                            
+                            <div class="label label2">Create a Password</div>
+                            <input type="password" name="signpass" class="inputField inputField2" placeholder="Password" />
+                            
+                            <div class="question">
+                                <div class="label label3">Confirm your Password</div>
+                                <input type="password" name="confpass" class="inputField" placeholder="Confirm Password" />
+                            </div>
+
+                            <div class="question">
+                                <div class="label label4">Email ID</div>
+                                <input type="email" name="signmail" class="inputField" placeholder="Your Email ID" />
+                            </div>
+                            <!-- <input type="checkbox" class="checkbox" /> -->
+                            <div style="width: max-content;">
+                                <input type="submit" class="submit" value="Create Account" />
+                            </div>
+                            <!-- <a href="javascript:{}" class="forgotPass">Forgot Password?</a><Br><Br> -->
+                            <span class="forgotPass">Already a User?</span> <a href="javascript:{}" class="forgotPass" onclick="logIn();">Login here.</a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            
+
+            <div class="content-space adv2">
+                <!-- content-space-2 -->
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/auth.js' %}" type="text/javascript"></script>
+</body>
+</html>
