@@ -18,13 +18,19 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-import main.views
+from main import views as mainView
+from login import views as loginView
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    url('admin', admin.site.urls,name="admin"),
-    path('',main.views.home,name="home"),
-    path('about',main.views.about,name="about"),
-    path('contact',main.views.contact,name="contact"),
-    path('know-our-team',main.views.team,name="team"),
-    path('upcoming-and-past-events',main.views.event,name="event"),
+    path('admin', admin.site.urls,name="admin"),
+    path('', mainView.home,name="home"),
+    path('about', mainView.about,name="about"),
+    path('contact', mainView.contact,name="contact"),
+    path('know-our-team', mainView.team,name="team"),
+    path('upcoming-and-past-events', mainView.event,name="event"),
+    path('teamapi', mainView.MemberList.as_view()),
+    path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
+    path('testurl',mainView.testUrl, name="testUrl"),
+    path('authorization',loginView.auth, name="auth")
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

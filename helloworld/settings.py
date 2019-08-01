@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'login',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -79,6 +80,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'helloworld.wsgi.application'
 
+SITE_ID = 1
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
