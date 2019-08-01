@@ -14,7 +14,12 @@ ul.nav_element span.nav-active2{
 .about-after{
     color: #000 !important;
 }
+
+.page-header{
+    --headerBack: url("{% static 'assets/background/about-back.png' %}");
+}
 /*For Nav Bar Active Element Displaying the current page----------------*/
+
 </style>
 
 {% endblock %}
@@ -26,23 +31,108 @@ ul.nav_element span.nav-active2{
 <div class="spacing-7"></div>
 <!--For Spacing after the navbar as it's position is fixed-->
 <!--Spacing Block_______________________-->
+
+<div class="page-header">
+    <div class="page-header-inner">
+         ABOUT US
+    </div>
+</div>
+
 <div class="container">
-    This is the content
-    content
-    <div id="width"></div><button onclick="fun();">See</button>
-    <script>
-    const fun = () => {
-        document.getElementById("width").innerText = window.innerWidth;
+    <div class="page-heading">
+        know <span style="color: #1a73e8;">about us</span>
+    </div>
+    <h2 style="color: #666;margin: 0.5em 0;margin-top: 1.5em;">The <span style="font-family: google-sans-bold;">HELLO WORLD</span> Society</h2>
+    <div>
+        <span style="font-size: 1.1em;letter-spacing: 0.05em">
+            An idea established 4 years ago which aims of developing a team of students with a varied skill set but a common goal that is to share their knowledge.
+            <br><Br>
+            Are you planning on studying coding to build a rock solid foundation or willing to expand your skill base for opening a wider field of opportunities? All major tech companies compete to hire the coders with best skill. Coding has constantly being bridging the world to bring about minds with ideas and evolve a world of technology and advancement. With constantly increasing competitions abd brains involved in coding isn't it necessary to become excel?<br><br>
+            So what makes a coder excel his field- it's the right guidance and practise. <br>
+            Under right guidance one learns more than the just the topic. The right guidance brings encouragement on every failure. <Br>
+            Practice not just makes a coder excellent in coding but tends to bring about confidence in learners for his future endeavour.<br><br>
+            ‘Hello World’ strives to teach you coding from the scratch with a clear and concise training. Learn to code here includes inculcating problem-solving skills to solve maximum problems from competitive point of view. We have been conducting various workshops and competitions all year round to bring about a spirit of learning.<Br>
+        </span>
+    </div>
+
+
+    <style>
+
+    /**/
+    .points{
+        margin: 0.5em 0;
+        font-size: 1.3em;
+        list-style-type: disc;
     }
-    </script>
-    content<Br>content<Br>content<Br>
-        content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                content<Br>content<Br>content<Br>content<Br>content<Br>
-                    content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                        content<Br>content<Br>content<Br>content<Br>conr>content<Br>content<Br>content<Br>content<Br>
-                            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>
+
+    .points li{
+        margin: 0.4em 0.7em;
+        font-size: 0.85em;
+        list-style-type: disc;
+    }
+
+    .para{
+        margin: 0.5em 0;
+        margin-top: 1.5em;
+        font-size: 1.1em;
+        letter-spacing: 0.05em;
+    }
+
+    /**/
+
+    </style>
+
+
+    <br><br>
+    <Center><hr width="75%" /></Center><Br>
+
+    <span style="font-size: 1.3em;font-family: google;color: #555;">Our aim:</span>
+    <ul type="disc" class="points">
+        
+        <li> 1.) Helps young minds to recognise their interest through a series of classes.</li>
+
+        <li> 2.) Impart knowledge that we have gained over years. </li>
+
+        <li> 3.) Provide the minds with a platform to test themselves by series of test and quizzes provided by us.</li>
+
+        <li> 4.) Organising a number of events to compete with other brains like - hackathons, trivia and more.</li>
+
+        <li> 5.) Providing the right guidance and inspiration through events like pep talks to help keeping their spirits high and reach higher! </li>
+
+    </ul>
+
+    <div class="para">
+        We have worked for these years by developing an interest through regular classes, competitions and many other events.<Br>
+        Comprised of team of a varied skill set, we aim to work with students with the right inspiration and willingness to
+        make efforts in their respective fields.<Br>
+        A number of competitions and events conducted by us provides minds with 
+        platform to develop and reconize their interests.<br><br>
+    </div>
+
+    <div>
+        
+        <span style="font-size: 1.3em;font-family: google;color: #555;">In  particular, you will :</span>
+        <ul class="points">
+
+            <li>1.) Get the complete knowledge of languages starting from 0s and 1s.</li>
+              
+            <li>2.) Will be able to participate effectively in technical competitions and exams.</li>
+                 
+            <li>3.) Get to know the concepts of decision making and problem-solving for the quick output.</li>
+                 
+            <li>4.) Undergo various phases of problem-solving under the guidance of seniors and other experienced programmers.</li>
+                 
+            <li>5.) Learn through various references, codes, exercises and other online materials provided by us.</li>
+
+        </ul>
+    </div>
+
+    <div class="para">
+        Join us and start writing your first program to say “Hello World” to Object oriented programming and  build various projects along the way.<br>
+        Not just this, We'll have a number of competitions like Hackathon and code genesis to bring about fun in learning.<Br>
+        We here at Hello World look forward to share what we have learnt over years of practise, failures and more practise after failures.<Br>
+    </div>
+
     <div class="spacing-3"></div>
 </div>
 {% endblock %}
