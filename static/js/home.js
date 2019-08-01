@@ -18,3 +18,19 @@ $(document).ready(function() {
     });
     
   });
+  var positionX = 0;
+  // const teamInner = document.getElementById("team-member-inner-inner");
+  $("#team-arrow-right").click(function(){
+    if (positionX <= 2000){
+      positionX+=200;
+      $("#team-member-inner").animate({scrollLeft: positionX},300);
+      return false;
+    }
+  });
+  $("#team-arrow-left").click(function(){
+    if (positionX > 0){
+      positionX-=200;
+      $("#team-member-inner").animate({scrollLeft: positionX},300);
+      return false;
+    }
+  });
