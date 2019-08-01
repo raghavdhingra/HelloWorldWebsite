@@ -23,6 +23,15 @@ ul.nav_element span.nav-active3{
         border-radius: 5px;
     }
 }
+
+.about-after{
+    color: #000 !important;
+}
+
+.page-header{
+    --headerBack: url("{% static 'assets/background/contact-back.png' %}");
+}
+
 /*For Nav Bar Active Element Displaying the current page----------------*/
 </style>
 
@@ -34,24 +43,21 @@ ul.nav_element span.nav-active3{
 <!--Spacing Block-->
 <div class="spacing-7"></div>
 <!--For Spacing after the navbar as it's position is fixed-->
+
+
+<!---->
+<div class="page-header">
+    <div class="page-header-inner">
+        CONTACT
+    </div>
+</div>
+<!---->
+
+
 <!--Spacing Block_______________________-->
 <div class="container">
-    This is the content
-    content
-    <div id="width"></div><button onclick="fun();">See</button>
-    <script>
-    const fun = () => {
-        document.getElementById("width").innerText = window.innerWidth;
-    }
-    </script>
-    content<Br>content<Br>content<Br>
-        content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                content<Br>content<Br>content<Br>content<Br>content<Br>
-                    content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                        content<Br>content<Br>content<Br>content<Br>conr>content<Br>content<Br>content<Br>content<Br>
-                            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>
+    <div class="spacing-4"></div>
+    <h1>Get In Touch With Us</h1>
     <div class="spacing-3"> </div>
 </div>
 {% endblock %}
