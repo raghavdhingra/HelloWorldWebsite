@@ -3,6 +3,25 @@
 /*Imports----------------------*/
 
 
+/*Variables*/
+*{
+    --bodyBack: linear-gradient(35deg,rgb(250, 250, 250),rgb(255, 255, 255),rgb(255, 250, 250));
+    --bodyColor: rgba(0,0,0, 0.87);
+    --scrollThumb: rgba(51, 51, 51, 0.5);
+    --scrollTrack: rgba(199, 230, 255, 0.445);
+    --fontColor: #616161;
+    --white: #fff;
+    --themecolor: #1a73e8;
+    --paleWhite: #ccc;
+    --black: #000;
+    --navElementColor: rgba(0,0,0,0.15);
+    --navDropColor: rgba(0,0,0,0.55);
+    --footer: #eee;
+    --footerBack: #0c2538;
+}
+/*Variables-------------------*/
+
+
 /*Defaults*/
 *{
     margin: 0;
@@ -22,13 +41,26 @@ a{
 }
 
 body{
-    background: linear-gradient(35deg,rgb(255, 249, 249),rgb(255, 255, 255),rgb(250, 250, 250));
+    background: var(--bodyBack);
     background-repeat: no-repeat;
     cursor: default;
-    color: rgba(0,0,0, 0.87);
+    color: var(--bodyColor);
     background-size: cover;
     font-family: "google-sans-light";
 }
+
+
+/*ScrollBar*/
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background: var(--scrollThumb);
+}
+body::-webkit-scrollbar-track{
+    background: var(--scrollTrack);
+}
+/*ScrollBar---------------*/
 
 
 /*Bootstrap Container Concept*/
@@ -59,33 +91,54 @@ body{
 
   /*Bootstrap container concept-------------------*/
 
+
+/*Page Header*/
+.page-header{
+    font-weight: bold;
+    font-size: 3em;
+    background: var(--headerBack) no-repeat;
+    background-size: cover;
+}
+
+.page-header-inner{
+    text-align: center;
+    color: var(--white);
+    text-shadow: 0 0 10px var(--themecolor);
+    padding: 4em 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.page-heading{
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #555;
+    margin: 1.5em 0 0.5em 0;
+}
+
+.page-heading::after{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--themecolor);
+}
+
+/*Page Header--------------------------*/
+
+
 /*Defaults-------------------*/
-
-
-/*ScrollBar*/
-body::-webkit-scrollbar{
-    width: 10px;
-}
-body::-webkit-scrollbar-thumb{
-    background: rgba(51, 51, 51, 0.5);
-}
-body::-webkit-scrollbar-track{
-    background: rgba(199, 230, 255, 0.445);
-}
-/*ScrollBar---------------*/
 
 
 /*Heading*/
 .heading{
-    color: #777;
-}
-.heading::after{
-    content: "";
-    margin-top: 0.1em;
-    display: block;
-    height: 3px;
-    width: 3em;
-    background: #888;
+    width: fit-content;
+    color: var(--fontColor);
+    padding-left: 0.3em;
+    border-left: 0.2em solid var(--fontColor);
+    padding-right: 0.3em;
+    border-right: 0.2em solid var(--fontColor);
+    border-radius: 0.25em;
 }
 /*Heading---------*/
 
@@ -101,7 +154,6 @@ div.nav{
     max-height: 7em;
     z-index: 10;
     min-height: 7em;
-    background: rgba(0,0,0,0);
     transition: 0.3s;
     line-height: 7em;
     vertical-align: middle;
@@ -125,7 +177,7 @@ img.nav-logo{
 }
 
 span.nav-logo-text{
-    color: rgba(0, 0, 0, 0.692);
+    color: var(--fontColor);
     font-weight: 600;
     font-size: 2em;
 }
@@ -151,7 +203,7 @@ ul.nav_element li span,ul.nav_element2 li span{
 }
 
 ul.nav_element li span:hover,ul.nav_element2 li span:hover{
-    background: rgba(0,0,0,0.15);
+    background: var(--navElementColor);
     border-radius: 5px;
 }
 
@@ -159,8 +211,8 @@ div.nav-drop-down,div.nav-drop-down2{
     position: fixed;
     top: 5em;
     border-radius: 0 0 10px 10px;
-    background: #fff;
-    box-shadow: 0 3px 10px 0.5px rgba(0,0,0, 0.5);
+    background: var(--white);
+    box-shadow: 0 3px 10px 0.5px var(--navDropColor);
     display: none;
     transform: translateX(-1.5em);
     transition: 0.3s;
@@ -184,7 +236,7 @@ div.nav-drop-down2 li{
 }
 
 div.nav-drop-down li:hover, div.nav-drop-down2 li:hover{
-    background: rgba(0,0,0,0.2);
+    background: var(--navElementColor);
     border-radius: 5px;
 }
 
@@ -210,8 +262,8 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     text-align: center;
     width: 100vw;
     z-index: 997;
-    box-shadow: 0 -3px 10px 0 rgba(0,0,0, 0.5);
-    background: #ffffff;
+    box-shadow: 0 -3px 10px 0 var(--navDropColor);
+    background: var(--white);
 }
 
 .mobile_nav_bar_inner{
@@ -224,7 +276,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     /* display: inline-block; */
     font-size: 1.2em;
     /* margin: 0 1em; */
-    color: #888;
+    color: var(--fontColor);
 }
 
 .home-after::after{
@@ -256,8 +308,8 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     height: 0;
     width: 100vw;
     z-index: 1001;
-    box-shadow: 0 -3px 10px 0 rgba(0,0,0, 0.5);
-    background: #fff;
+    box-shadow: 0 -3px 10px 0 var(--navDropColor);
+    background: var(--white);
     position: fixed;
     bottom: 0;
 }
@@ -266,7 +318,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     display: block;
     letter-spacing: 0.05em;
     font-weight: 600;
-    color: #888;
+    color: var(--fontColor);
     font-size: 1.4em;
     margin: 1.5em 1em 1em 1.5em;
     box-sizing: border-box;
@@ -277,7 +329,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     height: 3px;
     width: 30px;
     transition: 0.7s;
-    background: #888;
+    background: var(--fontColor);
 }
 .mobile_nav_elmt2:hover::after{
     width: 100%;
@@ -292,7 +344,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     transform: translateX(-50%);
     margin-bottom: 0.3em;
     font-size: 2em;
-    color: #888888;
+    color: var(--fontColor);
 }
 /*Mobile Nav Bar--------*/
 
@@ -315,8 +367,8 @@ div.spacing-9{height: 9em;}
     min-height: 3.7em !important;
     max-height: 3.7em !important;
     line-height: 3.7em !important;
-    background: #ffffff !important;
-    box-shadow: 0 3px 30px 0.5px rgba(51, 51, 51, 0.589);
+    background: var(--white) !important;
+    box-shadow: 0 3px 30px 0.5px var(--scrollThumb);
 }
 
 .nav_drop_add{
@@ -338,6 +390,19 @@ div.spacing-9{height: 9em;}
 
 
 /*Footer Span*/
+
+footer{
+    padding: 3.5em 0;
+    padding-bottom: 0;
+    background: var(--footerBack);
+    color: var(--footer);
+}
+
+.footer_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 footer span a{
     margin: 0 0.5em;
     font-size: 1.7em;
@@ -346,8 +411,97 @@ footer span a i{
     transition: 0.2s;
 }
 footer span a:hover i{
-    color: #ccc !important;
+    color: var(--paleWhite) !important;
 }
+
+.category_btn{
+    margin-bottom: 0.5em;
+    padding: 0.5em 0;
+}
+
+.category_btn a{
+    display: inline-flex;
+    margin: 0.2em 0.1em;
+    font-size: 0.9em;
+    padding: 0.3em 1em;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1.5px solid #aaa;
+    color: #bbb;
+    transition: 0.2s;
+}
+
+.category_btn a:hover{
+    border-color: #fff;
+    color: #fff;
+}
+
+.category_contact{
+    padding: 0.5em 1.5em;
+    border-radius: 30px;
+    transition: 0.2s;
+    background: none;
+    border: 1.5px solid #999;
+}
+
+.category_contact:hover{
+    border-color: #fff;
+    background: #fff;
+    color: #666;
+    font-weight: bold;
+}
+
+.query_form form{
+    overflow: hidden !important;
+}
+
+.query_form input, textarea{
+    font-size: 1.1em;
+    width: 100%;
+    padding: 0.3em 0.5em;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: none;
+    border: 1.5px solid #888;
+    margin: 1em 0;
+    transition: 0.2s;
+    margin-top: 0;
+    color: var(--white);
+}
+
+.query_form input::placeholder ,.query_form textarea::placeholder{
+    color: #aaa;
+}
+
+.query_form textarea{
+    height: 7em;
+}
+
+.query_form input:focus, .query_form textarea:focus{
+    border-color: var(--white);
+    outline: none;
+}
+
+.query_form input[type="submit"]{
+    background: #1a73e8;
+    cursor: pointer;
+    max-width: 200px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-color: #1a73e8;
+    border-radius: 30px;
+}
+
+.query_form input[type="submit"]:hover{
+    background: #1459b4;
+    border-color: #1459b4;
+}
+
+.query_form input[type="submit"]:active{
+    position: relative;
+    top: 1px;
+}
+
 .next-line{
     display: none;
 }
@@ -381,6 +535,14 @@ footer span a:hover i{
 
     #drop_contact1{
         display: none;
+    }
+}
+
+/*992px*/
+@media screen and (max-width: 992px){
+    .footer_grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
     }
 }
 
