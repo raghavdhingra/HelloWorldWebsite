@@ -40,6 +40,16 @@ a{
     cursor: pointer !important;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+form{
+    overflow: hidden;
+}
+
 body{
     background: var(--bodyBack);
     background-repeat: no-repeat;
@@ -113,7 +123,7 @@ body::-webkit-scrollbar-track{
     text-transform: uppercase;
     font-weight: bold;
     color: #555;
-    margin: 1.5em 0 0.5em 0;
+    margin: 1.5em 0 1em 0;
 }
 
 .page-heading::after{
@@ -152,7 +162,7 @@ div.nav{
     height: 7em;
     overflow: hidden;
     max-height: 7em;
-    z-index: 10;
+    z-index: 997;
     min-height: 7em;
     transition: 0.3s;
     line-height: 7em;
@@ -217,7 +227,7 @@ div.nav-drop-down,div.nav-drop-down2{
     transform: translateX(-1.5em);
     transition: 0.3s;
     padding: 0.5em;
-    z-index: 10;
+    z-index: 999;
 }
 
 div.nav-drop-down2{
