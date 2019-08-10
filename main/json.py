@@ -1,19 +1,23 @@
-education = {
-    "education": ["Education1","Education2"]
-}
+def education():
+    return {
+        "education": ["Education1","Education2"]
+    }
 
-skills={
-    "skill": ["skill1","skill2"]
-}
+def skills():
+    return {
+        "skill": ["skill1","skill2"]
+    }
 
-contact={
-    "phone": "p",
-    "address": "p",
-    "email": "p"
-}
+def contact():
+    return {
+        "phone": "Your Number",
+        "address": "Your Address",
+        "email": "Your email Id"
+    }
 
-links={
-    "facebook": "https://www.facebook.com/",
-    "twitter": "https://twitter.com",
-    "github": "https://github.com/"
-}
+def links():
+    return {
+        "facebook": "https://www.facebook.com/",
+        "twitter": "https://twitter.com",
+        "github": "https://github.com/"
+    }
