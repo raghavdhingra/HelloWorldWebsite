@@ -8,7 +8,6 @@
   --transparent: rgba(0,0,0,0);
   --themeMid: #069bf1;
   --themeLight: #59b7e2;
-  --joinHover: rgba(0,0,0,0.25);
   --aboutBack: linear-gradient(35deg,#04669e,#0577b9,#04669e);
   --upEventShadow: rgba(51, 51, 51, 0.4);
   --fontColor: #616161;
@@ -53,6 +52,12 @@
     font-size: 6em;
   }
 
+  .MainLogo{
+    width: 330px;
+    height: auto;
+    margin: 0 auto;
+  }
+
   /* Intro header grid ---------------------- */
 
   /*Join Us Button*/
@@ -86,8 +91,8 @@
   }
 
   .join-us:hover {
-    color: var(--joinHover);
-    border-color: var(--joinHover);
+    color: var(--upEventShadow);
+    border-color: var(--upEventShadow);
     background: var(--transparent);
   }
   .join-us1:hover{
@@ -163,6 +168,8 @@
 
   .upevent_img{
     margin: 1.5em 0.5em;
+    border-radius: 5px !important;
+    box-shadow: 0 0 10px 1px #999 !important;
   }
 
   .event-head{
@@ -240,7 +247,7 @@
   .team-container{
     background: var(--white);
     border-radius: 10px;
-    box-shadow: 0 0 5px 1px var(--joinHover);
+    box-shadow: 0 0 1px 1px var(--upEventShadow);
     display: grid;
     grid-template-columns: auto 1fr auto;
     padding: 1em;
@@ -253,6 +260,8 @@
   .team-container div.team-arrow{
     font-size: 2.3em;
     padding: 0 0.2em;
+    z-index: 9;
+    box-shadow: 0 0 10px 10px #fff;
     overflow: hidden;
     transition: 0.2s;
     line-height: 240px;
@@ -292,8 +301,14 @@
     overflow: hidden;
     border-radius: 5px;
     padding: 0.2em;
-    box-shadow: 0 0 5px 1px var(--upEventShadow);
+    box-shadow: 0 0 1px 1px var(--upEventShadow);
+    transition: 0.3s;
   }
+
+  div.team-member:hover{
+    box-shadow: 0 0 10px 1px var(--upEventShadow);
+  }
+
   .team-container div.team-content{
     font-size: 1.1em;
     margin: 1em 0.5em 0.5em 0.5em;
@@ -311,6 +326,8 @@
 
  
   /*Media Query*/
+
+  /*992px*/
   @media screen and (max-width: 992px){
     .upevent{
       grid-template-columns: 1fr;
@@ -323,6 +340,7 @@
     }
   }
 
+  /*600px*/
   @media screen and (max-width: 600px){
     .intro-header-grid{
         grid-template-columns: 1fr;
@@ -337,12 +355,20 @@
     div.about_column{
       text-align: center;
     }
-}
-
-@media screen and (max-width: 415px) {
-  .join-us{
-    margin-right: 0;
-    margin-bottom: 0.5em;
   }
-}
+
+  /*415px*/
+  @media screen and (max-width: 415px) {
+
+    .MainLogo{
+      width: 250px;
+    }
+
+    .join-us{
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+
+  }
+
 /*Media Query*/
