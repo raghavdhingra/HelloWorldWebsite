@@ -35,6 +35,8 @@ ul.nav_element span.nav-active3{
 /*For Nav Bar Active Element Displaying the current page----------------*/
 </style>
 
+<link href="{% static 'css/contact.css' %}" rel="stylesheet" type="text/css" />
+
 {% endblock %}
 
 
@@ -56,8 +58,55 @@ ul.nav_element span.nav-active3{
 
 <!--Spacing Block_______________________-->
 <div class="container">
-    <div class="spacing-4"></div>
-    <h1>Get In Touch With Us</h1>
+    <div class="spacing-1"></div>
+
+    <div class="page-heading">
+        Know Our <span style="color: #1a73e8;">Current Location</span>
+    </div>
+
+    <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14007.7297691681!2d77.1164821!3d28.6317868!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x68966aea6bc15b7e!2sGuru+Tegh+Bahadur+Institute+of+Technology!5e0!3m2!1sen!2sin!4v1564767922523!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div style="color: #666;margin: 1em;">
+            <h1 style="font-family: google-sans-bold; color: #1a73e8;">Guru Tegh Bahadur Institute of Technology</h1>
+            <h2>
+                G-8 Area, Press Colony,<br>
+                Rajouri Garden, New Delhi,<Br> Delhi 110064
+            </h2>
+        </div>
+    </div>
+    
+    <div class="page-heading">
+        Get In <span style="color: #1a73e8;">Touch With Us</span>
+    </div>
+    
+    <div class="contact_grid">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="contact_form">
+                <label class="contact_label"> Your Name: </label>
+                <input type="text" class="contact_input" name="name" placeholder="Type Your Full Name" required />
+                
+                <label class="contact_label"> Your E-Mail ID: </label>
+                <input type="email" class="contact_input" name="email" placeholder="Type Your E-Mail ID" required />
+                
+                <label class="contact_label"> Your Mobile Number: </label>
+                <input type="number" class="contact_input" name="phone" placeholder="Enter Your Contact Number" min="6666666666" max="9999999999" />
+                
+                <label class="contact_label"> Your Query: </label>
+                <textarea class="contact_textArea" name="query" placeholder="Please Feel Free To Ask For Help" required></textarea>
+
+                <input type="submit" class="contact_submit" value="Submit Query" />
+            </div>
+        </form>
+
+        <div>
+            
+        </div>
+
+    </div>
+
     <div class="spacing-3"> </div>
 </div>
+
+
 {% endblock %}
