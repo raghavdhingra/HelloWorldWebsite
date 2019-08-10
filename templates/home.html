@@ -31,27 +31,34 @@ ul.nav_element span.nav-active1{
 <div class="container">
     <div id="content1" class="content-slide">
         <div class="intro-header-grid">
-            <div>
+
+            <!-- <div>
                 <span style="color: #555;">HELLO<Br>WORLD</span>&nbsp;
-            </div>
+            </div> -->
+
+            <center>
+                <div class="MainLogo">
+                    <img src="{% static 'assets/logo/color-Logo.png' %}" width="100%" />
+                </div>
+            </center>
             <div class="intro-tagline">
                 <h1 style="font-size: 2.4em;">#' Tagging <font color="#1a73e8">Lives</font></h1><br>
-                <h3 style="font-family: google-sans-light;font-weight: 500;">Hello world is an non-profit organisation which aims to broaden the conception of coding. We members of Hello World strive hard to impart our knowledge and introduce the young minds to world of digitalization</h3>
+                <h3 style="font-family: google-sans-light;font-weight: 500;">Hello world is a non-profit organisation which aims to broaden the conception of coding. We members of Hello World strive hard to impart our knowledge and introduce the young minds to world of digitalization</h3>
                 <br>
                 <h3 style="font-family: google-sans-light;font-weight: 100;color: #999;">Join Us and be a part of this unique society.</h3><Br>
                 <a href="#" class="join-us join-us1">Join Us</a>
-                <a href="#" class="join-us join-us2">Know About Us</a>
+                <a href="{% url 'about' %}" class="join-us join-us2">Know About Us</a>
             </div>
         </div>
     </div>
-    <div class="spacing-4"></div>
+    <div class="spacing-1"></div>
 </div>
 <div class="about_column">
     <div class="container">
         <p style="font-family: google-sans-light;font-weight: 500;font-size: 1.5em;">About Hello World</p><br>
         <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, ut. Sequi, molestias mollitia? Iure commodi odio eaque illo. Dolorem laborum asperiores eveniet mollitia, similique nobis tempora ad perspiciatis consectetur natus.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus quasi id aliquam, a consequuntur repellat culpa recusandae debitis porro molestiae veniam quae nemo commodi ut non dolor inventore animi dolore?
+            Hello world is probably the first code of any language and it provides with you with a your first working code and headstart to the journey in the coding world. Hello World community was establish 4 years ago with a dream of connecting innovative minds to the coding world.
+            Within all these years of hardwork by each member, HelloWorld has created a list of successful events and classes with positive reviews. We aim to set more hands at work in the technical field for more innovations and progress.
         </p>
         <br>
         <a href="{% url 'about' %}" class="join-us light">Know More</a>
@@ -98,18 +105,21 @@ ul.nav_element span.nav-active1{
 
 <div id="parallax1" class="parallax-slide"></div>
 <div id="content1" class="content-slide"></div>
-<div class="spacing-3"></div>
+
 <div class="container">
 
     <!--Events-->
-    <h1 class="heading">Upcoming Events</h1>
-    <br>
-    <span style="color: #888;">
+    <!-- <h1 class="heading">Upcoming Events</h1> -->
+    <div class="page-heading">
+        Upcoming <span style="color: #1a73e8;">Events</span>
+    </div>
+
+    <span style="color: #888;font-size: 1.1em;">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil adipisci similique nisi ab voluptate aliquid inventore eos, illum id harum, consequuntur in itaque commodi dolore. Autem perspiciatis sed suscipit cumque.
     </span>
     <div class="upevent">
         <div>
-            <center><img class="upevent_img" src="{% static 'assets/logo/Logo.png' %}" height="200px" width="300px" /></center>
+            <center><img class="upevent_img" src="{% static 'assets/logo/event-proto.png' %}" height="200px" width="300px" /></center>
         </div>
         <div>
             <div class="event-head">ABC</div>
@@ -131,28 +141,37 @@ ul.nav_element span.nav-active1{
             <div class="spacing-2"></div>
         </div>
     </div>
-    <div class="spacing-3"></div>
+    <div class="spacing-1"></div>
     <!--Events___________________-->
 
 
     <!--Our Team-->
-    <h1 class="heading">Our Team</h1>
-    <div class="spacing-1"></div>
+    <!-- <h1 class="heading">Our Team</h1> -->
+    <div class="page-heading">
+        Our <span style="color: #1a73e8;">Team Members</span>
+    </div>
+
+    
+    <p style="color: #888;font-size: 1.1em;">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus autem ducimus itaque?
+        Praesentium voluptatum nobis blanditiis! Voluptas numquam ad cupiditate, ullam facere
+        tenetur pariatur? Optio, iure ad? Ipsam, doloribus magni.<br><br>
+    </p>
+    
     <div class="team-container">
-        <div class="team-arrow" id="team-arrow-left"><i class="fas fa-chevron-circle-left"></i></div>
+        <div class="team-arrow" id="team-arrow-left"><i class="fas fa-chevron-circle-left"  style="box-shadow: 0 0 10px 0 #777;border-radius: 50%;"></i></div>
         <div class="team-member-inner" id="team-member-inner">
             <div class="team-member-inner-inner" id="team-member-inner-inner">
 
                 {% for i in teamMembers %}
                 <div class="team-member">
                     <a href="" title="View Profile">
-                        <center><img src="{% static 'assets/logo/Logo.png' %}" height="100px" width="150px" alt="100px X 150px" /></center>
+                        <center><img src="{% static 'assets/logo/member-proto.png' %}" height="100px" width="150px" alt="100px X 150px" /></center>
                         <div class="team-content">
-                            Raghav Dhingra<br>
+                            <div style="color: #1a73e8;font-family: google-sans-bold;">Full Name</div>
                             <span>
                                 Web Developer
-                                <br>
-                                Web Head
+                                <div style="font-family: google-sans-bold;">Designation</div>
                             </span>
                         </div>
                     </a>
@@ -160,17 +179,20 @@ ul.nav_element span.nav-active1{
                 {% endfor %}
             </div>
         </div>
-        <div class="team-arrow" id="team-arrow-right"><i class="fas fa-chevron-circle-right"></i></div>
+        <div class="team-arrow" id="team-arrow-right"><i class="fas fa-chevron-circle-right" style="box-shadow: 0 0 10px 0 #777;border-radius: 50%;"></i></div>
     </div>
-    <div class="spacing-3"></div>
+    <div class="spacing-1"></div>
     <!--Our Team_________________-->
 
 
     <!--Past Events-->
-    <h1 class="heading">Past Events</h1>
-    <br>
-    <span style="color: #888;">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus autem ducimus itaque? Praesentium voluptatum nobis blanditiis! Voluptas numquam ad cupiditate, ullam facere tenetur pariatur? Optio, iure ad? Ipsam, doloribus magni.
+    <!-- <h1 class="heading">Past Events</h1> -->
+    <div class="page-heading">
+        Past <span style="color: #1a73e8;">Events</span>
+    </div>
+
+    <span style="color: #888;font-size: 1.1em;">
+        A successful past creates a peaceful vision of tomorrow. We've conducted a number of successful events with an active participation of students. 
     </span>
     <div>
         hi
