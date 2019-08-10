@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import django_heroku
+import psycopg2
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,8 +28,13 @@ SECRET_KEY = '!xs$*+7(*-*@bnvb#dvg3*=2-(xzgje8=lf@(+kom9k$#xfn5y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+
+SITE_ID = 1
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 # Application definition
 
@@ -80,19 +87,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'helloworld.wsgi.application'
 
-SITE_ID = 1
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd6l68agq5jdujc',
+            'USER': 'nyguztgdzutgwd',
+            'HOST': 'ec2-174-129-226-232.compute-1.amazonaws.com',
+            'PASSWORD':'f588053fedce0524f48ac4145a74cd29f1ef26829593744a801ce1128a83394a',
+            'PORT': '5432',
+        },
 }
 
 

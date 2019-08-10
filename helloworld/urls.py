@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from main import views as mainView
 from login import views as loginView
 from rest_framework.urlpatterns import format_suffix_patterns
-
+teampi = 'teamapi/key=1a35d89ise039'
 urlpatterns = [
     path('admin', admin.site.urls,name="admin"),
     path('', mainView.home,name="home"),
@@ -29,8 +29,15 @@ urlpatterns = [
     path('contact', mainView.contact,name="contact"),
     path('know-our-team', mainView.team,name="team"),
     path('upcoming-and-past-events', mainView.event,name="event"),
-    path('teamapi', mainView.MemberList.as_view()),
+    path(teampi, mainView.MemberList.as_view()),
     path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
     path('testurl',mainView.testUrl, name="testUrl"),
-    path('authorization',loginView.auth, name="auth")
+    path('authorization',loginView.auth, name="auth"),
+    path('logout',loginView.log_out, name="logout"),
+    path('login',loginView.log_in, name="login"),
+    path('signup',loginView.sign_up, name="signin"),
+    path('user/profile',mainView.profile,name='profile'),
+    path('user/edit',mainView.edit,name='edit'),
+    path('user/change-password',mainView.changepassword,name='changepassword'),
+    path('user/build-your-resume',mainView.resume,name='resume'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
