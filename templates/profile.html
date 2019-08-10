@@ -1,0 +1,118 @@
+{% extends 'user.html' %}
+{% load staticfiles %}
+
+{% block right_pane %}
+
+<style>
+
+    .left-active1{
+        background: rgba(0,0,0,0.1);
+    }
+
+</style>
+
+<h1>Your <span style="color:#1a73e8">Profile</span></h1>
+
+<form method="POST">
+    
+
+    <div class="prof-grid">
+
+        <div>
+            <div class="avatar">
+                <img src="{{ profilePic }}" class="img" />
+                <!-- <img src="{% static 'assets/logo/member-proto.png' %}" class="img" /> -->
+            </div>
+
+            <Br>
+
+            <span style="margin: 0.2em 1em;font-weight: bold;color: #888;float: right;">
+                Username - <span style="color: #333;"> {{ request.user.username }} </span>
+            </span>
+            <Br>
+            <span style="margin: 0.2em 1em;font-weight: bold;color: #1a73e8;float: right;">            
+                Core Member
+            </span>
+            
+        </div>
+
+        <div>
+            <div class="label">Your Full Name</div>
+            <input type="text" class="input" value="{{ name }}" placeholder="Full Name, e.g - Raghav Dhingra" readonly/>
+
+            <div class="label">Your E-Mail ID</div>
+            <input type="email" class="input" value="{{ contact.email }}" placeholder="E-Mail e.g - example@mail.com" readonly/>
+            
+            <div class="label">Your Mobile Number</div>
+            <input type="number" class="input" value="{{ contact.phone }}" placeholder="Mobile Number e.g - 9876543210" readonly/>
+            <Br><bR>
+        </div>
+    </div>
+
+
+    
+    <div>
+        <div class="label">Your Skills</div>
+
+        <div class="user-skill-container">
+            {% for skill in skills %}
+                <div class="user-skill">{{ skill }}</div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <Br>
+
+    <div>
+        <div class="label">Your Date Of Birth</div>
+        <input type="text" class="input" value="{{ birth }}" readonly/>
+    </div>
+
+    <div>
+        <div class="label">Your Field of Interest</div>
+        <input type="text" class="input" value="{{ interest }}" placeholder="Interested Fields e.g - Web Development" readonly/>
+    </div>
+
+    <div>
+        <div class="label">Designation In Hello World Team</div>
+        <input type="text" class="input" value="{{ designation }}" placeholder="Designation e.g - Co-ordinator, Head..." readonly/>
+    </div>
+
+    <div>
+        <div class="label">Your Description</div>
+        <textarea class="input textarea" placeholder="Description e.g - I am a Web Developer..." readonly> {{ description }} </textarea>
+    </div>
+
+
+    <center><hr style="width: 75%;"></center>
+    <Br>
+    <div>
+        <div style="margin-left: 0.8em;font-size: 1.5em; font-weight: bold;color: #666;">Social and Other Links</div>
+
+        <Br>
+        <label style="margin-left: 1em;font-weight: bold;">Facebook:</label><Br>
+        <textarea style="font-size: 0.9em;width: 80%; height: 4em;" class="input textarea" placeholder="Facebook Link" readonly>{{ links.facebook }}</textarea>
+        <!-- <input type="text" style="font-size: 0.9em;width: 80%;" class="input" value="{{ links.facebook }}" placeholder="Facebook Link" readonly/> -->
+        
+        <Br>
+        <label style="margin-left: 1em;font-weight: bold;">Twitter:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><Br>
+        <textarea style="font-size: 0.9em;width: 80%; height: 4em;" class="input textarea" placeholder="Twitter Link" readonly>{{ links.twitter }}</textarea>
+        <!-- <input type="text" style="font-size: 0.9em;width: 80%;" class="input" value="{{ links.twitter }}" placeholder="Twitter Link" readonly/> -->
+            
+        <Br>
+        <label style="margin-left: 1em;font-weight: bold;">Github:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><Br>
+        <textarea style="font-size: 0.9em;width: 80%; height: 4em;" class="input textarea" placeholder="Github Link" readonly>{{ links.github }}</textarea>
+            
+    </div>
+
+    <br><Br>
+
+    <a href="{% url 'edit' %}" class="submit">Edit Profile</a>
+    <br class="next-line2"><br class="next-line2"><br class="next-line2">
+    <a href="{% url 'changepassword' %}" class="submit" style="background: #fff;color: #1a73e8;">Change Password</a>
+
+    <Br><Br><br>
+
+</form>
+        
+{% endblock %}
