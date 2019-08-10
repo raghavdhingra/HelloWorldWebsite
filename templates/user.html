@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+
+<style>
+    .page-header{
+        --headerBack: url("{% static 'assets/background/profile-back.png' %}");
+    }
+
+    ul.nav_element span.nav-active4{
+        background: rgba(0, 0, 0, 0.06);
+        border-radius: 5px;
+    }
+    
+    div.nav-drop-down li.drop-active5{
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+</style>
+
+<link href="{% static 'css/user.css' %}" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--Spacing Block-->
+<div class="spacing-7"></div>
+<!--For Spacing after the navbar as it's position is fixed-->
+
+
+<!---->
+<div class="page-header">
+    <div class="page-header-inner">
+        {{ header }}
+    </div>
+</div>
+<!---->
+
+
+<!--Spacing Block_______________________-->
+<div class="container">
+
+    <div class="spacing-3"></div>
+
+    <h3 style="color: #666;">**Note - <Br>
+        We will keep your Personal information safe. We will not be sharing your Information with anyone. <br>
+        These information is used only for registering into our events and building up your Resume which can be downloaded.
+    </h3>
+
+    <div class="spacing-3"></div>
+
+
+    <div class="profile-grid">
+        <div>
+            <div class="left-pane">
+                <div class="left-pane-inner">
+                    
+                    <ul>
+                        <a href="{% url 'profile' %}"><li class="left-active1"> <i class="fas fa-user-circle"></i> &nbsp;&nbsp;Profile</li></a>
+                        <a href="{% url 'edit' %}"><li class="left-active2"> <i class="fas fa-user-edit"></i> &nbsp;Edit User</li></a>
+                        <a href="{% url 'changepassword' %}"><li class="left-active3"> <i class="fas fa-lock"></i> &nbsp;&nbsp;Password</li></a>
+                        <a href="{% url 'resume' %}"><li class="left-active4"> <i class="fas fa-file-alt"></i> &nbsp;&nbsp;Resume Builder</li></a>
+                    </ul>
+
+                </div>
+            </div>
+            
+            <div class="left-pane" id="desktop-event-container">
+                <div class="left-pane-inner">
+                    <h1 style="margin-bottom: 0.5em;">Upcoming <span style="color:#1a73e8">Events</span></h1>
+                    <span style="color: #888;margin: 0 1em;font-weight: bold;">Register Yourself Now</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="right-pane">
+                <div class="right-pane-inner">
+                    
+                    {% block right_pane %}
+
+                    {% endblock %}
+
+                </div>
+            </div>
+
+            <div class="left-pane" style="margin-bottom: 1em; margin-top: 0." id="mobile-event-container">
+                <div class="left-pane-inner">
+                    <h1 style="margin-bottom: 0.5em;">Upcoming <span style="color:#1a73e8">Events</span></h1>
+                    <span style="color: #888;margin: 0 1em;font-weight: bold;">Register Yourself Now</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script type="text/javascript" src="{% static 'js/user.js' %}">
+</script>
+
+{% endblock %}
