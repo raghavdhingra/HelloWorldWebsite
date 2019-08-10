@@ -160,6 +160,17 @@ div.auth-container-height{
   opacity: 0;
 }
 
+.upDown1{
+  animation: transAnim 1s ease 1 forwards;
+  animation-delay: calc( var(--animTiming) + 1.7s );
+}
+
+.upDown2{
+  animation: transAnim 1s ease 1 forwards;
+  animation-delay: calc( var(--animTiming) + 2s );
+  color: #fff;
+}
+
 .label1{
   opacity: 0;
   animation: transAnim 1s ease 1 forwards;
