@@ -1,8 +1,9 @@
 from django.db import models
 from django.conf import settings
 import json
+from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 from django.utils import timezone
-# from jsonfield import JSONField
 from django.contrib.postgres.fields import JSONField , ArrayField ,DateTimeRangeField
 from .json import *
 
@@ -10,19 +11,21 @@ from .json import *
 
 # Create your models here.
 class TeamMember(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    user_name = models.CharField(max_length=200,blank=True,null=False,default='UserName')
-    first_name = models.CharField(max_length = 200, blank=True, null=False,default='')
-    last_name = models.CharField(max_length = 200, blank=True, null=False,default='')
-    profile_picture = models.ImageField(blank=True, null=False)
-    authorised = models.BooleanField(blank=False,null=False,default=False)
-    specialisation = models.CharField(max_length=100,blank=True,null=False,default='')
-    birth_date = models.DateField(blank=True, null=False,default=timezone.now)
-    joined_on = models.DateTimeField(blank=True, null=False,default=timezone.now)
-    description = models.TextField(blank=True,null=False,default='')
-    designation = models.CharField(blank=True,null=False,max_length=100,default='Core Member')
+    user = models.OneToOneField(User,primary_key=True,on_delete=models.CASCADE)
+    user_name = models.CharField(max_length=200,blank=True,null=True,default='UserName')
+    first_name = models.CharField(max_length = 200, blank=True, null=True,default='')
+    last_name = models.CharField(max_length = 200, blank=True, null=True,default='')
+    profile_picture = CloudinaryField('image')
+    authorised = models.BooleanField(blank=True,null=True,default=True)
+    specialisation = models.CharField(max_length=100,blank=True,null=True,default='')
+    birth_date = models.DateField(blank=True, null=True,default=timezone.now)
+    joined_on = models.DateTimeField(blank=True, null=True,default=timezone.now)
+    description = models.TextField(blank=True,null=True,default='')
+    designation = models.CharField(blank=True,null=True,max_length=100,default='Member')
     skills = JSONField(default=skills)
-    education = JSONField(default=education)
+    college = models.TextField(blank=True,null=True,default='')
+    degree = models.TextField(blank=True,null=True,default='')
+    passing_year = models.IntegerField(blank=True,null=True,default=2000)
     links = JSONField(default=links)
     contact = JSONField(default=contact)
 
@@ -31,4 +34,4 @@ class TeamMember(models.Model):
         self.save()
 
     def __str__(self):
-        return self.first_name
+        return self.user_name
