@@ -15,11 +15,11 @@ class Migration(migrations.Migration):
             name='contact',
             field=models.TextField(blank=True, default='{"phone": "p", "address": "p", "email": "p"}'),
         ),
-        migrations.AlterField(
-            model_name='teammember',
-            name='education',
-            field=models.TextField(blank=True, default='{"education": ["Education1", "Education2"]}'),
-        ),
+        # migrations.AlterField(
+        #     model_name='teammember',
+        #     name='education',
+        #     field=models.TextField(blank=True, default='{"education": ["Education1", "Education2"]}'),
+        # ),
         migrations.AlterField(
             model_name='teammember',
             name='links',

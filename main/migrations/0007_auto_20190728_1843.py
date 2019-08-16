@@ -15,11 +15,11 @@ class Migration(migrations.Migration):
             name='contact',
             field=models.CharField(blank=True, default={'address': '', 'email': '', 'phone': ''}, max_length=10000),
         ),
-        migrations.AlterField(
-            model_name='teammember',
-            name='education',
-            field=models.CharField(blank=True, default={'education': ['Education1', 'Education2']}, max_length=10000),
-        ),
+        # migrations.AlterField(
+        #     model_name='teammember',
+        #     name='education',
+        #     field=models.CharField(blank=True, default={'education': ['Education1', 'Education2']}, max_length=10000),
+        # ),
         migrations.AlterField(
             model_name='teammember',
             name='links',

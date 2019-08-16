@@ -16,11 +16,11 @@ class Migration(migrations.Migration):
             name='contact',
             field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default={'address': '', 'email': '', 'phone': ''}),
         ),
-        migrations.AlterField(
-            model_name='teammember',
-            name='education',
-            field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default={'education': ['Education1', 'Education2']}),
-        ),
+        # migrations.AlterField(
+        #     model_name='teammember',
+        #     name='education',
+        #     field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, default={'education': ['Education1', 'Education2']}),
+        # ),
         migrations.AlterField(
             model_name='teammember',
             name='links',
