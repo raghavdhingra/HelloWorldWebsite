@@ -348,15 +348,6 @@ div.auth-container-height{
     margin-top: 1em;
   }
 
-  .auth-below-header::after{
-    content: "";
-    color: #ddd;
-    text-align: center;
-    display: inline-block;
-    height: 3px;
-    width: 30px;
-    background: #ddd;
-  }
 
   @keyframes upDown{
     0% {
