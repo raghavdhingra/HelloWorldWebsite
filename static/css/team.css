@@ -1,0 +1,27 @@
+
+.MainTeamDiv{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.teamMemberDiv{
+    margin: 0 3em;
+}
+
+.memberImage{
+    overflow: hidden;
+    height: 230px;
+    width: 230px;
+    border-radius: 50% 50% 50% 0;
+}
+
+.memberImageInner{
+    background: #ccc;
+}
+
+@media screen and (max-width: 600px){
+    .teamMemberDiv{
+        margin: 0 1em;
+    }
+}

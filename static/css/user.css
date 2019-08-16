@@ -38,6 +38,16 @@ h1::after{
     padding: 0.5em;
 }
 
+.left-pane-inner{
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+#left-pane-inner-dropdown{
+    line-height: 80px;
+    vertical-align: middle;
+}
+
 .left-pane-inner ul a{
     overflow: hidden !important;
     letter-spacing: 0.02em;
@@ -82,18 +92,19 @@ h1::after{
 .avatar{
     height: auto;
     width: 230px;
-    border: 0.3em solid #60ba62;
+    border: 0.3em solid #1a73e8;
     background: #eee;
     margin: 0.5em 1em;
     float: left;
-    padding: 0.5em;
+    padding: 0.2em;
+    padding-bottom: 0;
     border-radius: 5px;
 }
 
 .avatar .img{
     height: auto;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .user-skill-container{
@@ -183,6 +194,14 @@ h1::after{
     top: 1px;
 }
 
+#left-pane-inner-dropdown{
+    display: none;
+}
+
+.activeIt{
+    display: block !important;
+}
+
 @media screen and (max-width: 992px){
 
     .profile-grid{
@@ -196,6 +215,10 @@ h1::after{
 
     #desktop-event-container{
         display: none;
+    }
+
+    #left-pane-inner-dropdown{
+        display: block;
     }
     
 }
