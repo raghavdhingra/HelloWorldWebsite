@@ -35,11 +35,11 @@ def TeamUrlData():
 
 def MemberDetails(userId):
     try:
-        url = "http://hello-world15.herokuapp.com/teamapi/id=" + str(int(userId) + 2)
+        url = "http://hello-world15.herokuapp.com/teamapi/id=" + str(userId)
         data = requests.get(url)
         resp = json.loads(data.text)
     except:
-        url = "http://127.0.0.1:8000/teamapi/id=" + str(int(userId) + 2)
+        url = "http://127.0.0.1:8000/teamapi/id=" + str(userId)
         data = requests.get(url)
         resp = json.loads(data.text)
     return resp
@@ -82,10 +82,11 @@ def testUrl(request):
 def auth(request):
     username = ""
     if request.user.is_authenticated:
-        data = MemberDetails(request.user.id)
-        username = data[0]['first_name']
+        username = User.objects.filter(pk=request.user.id)[0].first_name
         if username == '':
             username = request.user.username
+    
+    print(username)
     context = {
         "title":"Authorization",
         "meta_title":"LogIn / SignUp",
@@ -94,7 +95,7 @@ def auth(request):
     }
     return render(request,'auth.html',context)
 
-@login_required
+
 def log_out(request):
     try:
         logout(request)
@@ -131,7 +132,7 @@ def log_in(request):
 
         else:
             request.session['msg']='notFound'
-            return redirect('/user/profile')
+            return redirect('/authorization')
             
         # except Exception as e:
         #     print("\n" + str(e) + "\n")
@@ -151,11 +152,23 @@ def sign_up(request):
             new_user = User.objects.create_user(username = username, email = email, password = password)
             new_user.save()
             print("\n" + 'New Account has been created with username :' + str(username) + "\n")
-            TeamMember(user = new_user).save()
             user = authenticate(username = username, password = password)
             login(request,user)
+            
             print("\n" + 'successfully Logined as ' + str(username) + "\n")
-            TeamMember.objects.filter(user = User.objects.get(pk = request.user.id)).update(user_name = username)
+            contact = {
+                "email": email,
+                "phone": "",
+                "address": "",
+                },
+            TeamMember.objects.filter(user=request.user).create(
+                user_id = request.user.id,
+                user_name = username,
+                contact = contact,
+                authorised = False,
+                designation = "Member",
+                )
+            request.session['msg']=''
 
         else:
             request.session['msg']='pass_not_match'
@@ -164,8 +177,10 @@ def sign_up(request):
 
     else:
         print("\n Somthing Wrong Happened. \n")
+        request.session['msg']=''
         return HttpResponse('<h2>Something Wrong Happened </h2>')
-        
+    
+    request.session['msg']=''
     return redirect('/user/edit')
 
 
