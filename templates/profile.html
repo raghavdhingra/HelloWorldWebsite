@@ -9,6 +9,12 @@
         background: rgba(0,0,0,0.1);
     }
 
+    @media screen and (max-width: 992px){
+        .left-active2,.left-active3,.left-active4,.left-active5{
+            display: none;
+        }
+    }
+
 </style>
 
 <h1>Your <span style="color:#1a73e8">Profile</span></h1>
@@ -20,25 +26,27 @@
 
         <div>
             <div class="avatar">
-                <img src="{{ profilePic }}" class="img" />
+                <img src="{{ profilePic.url }}" class="img" onError="imageReplace(this);" alt="{{ username }} | Avatar" />
+                <Br>
                 <!-- <img src="{% static 'assets/logo/member-proto.png' %}" class="img" /> -->
             </div>
 
             <Br>
 
-            <span style="margin: 0.2em 1em;font-weight: bold;color: #888;float: right;">
+            <span style="margin: 0.2em 1em;font-weight: bold;color: #888;">
                 Username - <span style="color: #333;"> {{ request.user.username }} </span>
             </span>
             <Br>
-            <span style="margin: 0.2em 1em;font-weight: bold;color: #1a73e8;float: right;">            
-                Core Member
+            <span style="margin: 0.2em 1em;font-weight: bold;color: #1a73e8;">            
+                {{ designation }}
+                <Br><br>
             </span>
             
         </div>
 
         <div>
             <div class="label">Your Full Name</div>
-            <input type="text" class="input" value="{{ name }}" placeholder="Full Name, e.g - Raghav Dhingra" readonly/>
+            <input type="text" class="input" value="{{ request.user.first_name }} {{ request.user.last_name }}" placeholder="Full Name, e.g - Raghav Dhingra" readonly/>
 
             <div class="label">Your E-Mail ID</div>
             <input type="email" class="input" value="{{ contact.email }}" placeholder="E-Mail e.g - example@mail.com" readonly/>
@@ -50,6 +58,20 @@
     </div>
 
 
+    <div>
+        <div class="label">Your College/University</div>
+        <input type="text" class="input" value="{{ college }}" readonly/>
+    </div>
+
+    <div>
+        <div class="label">You're Currently Pursuing</div>
+        <input type="text" class="input" value="{{ degree }}" readonly/>
+    </div>
+
+    <div>
+        <div class="label">Your Year Of Passing</div>
+        <input type="number" class="input" value="{{ passing_year }}" readonly/>
+    </div>
     
     <div>
         <div class="label">Your Skills</div>
@@ -79,7 +101,7 @@
     </div>
 
     <div>
-        <div class="label">Your Description</div>
+        <div class="label">About You</div>
         <textarea class="input textarea" placeholder="Description e.g - I am a Web Developer..." readonly> {{ description }} </textarea>
     </div>
 
@@ -115,4 +137,5 @@
 
 </form>
         
+
 {% endblock %}
