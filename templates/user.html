@@ -17,9 +17,18 @@
         background: rgba(0, 0, 0, 0.1);
         border-radius: 5px;
     }
+
 </style>
 
 <link href="{% static 'css/user.css' %}" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    const imageReplace = (image) => {
+        image.onerror = "";
+        image.src = "{% static 'assets/logo/user-no-image.png' %}";
+        return true;
+    }
+</script>
 
 {% endblock %}
 
@@ -57,19 +66,27 @@
         <div>
             <div class="left-pane">
                 <div class="left-pane-inner">
-                    
-                    <ul>
-                        <a href="{% url 'profile' %}"><li class="left-active1"> <i class="fas fa-user-circle"></i> &nbsp;&nbsp;Profile</li></a>
-                        <a href="{% url 'edit' %}"><li class="left-active2"> <i class="fas fa-user-edit"></i> &nbsp;Edit User</li></a>
-                        <a href="{% url 'changepassword' %}"><li class="left-active3"> <i class="fas fa-lock"></i> &nbsp;&nbsp;Password</li></a>
-                        <a href="{% url 'resume' %}"><li class="left-active4"> <i class="fas fa-file-alt"></i> &nbsp;&nbsp;Resume Builder</li></a>
-                    </ul>
-
+                    <div>    
+                        <ul>
+                            <a href="{% url 'profile' %}"><li class="left-active1" id="left-active1"> <i class="fas fa-user-circle"></i> &nbsp;&nbsp;<div style="display: inline-block;">Profile</div></li></a>
+                            <a href="{% url 'edit' %}"><li class="left-active2" id="left-active2"> <i class="fas fa-user-edit"></i> &nbsp;<div style="display: inline-block;">Edit User</div></li></a>
+                            <a href="{% url 'changepassword' %}"><li class="left-active3" id="left-active3"> <i class="fas fa-lock"></i> &nbsp;&nbsp;<div style="display: inline-block;">Password</div></li></li></a>
+                            <a href="{% url 'resume' %}"><li class="left-active4" id="left-active4"> <i class="fas fa-file-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Resume Builder</div></li></a>
+                            <a href="{% url 'logout' %}"><li class="left-active5" id="left-active5"> <i class="fas fa-sign-out-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Logout</div></li></a>
+                        </ul>
+                    </div>
+                    <div id="left-pane-inner-dropdown">
+                        <ul>
+                            <a style="padding: 1em;" id="leftPaneToggleBtn">
+                                <i class="fas fa-chevron-down" id="turnAround"></i>
+                            </a>
+                        </ul> 
+                    </div>
                 </div>
             </div>
             
             <div class="left-pane" id="desktop-event-container">
-                <div class="left-pane-inner">
+                <div class="left-pane-inner" style="grid-template-columns: 1fr;">
                     <h1 style="margin-bottom: 0.5em;">Upcoming <span style="color:#1a73e8">Events</span></h1>
                     <span style="color: #888;margin: 0 1em;font-weight: bold;">Register Yourself Now</span>
                 </div>
@@ -80,16 +97,25 @@
         <div>
             <div class="right-pane">
                 <div class="right-pane-inner">
-                    
+                    {% if user.is_authenticated %}
                     {% block right_pane %}
 
                     {% endblock %}
+                    {% else %}
+                    <center>
+                        <h1>Access Denied</h1>
+                        <h3>You are not allowed to access this tab</h3>
+                        <h4>Only authorised user can have access to this page.</h4>
+                        <a href="{% url 'home' %}" style="color: #333;text-decoration: none;"><h3>Go Back</h3></a>
+                    </center>
+
+                    {% endif %}
 
                 </div>
             </div>
 
             <div class="left-pane" style="margin-bottom: 1em; margin-top: 0." id="mobile-event-container">
-                <div class="left-pane-inner">
+                <div class="left-pane-inner" style="grid-template-columns: 1fr;">
                     <h1 style="margin-bottom: 0.5em;">Upcoming <span style="color:#1a73e8">Events</span></h1>
                     <span style="color: #888;margin: 0 1em;font-weight: bold;">Register Yourself Now</span>
                 </div>

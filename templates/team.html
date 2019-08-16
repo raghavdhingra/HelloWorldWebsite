@@ -31,6 +31,8 @@ div.nav-drop-down li.drop-active1{
 /*For Nav Bar Active Element Displaying the current page----------------*/
 </style>
 
+<link href="{% static 'css/team.css' %}" rel="stylesheet" />
+
 {% endblock %}
 
 
@@ -52,22 +54,139 @@ div.nav-drop-down li.drop-active1{
 
 <!--Spacing Block_______________________-->
 <div class="container">
-    This is the content
-    content
-    <div id="width"></div><button onclick="fun();">See</button>
-    <script>
-    const fun = () => {
-        document.getElementById("width").innerText = window.innerWidth;
-    }
-    </script>
-    content<Br>content<Br>content<Br>
-        content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                content<Br>content<Br>content<Br>content<Br>content<Br>
-                    content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-                        content<Br>content<Br>content<Br>content<Br>conr>content<Br>content<Br>content<Br>content<Br>
-                            content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>content<Br>
-            content<Br>content<Br>content<Br>content<Br>content<Br>
+    
+    <div class="page-heading">
+        Our Precious <span style="color: #1a73e8;">Team</span>
+    </div>
+
+
+    <center><span style="color: #666;font-size:2em;color: #1a73e8;font-family: google-sans-bold;">LEAD</span></center>
+    <Br>
+    <div class="MainTeamDiv">
+        {% for lead in teamMember %}
+        {% if lead.authorised == True %}
+        {% if lead.designation == "Society Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Society Lead </span>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+    <div class="spacing-4"></div>
+    
+    
+    <center><span style="color: #666;font-size:2em;color: #1a73e8;font-family: google-sans-bold;">Department Leads / Mentors</span></center>
+    <Br>
+    <div class="MainTeamDiv">
+        {% for lead in teamMember %}
+        {% if lead.authorised == True %}
+
+        {% if lead.designation == "Web Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Web Development Lead </span>
+        </div>
+        {% endif %}
+
+        {% if lead.designation == "ML Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Machine Learning Lead </span>
+        </div>
+        {% endif %}
+
+        {% if lead.designation == "Android Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Society Lead </span>
+        </div>
+        {% endif %}
+
+        {% if lead.designation == "Graphics Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Society Lead </span>
+        </div>
+        {% endif %}
+
+        {% if lead.designation == "Competitive Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Society Lead </span>
+        </div>
+        {% endif %}
+
+        {% if lead.designation == "Content Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Society Lead </span>
+        </div>
+        {% endif %}
+
+        {% if lead.designation == "Ethical Lead" %}
+        <div class="teamMemberDiv">
+            <div class="memberImage">
+                <div class="memberImageInner">
+                    <img src="{{lead.profile_picture.url}}" style="border-radius: 50%;" width="100%" alt="Society Lead" />
+                </div>
+            </div>
+            <br>
+            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name }} </span><Br>
+            <span style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;"> Society Lead </span>
+        </div>
+        {% endif %}
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
     <div class="spacing-3"> </div>
 </div>
 {% endblock %}
