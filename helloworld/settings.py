@@ -14,6 +14,8 @@ import os
 import django_heroku
 import psycopg2
 import dj_database_url
+import cloudinary
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
     'main',
     'login',
     'rest_framework',
@@ -81,6 +84,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'filter_tag':'main.filter_tag',
+            }
         },
     },
 ]
@@ -127,6 +133,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+cloudinary.config(
+    cloud_name = "raghavdhingra",
+    api_key = "676478377368971",
+    api_secret = "FjnMXXangAmt1JwsC76eykQXU-k",
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -151,6 +162,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
 WHITENOISE_ROOT = os.path.join(BASE_DIR, 'static', 'root') 
 
 django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'contact@helloworldofficial.in'
+EMAIL_HOST_PASSWORD = 'HelloWorld1.'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'contact@helloworldofficial.in'

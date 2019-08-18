@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from helloworld.settings import *
 from main import views as mainView
 from login import views as loginView
 from rest_framework.urlpatterns import format_suffix_patterns
 teampi = 'teamapi/key=1a35d89ise039'
+
 urlpatterns = [
     path('admin', admin.site.urls,name="admin"),
     path('', mainView.home,name="home"),
@@ -40,4 +42,5 @@ urlpatterns = [
     path('user/edit',mainView.edit,name='edit'),
     path('user/change-password',mainView.changepassword,name='changepassword'),
     path('user/build-your-resume',mainView.resume,name='resume'),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('query',mainView.footerForm,name="footerForm"),
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(MEDIA_URL,document_root=MEDIA_ROOT)
