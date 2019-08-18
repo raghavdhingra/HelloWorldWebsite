@@ -252,8 +252,8 @@
     grid-template-columns: auto 1fr auto;
     padding: 1em;
     overflow: hidden;
-    max-height: 15em;
-    height: 15em;
+    max-height: 19em;
+    height: 19em;
     width: auto;
   }
 
@@ -264,7 +264,7 @@
     box-shadow: 0 0 10px 10px #fff;
     overflow: hidden;
     transition: 0.2s;
-    line-height: 240px;
+    line-height: 304px;
     vertical-align: middle;
     color: var(--themeColor);
     cursor: pointer;

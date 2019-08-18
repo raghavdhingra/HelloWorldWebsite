@@ -537,6 +537,26 @@ footer span a:hover i{
     }
 }
 
+
+/*Animation COLOR*/
+
+.animateColor{
+    font-family: google-sans-bold;
+    display: inline-flex;
+    animation: animateColor 4s linear infinite forwards;
+}
+
+@keyframes animateColor{
+    0%{color: #1a73e8;}
+    20%{color: red;}
+    40%{color: green;}
+    60%{color: yellow;}
+    80%{color: orange;}
+    100%{color: #1a73e8;}
+}
+
+/*Aimation COLOR*/
+
 /*1045px*/
 @media screen and (max-width: 1045px){
     #drop_contact2{

@@ -1,12 +1,13 @@
 
 .MainTeamDiv{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-flow: row wrap;
 }
 
 .teamMemberDiv{
-    margin: 0 3em;
+    margin: 20px;
+    margin-bottom: 30px !important;
 }
 
 .memberImage{
@@ -17,7 +18,7 @@
 }
 
 .memberImageInner{
-    background: #ccc;
+    background: #1a73e8;
 }
 
 @media screen and (max-width: 600px){
