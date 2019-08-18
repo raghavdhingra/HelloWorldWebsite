@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>{{first}}'s Query</h1>
+        <br>
+        Name: <b> {{name}} </b><br>
+        E-mail Address: {{email}}<br>
+        {% if phone is None %}
+        {% else %}
+        Contact Number: {{ phone }}<br>
+        {% endif %}
+        Query: "{{query}}"<Br>
+            <Br>
+        <h3>Your Query has been Submitted.</h3>
+        <h4>We will soon respond to your query. Till then wait patiently and keep Coding</h4>
+         
+        <h5><b>Note**</b></h5>
+        <b>Please don't reply to this email</b>
+
+    </body>
+</html>
