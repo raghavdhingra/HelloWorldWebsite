@@ -5,19 +5,19 @@ def education():
 
 def skills():
     return {
-        "skill": ["skill1","skill2"]
+        "skill": []
     }
 
 def contact():
     return {
-        "phone": "Your Number",
-        "address": "Your Address",
-        "email": "Your email Id"
+        "phone": "",
+        "address": "",
+        "email": ""
     }
 
 def links():
     return {
         "facebook": "https://www.facebook.com/",
-        "twitter": "https://twitter.com",
+        "twitter": "https://twitter.com/",
         "github": "https://github.com/"
     }

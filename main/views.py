@@ -3,6 +3,11 @@ from django.http import HttpResponse,JsonResponse
 from rest_framework.response import Response
 from django.contrib.auth.models import User,Group
 from login.views import TeamUrlData, MemberDetails
+from django.core.mail import EmailMultiAlternatives
+from django.core.mail import send_mail
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from django.template.loader import render_to_string
 from .models import TeamMember
 from login.views import *
 import json
@@ -11,7 +16,7 @@ import requests
 # Create your views here.
 def home(request):
     username = ""
-    teamMember = range(0,10)
+    teamMember = TeamMember.objects.all()
     if request.user.is_authenticated:
         print(str(request.user) + "\n")
         print(str(request.user.id) + "\n")
@@ -19,9 +24,9 @@ def home(request):
         if username == '':
             username = request.user.username
     context = {
-        "title":"Home | Hello World",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "title":"Home | HelloWorld",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website ofHELLO WORLD",
         "teamMembers": teamMember,
         "username": username,
     }
@@ -34,24 +39,47 @@ def about(request):
         if username == '':
             username = request.user.username
     context = {
-        "title":"About | Hello World",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "title":"About | HelloWorld",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website of HELLOWORLD",
         "username": username,
     }
     return render(request,'about.html',context)
 
 def contact(request):
     username = ""
+    messageStatus = ""
     if request.user.is_authenticated:
         username = User.objects.filter(pk=request.user.id)[0].first_name
         if username == '':
             username = request.user.username
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        query = request.POST.get('query')
+
+        mail_context = {
+            "first": name.split(' ')[0],
+            "email":email,
+            "name": name,
+            "phone":phone,
+            "query": query,
+        }
+        html_content = render_to_string('email.html',mail_context)
+        info_to_send = str(name) + "\n" + str(email) + "\n" + str(query)
+        msg = EmailMultiAlternatives("{}'s Query ".format(name), info_to_send, 'contact@helloworldofficial.in', ['info@helloworldofficial.in',email])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+        messageStatus = "200"
+
     context = {
-        "title":"Contact | Hello World",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "title":"Contact | HelloWorld",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website of HELLOWORLD",
         "username": username,
+        "messageStatus": messageStatus,
     }
     return render(request,'contact.html',context)
 
@@ -63,11 +91,11 @@ def team(request):
             username = request.user.username
 
     teamMember = TeamMember.objects.all()
-    
+
     context = {
-        "title":"Team | Hello World",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "title":"Team | HelloWorld",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website of HELLOWORLD",
         "username": username,
         "teamMember": teamMember,
     }
@@ -81,9 +109,9 @@ def event(request):
         if username == '':
             username = request.user.username
     context = {
-        "title":"Events | Hello World",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "title":"Events | HelloWorld",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website of HELLOWORLD",
         "username": username,
     }
     return render(request,'event.html',context)
@@ -107,8 +135,8 @@ def profile(request):
             "username":username,
             "header": "Your Profile",
             "title": str(username) + " | Profile",
-            "meta_title":"Hello World | GTBIT",
-            "meta_description":"This is the official website of HELLO WORLD",
+            "meta_title":"HelloWorld | GTBIT",
+            "meta_description":"This is the official website of HELLOWORLD",
             "contact": user_data.contact,
             "profilePic": user_image_url,
             "interest": interest_arr[0],
@@ -207,8 +235,8 @@ def edit(request):
             "username":username,
             "header": "Edit Your Profile",
             "title": str(username) + " | Edit",
-            "meta_title":"Hello World | GTBIT",
-            "meta_description":"This is the official website of HELLO WORLD",
+            "meta_title":"HelloWorld | GTBIT",
+            "meta_description":"This is the official website of HELLOWORLD",
             "contact": user_data.contact,
             "email": User.objects.filter(pk=request.user.id)[0].email,
             "profilePic": user_image_url,
@@ -242,8 +270,8 @@ def changepassword(request):
         "username":username,
         "header": "Change Your Password",
         "title": str(username) + " | Change Password",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
     }
     return render(request,'changepassword.html',context)
@@ -259,11 +287,34 @@ def resume(request):
         "username":username,
         "header": "Build Your Resume",
         "title": str(username) + " | Build Resume",
-        "meta_title":"Hello World | GTBIT",
-        "meta_description":"This is the official website of HELLO WORLD",
+        "meta_title":"HelloWorld | GTBIT",
+        "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
     }
     return render(request,'resume.html',context)
 
 def uploadFile(file):
     cloudinary.uploader.upload(file)
+
+def verifyIt(request):
+    return render(request,'../.well-known/acme-challenge/LoKO_jQCYTp5Sm7Vrj6sUtkqQ89khvJg0KRhWHZquoM')
+
+def footerForm(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        query = request.POST.get('message')
+        
+        mail_context = {
+            "first": name.split(' ')[0],
+            "email":email,
+            "name": name,
+            "query": query,
+        }
+        html_content = render_to_string('email.html',mail_context)
+        info_to_send = str(name) + "\n" + str(email) + "\n" + str(query)
+        msg = EmailMultiAlternatives("{}'s Query ".format(name), info_to_send, 'contact@helloworldofficial.in', ['info@helloworldofficial.in',email])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+    return redirect('/')
