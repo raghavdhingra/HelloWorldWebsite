@@ -90,7 +90,7 @@ def auth(request):
     context = {
         "title":"Authorization",
         "meta_title":"LogIn / SignUp",
-        "meta_description":"You can Login or SignUp through this on the HELLO WORLD Site",
+        "meta_description":"You can Login or SignUp through this on the HELLOWORLD Website",
         "username": username,
     }
     return render(request,'auth.html',context)
