@@ -61,7 +61,7 @@
                 <div>
                     <!-- <img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="Hello World LOGO"> -->
                     <!-- <span class="nav-logo-text" id="nav-logo-text"> Hello World</span> -->
-                    <span class="nav-logo-text" id="nav-logo-text">&lt; / &gt; Hello World</span>
+                    <span class="nav-logo-text" id="nav-logo-text">&lt; / &gt; HelloWorld</span>
                     
                 </div>   
                 <div>
@@ -105,7 +105,7 @@
         <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
         <a href="{% url 'event' %}"><li class="drop-active2">Upcoming / Past Events</li></a>
         {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}"><li class="drop-active2">Logout</li></a>
+        <a href="{% url 'logout' %}"><li>Logout</li></a>
         {% else %}
         {% endif %}
     </div>
@@ -132,14 +132,14 @@
                 <div class="spacing-2"></div>
                     <div class="nav-grid"> 
                         <div>
-                            <span class="nav-logo-text">&lt; / &gt; Hello World</span>
+                            <span class="nav-logo-text">&lt; / &gt; HelloWorld</span>
                         </div>   
                         <div>
                             <ul class="nav_element2">
                                 {% if user.is_authenticated %}
-                                <li><a>Hello! <span> {{ username }} </span></a></li>
+                                <a><li>Hello! <span> {{ username }} </span></li></a>
                                 {% else %}
-                                <li><a href="{% url 'auth' %}"><span>SignIn / SignUp</span></a></li>
+                                <a href="{% url 'auth' %}" style="overflow: hidden;"><li style="overflow: hidden;"><span>SignIn / SignUp</span></li></a>
                                 {% endif %}
                             </ul>
                         </div>
@@ -151,19 +151,14 @@
                 <a href="{% url 'home' %}" class="mobile_nav_elmt2" title="HOME"><i class="fas fa-home"></i> Home</a>
                 <a href="{% url 'about' %}" class="mobile_nav_elmt2" title="ABOUT"><i class="fas fa-list-ul"></i> About</a>
                 <a href="{% url 'contact' %}" class="mobile_nav_elmt2" title="CONTACT"><i class="fas fa-user"></i> Contact</a>
-
-                {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}" class="mobile_nav_elmt2" title="Profile"><i class="fas fa-sign-in-alt"></i> My Account</a>
-                {% else %}
-                <a href="{% url 'auth' %}" class="mobile_nav_elmt2" title="SIGNIN/SIGNUP"><i class="fas fa-sign-in-alt"></i> SignIn / SignUp</a>
-                {% endif %}
-
                 <a href="{% url 'team' %}" class="mobile_nav_elmt2" title="TEAM"><i class="fas fa-users"></i> Team</a>
                 <a href="{% url 'event' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="fas fa-clipboard-check"></i> Upcoming / Past Events</a>
 
                 {% if user.is_authenticated %}
-                <a href="{% url 'event' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="far fa-id-card"></i> Profile</a>
+                <a href="{% url 'profile' %}" class="mobile_nav_elmt2" title="Profile"><i class="far fa-id-card"></i> My Account</a>
+                <a href="{% url 'logout' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="fas fa-sign-in-alt"></i> Logout</a>
                 {% else %}
+                <a href="{% url 'auth' %}" class="mobile_nav_elmt2" title="SIGNIN/SIGNUP"><i class="fas fa-sign-in-alt"></i> SignIn / SignUp</a>
                 {% endif %}
             </div>
         </div>
@@ -183,20 +178,22 @@
         <div class="container">
             <div class="footer_grid">
                 <div style="padding-bottom: 2em;">
-                    <h1 style="text-shadow: 0 0 3px var(--footer);padding-bottom: 0.5em;color: #eee;"> &lt; / &gt; Hello World</h1>
-                    <div style="padding: 0 1em;">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui dicta molestiae vitae quod rem ipsam veniam amet?
-                        Nisi architecto ratione eaque vitae autem, adipisci quaerat ut earum commodi doloribus quisquam.
+                    <h1 style="text-shadow: 0 0 3px var(--footer);padding-bottom: 0.5em;color: #eee;"> &lt; / &gt; HelloWorld</h1>
+                    <div style="padding: 0 0.5em;">
+                            <span style="font-size: 1.2em;">"There is nothing like a shared interest to draw people together."</span>
+                            <br><Br>
+                            You can find us on various platforms and get to know us more.<Br> 
+                            Just find and click the links below!
                         <br><br>
                         <div style="padding: 0.5em 0;">
                             <b>Follow Us on - </b>
                         </div>
                         <span>
                             <a href="https://www.facebook.com/helloworldteam/" title="FACEBOOK | HELLO WORLD"><i style="color: #3b5998;" class="fab fa-facebook"></i></a>
-                            <a href="" title="TWITTER | HELLO WORLD"><i style="color: #38A1F3;" class="fab fa-twitter"></i></a>
-                            <a href="" title="MEETUP | HELLO WORLD"><i style="color: #e51937;" class="fab fa-meetup"></i></a>
-                            <a href="" title="GOOGLE PLUS | HELLO WORLD"><i style="color: #CC3333;" class="fab fa-google-plus"></i></a>
+                            <a href="https://www.linkedin.com/company/helloworldofficial/about/" title="LINKEDIN | HELLO WORLD"><i style="color: #0077B5;" class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/HelloWorldGTBIT" title="GITHUB | HELLO WORLD"><i style="color: #888;" class="fab fa-github"></i></a>
                             <a href="https://www.instagram.com/official_hello_world/" title="INSTAGRAM | HELLO WORLD"><i style="color: #8a3ab9;" class="fab fa-instagram"></i></a>
+                            <a href="mailto:info@helloworldofficial.in" title="Mail Us | info@helloworldofficial.in"><i style="color: #e51937;" class="fas fa-envelope"></i></a>
                         </span>
                     </div>
                 </div>
@@ -208,7 +205,7 @@
                     </div>
                     <h3 style="margin: 1em 0 0.5em 0;">Tags</h3>
                     <div class="category_btn">
-                        <a>#Hello World</a>
+                        <a>#HelloWorld</a>
                         <a>#Tags</a>
                         <a>#Tagging Lives</a>
                         <a>#Making You Live</a>
@@ -218,7 +215,7 @@
                 </div>
                 <div class="query_form">
                     <h2 style="padding-bottom: 0.7em;">Get In Touch With Us</h2>
-                    <form method="POST" action="">
+                    <form method="POST" action="{% url 'footerForm' %}">
                         {% csrf_token %}
                         <input type="text" name="name" placeholder="Full Name" /><Br>
                         <input type="email" name="email" placeholder="Email Address" /><br>
@@ -227,14 +224,14 @@
                     </form>
                 </div>
             </div>
-
-
+            <div class="spacing-1"></div>
+            <center>Made With <i style="color: red;transform: translateY(20%); padding: 0 0.3em;" class="fas fa-heart"></i> , keyboard by the <div class="animateColor">Web Team</div> - <span style="font-family: google-sans-bold;">HelloWorld</span></center>
             <div class="spacing-1"></div>
             <center>
                 <hr width="75%"/>
                 <div class="spacing-1"></div>
                 <span style="font-size: 0.8em;">
-                    &copy; Hello World 2019. All Rights Reserved.
+                    &copy; HelloWorld 2019. All Rights Reserved.
                     <br class="next-line2">
                     <br class="next-line2">
                     <br class="next-line2">
