@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load filter_tag %}
 
 {% block header %}
 
@@ -43,7 +44,7 @@ ul.nav_element span.nav-active1{
             </center>
             <div class="intro-tagline">
                 <h1 style="font-size: 2.4em;">#' Tagging <font color="#1a73e8">Lives</font></h1><br>
-                <h3 style="font-family: google-sans-light;font-weight: 500;">Hello world is a non-profit organisation which aims to broaden the conception of coding. We members of Hello World strive hard to impart our knowledge and introduce the young minds to world of digitalization</h3>
+                <h3 style="font-family: google-sans-light;font-weight: 500;">HelloWorld is a non-profit organisation which aims to broaden the conception of coding. We members of HelloWorld strive hard to impart our knowledge and introduce the young minds to world of digitalization</h3>
                 <br>
                 <h3 style="font-family: google-sans-light;font-weight: 100;color: #999;">Join Us and be a part of this unique society.</h3><Br>
                 <a href="#" class="join-us join-us1">Join Us</a>
@@ -55,9 +56,9 @@ ul.nav_element span.nav-active1{
 </div>
 <div class="about_column">
     <div class="container">
-        <p style="font-family: google-sans-light;font-weight: 500;font-size: 1.5em;">About Hello World</p><br>
+        <p style="font-family: google-sans-light;font-weight: 500;font-size: 1.5em;">About HelloWorld</p><br>
         <p>
-            Hello world is probably the first code of any language and it provides with you with a your first working code and headstart to the journey in the coding world. Hello World community was establish 4 years ago with a dream of connecting innovative minds to the coding world.
+            HelloWorld is probably the first code of any language and it provides with you with a your first working code and headstart to the journey in the coding world. HelloWorld community was establish 4 years ago with a dream of connecting innovative minds to the coding world.
             Within all these years of hardwork by each member, HelloWorld has created a list of successful events and classes with positive reviews. We aim to set more hands at work in the technical field for more innovations and progress.
         </p>
         <br>
@@ -65,10 +66,10 @@ ul.nav_element span.nav-active1{
         <div class="about-social">
             <Br>
             <a href="https://www.facebook.com/helloworldteam/" title="Facebook: Hello World"><i class="fab fa-facebook"></i></a>
-            <a href="" title="Twitter: Hello World"><i class="fab fa-twitter"></i></a>
-            <a href="" title="Github: Hello World"><i class="fab fa-github"></i></a>            
+            <a href="https://www.linkedin.com/company/helloworldofficial/about/" title="Linkedin: Hello World"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/HelloWorldGTBIT" title="Github: Hello World"><i class="fab fa-github"></i></a>         
+            <a href="mailto:info@helloworldofficial.in" title="Mail Us | info@helloworldofficial.in"><i class="fas fa-envelope"></i></a>         
             <a href="https://www.instagram.com/official_hello_world/" title="Instagram: Hello World"><i class="fab fa-instagram"></i></a>
-            <a href="" title="Meetup: Hello World"><i class="fab fa-meetup"></i></a>
         </div>
     </div>
 </div>
@@ -115,7 +116,12 @@ ul.nav_element span.nav-active1{
     </div>
 
     <span style="color: #888;font-size: 1.1em;">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil adipisci similique nisi ab voluptate aliquid inventore eos, illum id harum, consequuntur in itaque commodi dolore. Autem perspiciatis sed suscipit cumque.
+
+        To welcome the upcoming batch and spark a competitive spirit
+        among freshers.<Br> We are soon coming up with - TRIVIA. Trivia
+        would be an online non-technical event to test your logical skills.. <br>
+        <span style="font-family: google-sans-bold;">So be ready freshers for a challenge along with some amazing awards !</span>
+
     </span>
     <div class="upevent">
         <div>
@@ -137,7 +143,7 @@ ul.nav_element span.nav-active1{
             </div>
             <a class="upevent-btn" href="">Register Here</a>
             &nbsp;
-            <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a>
+            <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
             <div class="spacing-2"></div>
         </div>
     </div>
@@ -153,9 +159,14 @@ ul.nav_element span.nav-active1{
 
     
     <p style="color: #888;font-size: 1.1em;">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus autem ducimus itaque?
-        Praesentium voluptatum nobis blanditiis! Voluptas numquam ad cupiditate, ullam facere
-        tenetur pariatur? Optio, iure ad? Ipsam, doloribus magni.<br><br>
+            To celebrate the idea of teamwork and collaboration
+            we have gathered a team of handful which has managed 
+            to be one of the most active societies of our college. <Br>
+            We believe the ideas grow when it shifts from mind to 
+            mind starting from where it sprang up.<Br> Our team consists 
+            of tech-enthusiasts with varied skill sets. <Br><Br>
+            <span style="font-family: google-sans-bold; ">Meet the HelloWorld Team --</span>
+        <br><br>
     </p>
     
     <div class="team-container">
@@ -163,19 +174,21 @@ ul.nav_element span.nav-active1{
         <div class="team-member-inner" id="team-member-inner">
             <div class="team-member-inner-inner" id="team-member-inner-inner">
 
-                {% for i in teamMembers %}
+                {% for team in teamMembers %}
+                {% if team.authorised == True %}
                 <div class="team-member">
                     <a href="" title="View Profile">
-                        <center><img src="{% static 'assets/logo/member-proto.png' %}" height="100px" width="150px" alt="100px X 150px" /></center>
+                        <center><img src="{{ team.profile_picture.url }}" height="150px" width="150px" alt="150px X 150px" style="border-radius: 50%;" /></center>
                         <div class="team-content">
-                            <div style="color: #1a73e8;font-family: google-sans-bold;">Full Name</div>
+                            <div style="color: #1a73e8;font-family: google-sans-bold;"> {{ team.first_name }} {{ team.last_name|truncatechars:7|safe }} </div>
                             <span>
-                                Web Developer
-                                <div style="font-family: google-sans-bold;">Designation</div>
+                                {{ team.specialisation|specs|truncatechars:20|safe }}
+                                <div style="font-family: google-sans-bold;"> {{ team.designation|truncatechars:40|safe }} </div>
                             </span>
                         </div>
                     </a>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
