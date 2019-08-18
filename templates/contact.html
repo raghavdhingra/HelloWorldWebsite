@@ -108,5 +108,12 @@ ul.nav_element span.nav-active3{
     <div class="spacing-3"> </div>
 </div>
 
+{% if messageStatus == "200" %}
+<script>
+alert("Your Query has been sent.")
+</script>
+{% else %}
+{% endif %}
+
 
 {% endblock %}
