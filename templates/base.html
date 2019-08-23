@@ -54,12 +54,76 @@
 <body>
 
 
+    <!--Developer Information-->
+
+    
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/devPost.css' %}" />
+
+    
+    <div class="dev-icon" id="dev-icon">
+        <img src="{% static 'assets/logo/dev-info.png' %}" class="dev-icon-image" id="dev-icon-image" width="100%" alt="Raghav Dhingra | HelloWorld"/>
+        <div class="developer_name">
+            <span class="animdev">D</span>
+            <span class="animdev">E</span>
+            <span class="animdev">V</span>
+            <span class="animdev">E</span>
+            <span class="animdev">L</span>
+            <span class="animdev">O</span>
+            <span class="animdev">P</span>
+            <span class="animdev">E</span>
+            <span class="animdev">R</span>
+        </div>
+    </div>
+
+    <div class="dev-container-overlay none" id="dev-container-overlay">
+        <div class="dev-container">
+            <div class="none" id="dev-container-content">
+                <center>
+                    <div>
+                        <div class="animTopToBottom" style="padding: 0.3em;font-size: 1.5em;background:#1a73e8;margin: 0.2em 0;color: #fff;">
+                            <b>Website Developer</b>
+                        </div>
+                        <div class="animTopToBottom" style="height: 200px;width: 200px;padding: 0 1em;overflow: hidden;padding-bottom: 0.8em;">
+                            <img src="{{ developer.url }}" alt="Raghav Dhingra | HelloWorld" width="100%" style="border-radius: 50%;padding: 0.2em;border: 0.2em dashed #1a73e8;" />
+                        </div>
+                        <div class="animTopToBottom" style="padding: 0.5em;margin: 0.2em 1em;font-weight: bold;">
+                            <div class="raghav">Raghav Dhingra</div>
+                        </div>
+                    </div>
+                    <div class="animTopToBottom">Know More About me:<Br>
+                        <a href="https://www.facebook.com/raghav.dhingra15" title="FACEBOOK"><i style="color: #3b5998;" class="fab fa-facebook"></i></a>                        
+                        <a href="https://www.linkedin.com/in/raghav-dhingra-168a41168/" title="LINKEDIN"><i style="color: #3b5998;" class="fab fa-linkedin"></i></a>                        
+                        <a href="https://github.com/raghavdhingra" title="GITHUB"><i style="color: #3b5998;" class="fab fa-github"></i></a>                        
+                        <a href="https://www.instagram.com/raghav.dhingra15/" title="INSTAGRAM"><i style="color: #3b5998;" class="fab fa-instagram"></i></a>                        
+                        <a href="mailto:raghav.dhingra15@gmail.com" title="MAIL ME"><i style="color: #3b5998;" class="fas fa-envelope"></i></a>                        
+                    </div>
+                        <Br>
+                    <div class="animTopToBottom" style="background: #1a73e8; padding: 0.5em;color: #fff;">
+                        <span style="font-size: 0.55em;">
+                            If you find any bug or want to suggest some changes, feel free to reach out to us: 
+                        </span><Br>
+                        <span style="font-size: 0.8em;">    
+                            <a href="mailto:developers@helloworldofficial.in" style="color: #eee;" title="Mail Us | developers@helloworldofficial.in">developers@helloworldofficial.in</a>
+                        </span>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <!--Developer Information____________________________________-->
+
+
+
+
+
     <!--Nav Bar-->
     <div class="nav" id="main_nav">
         <div class="nav-inner">
             <div class="nav-grid"> 
                 <div>
-                    <!-- <img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="Hello World LOGO"> -->
+                    <!-- <img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="HelloWorld LOGO"> -->
                     <!-- <span class="nav-logo-text" id="nav-logo-text"> Hello World</span> -->
                     <span class="nav-logo-text" id="nav-logo-text">&lt; / &gt; HelloWorld</span>
                     
@@ -130,22 +194,22 @@
         <div class="mobile_nav_bar_inner2">
             <div class="nav-inner">
                 <div class="spacing-2"></div>
-                    <div class="nav-grid"> 
-                        <div>
-                            <span class="nav-logo-text">&lt; / &gt; HelloWorld</span>
-                        </div>   
-                        <div>
-                            <ul class="nav_element2">
-                                {% if user.is_authenticated %}
-                                <a><li>Hello! <span> {{ username }} </span></li></a>
-                                {% else %}
-                                <a href="{% url 'auth' %}" style="overflow: hidden;"><li style="overflow: hidden;"><span>SignIn / SignUp</span></li></a>
-                                {% endif %}
-                            </ul>
-                        </div>
+                <div class="nav-grid"> 
+                    <div>
+                        <span class="nav-logo-text">&lt; / &gt; HelloWorld</span>
+                    </div>   
+                    <div>
+                        <ul class="nav_element2">
+                            {% if user.is_authenticated %}
+                            <a><li>Hello! <span> {{ username }} </span></li></a>
+                            {% else %}
+                            <a href="{% url 'auth' %}" style="overflow: hidden;"><li style="overflow: hidden;"><span>SignIn / SignUp</span></li></a>
+                            {% endif %}
+                        </ul>
                     </div>
-                    <div class="spacing-2"></div>
                 </div>
+                <div class="spacing-2"></div>
+            </div>
                 
             <div class="container">
                 <a href="{% url 'home' %}" class="mobile_nav_elmt2" title="HOME"><i class="fas fa-home"></i> Home</a>
@@ -202,6 +266,7 @@
                     <div class="category_btn">
                         <a href="{% url 'home' %}">Code Of Conduct</a>
                         <a href="{% url 'home' %}">Terms and Condition</a>
+                        <a href="{% url 'home' %}">Privacy Policy</a>
                     </div>
                     <h3 style="margin: 1em 0 0.5em 0;">Tags</h3>
                     <div class="category_btn">
@@ -280,5 +345,49 @@
     {% block script %}
     {% endblock %}
     <!--Scripts Block_________________-->
+
+    <script>
+    
+    const devIcon = document.getElementById("dev-icon");
+const animdev = document.getElementsByClassName("animdev");
+const devIconImage = document.getElementById("dev-icon-image");
+const devOverlay = document.getElementById("dev-container-overlay");
+const devContent = document.getElementById("dev-container-content");
+
+var devIconVal = 0;
+devIcon.addEventListener("click",()=>{
+    if (devIconVal == 0){
+        for (var i = 0; i < animdev.length; i++){
+            animdev[i].classList.add("animdevAfter");
+        }
+        devIconImage.style.transition = "0.5s";
+        devIconImage.style.transform = "rotate(1800deg)";
+        devIconVal = 1;
+        setTimeout(()=>{ 
+            devIconImage.src = "{% static 'assets/logo/close.png' %}";
+        },250);
+        devOverlay.classList.remove("none");
+        setTimeout(() => {
+            devContent.classList.remove("none");
+        }, 1000);
+        devIcon.classList.add("dev-iconAfter");
+    }
+    else{
+        devContent.classList.add("none");
+        for (var i = 0; i < animdev.length; i++){
+            animdev[i].classList.remove("animdevAfter");
+        }
+        devIconImage.style.transform = "rotate(0deg)";
+        setTimeout(()=>{
+            devIconImage.src = "{% static 'assets/logo/dev-info.png' %}";
+        },250);
+        devOverlay.classList.add("none");
+        devIconVal = 0;
+        devIcon.classList.remove("dev-iconAfter");
+    }
+})
+
+    </script>
+
 </body>
 </html>

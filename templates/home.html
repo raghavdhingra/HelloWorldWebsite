@@ -39,7 +39,7 @@ ul.nav_element span.nav-active1{
 
             <center>
                 <div class="MainLogo">
-                    <img src="{% static 'assets/logo/color-Logo.png' %}" width="100%" />
+                    <img src="{% static 'assets/logo/color-Logo.png' %}" width="100%" alt="HelloWorld Logo" />
                 </div>
             </center>
             <div class="intro-tagline">
@@ -125,7 +125,7 @@ ul.nav_element span.nav-active1{
     </span>
     <div class="upevent">
         <div>
-            <center><img class="upevent_img" src="{% static 'assets/logo/event-proto.png' %}" height="200px" width="300px" /></center>
+            <center><img class="upevent_img" src="{% static 'assets/logo/event-proto.png' %}" alt="Upcoming Event" height="200px" width="300px" /></center>
         </div>
         <div>
             <div class="event-head">ABC</div>
@@ -178,7 +178,7 @@ ul.nav_element span.nav-active1{
                 {% if team.authorised == True %}
                 <div class="team-member">
                     <a href="" title="View Profile">
-                        <center><img src="{{ team.profile_picture.url }}" height="150px" width="150px" alt="150px X 150px" style="border-radius: 50%;" /></center>
+                        <center><img src="{{ team.profile_picture.url }}" height="150px" width="150px" alt="{{ team.first_name }} | HelloWorld" style="border-radius: 50%;" /></center>
                         <div class="team-content">
                             <div style="color: #1a73e8;font-family: google-sans-bold;"> {{ team.first_name }} {{ team.last_name|truncatechars:7|safe }} </div>
                             <span>
