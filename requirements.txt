@@ -10,6 +10,7 @@ gunicorn==19.9.0
 pathlib2==2.1.0
 Pillow==6.1.0
 psycopg2==2.7.4
+psycopg2-binary==2.7.5
 Pyrebase==3.0.27
 pytz==2019.1
 requests==2.22.0
