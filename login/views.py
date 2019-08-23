@@ -89,8 +89,8 @@ def auth(request):
     print(username)
     context = {
         "title":"Authorization",
-        "meta_title":"LogIn / SignUp",
-        "meta_description":"You can Login or SignUp through this on the HELLOWORLD Website",
+        "meta_title":"HelloWorld | LogIn/SignUp",
+        "meta_description":"Sign-up and login to participate in events and win goodies!",
         "username": username,
     }
     return render(request,'auth.html',context)
