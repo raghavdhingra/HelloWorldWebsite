@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'main',
     'login',
     'rest_framework',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE_CLASSES = [

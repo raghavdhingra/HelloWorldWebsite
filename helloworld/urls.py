@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.views.generic import TemplateView
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
@@ -22,6 +23,14 @@ from helloworld.settings import *
 from main import views as mainView
 from login import views as loginView
 from rest_framework.urlpatterns import format_suffix_patterns
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import views
+from .sitemap import *
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
+
 teampi = 'teamapi/key=1a35d89ise039'
 
 urlpatterns = [
@@ -43,4 +52,6 @@ urlpatterns = [
     path('user/change-password',mainView.changepassword,name='changepassword'),
     path('user/build-your-resume',mainView.resume,name='resume'),
     path('query',mainView.footerForm,name="footerForm"),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps }, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', TemplateView.as_view(template_name="./robots.txt", content_type='text/plain')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(MEDIA_URL,document_root=MEDIA_ROOT)
