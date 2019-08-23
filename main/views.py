@@ -25,10 +25,11 @@ def home(request):
             username = request.user.username
     context = {
         "title":"Home | HelloWorld",
-        "meta_title":"HelloWorld | GTBIT",
-        "meta_description":"This is the official website ofHELLO WORLD",
+        "meta_title":"HelloWorld | HOME",
+        "meta_description":"Welcome to the HelloWorld website. HelloWorld is the technical society of GTBIT. We aim to impart our knowledge and guidance to the young minds to create and improvise",
         "teamMembers": teamMember,
         "username": username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
     }
     return render(request,'home.html',context)
 
@@ -40,9 +41,10 @@ def about(request):
             username = request.user.username
     context = {
         "title":"About | HelloWorld",
-        "meta_title":"HelloWorld | GTBIT",
-        "meta_description":"This is the official website of HELLOWORLD",
+        "meta_title":"HelloWorld | ABOUT",
+        "meta_description":"Since the establishment of our team, we have created a team of minds with a varied skill set. Know more about us!",
         "username": username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
     }
     return render(request,'about.html',context)
 
@@ -79,6 +81,7 @@ def contact(request):
         "meta_title":"HelloWorld | GTBIT",
         "meta_description":"This is the official website of HELLOWORLD",
         "username": username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
         "messageStatus": messageStatus,
     }
     return render(request,'contact.html',context)
@@ -94,9 +97,10 @@ def team(request):
 
     context = {
         "title":"Team | HelloWorld",
-        "meta_title":"HelloWorld | GTBIT",
-        "meta_description":"This is the official website of HELLOWORLD",
+        "meta_title":"HelloWorld | Know Our Team",
+        "meta_description":"Since the establishment of our team, we have created a team of minds with a varied skill set. We work in various fields to develop and implement. We aren't just a team but a family sharing bonds and knowledge with a common aim to serve the era of globalisation and digitalization. Want to know more about our journey and plans ahead?",
         "username": username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
         "teamMember": teamMember,
     }
     return render(request,'team.html',context)
@@ -111,8 +115,9 @@ def event(request):
     context = {
         "title":"Events | HelloWorld",
         "meta_title":"HelloWorld | GTBIT",
-        "meta_description":"This is the official website of HELLOWORLD",
+        "meta_description":"Participate in our offline and online events to test your skills, keep the competitive spirits high and not to forget the goodies!  Login now to know more.",
         "username": username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
     }
     return render(request,'event.html',context)
 
@@ -133,6 +138,7 @@ def profile(request):
     try:
         context = {
             "username":username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
             "header": "Your Profile",
             "title": str(username) + " | Profile",
             "meta_title":"HelloWorld | GTBIT",
@@ -234,6 +240,7 @@ def edit(request):
         context = {
             "username":username,
             "header": "Edit Your Profile",
+            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
             "title": str(username) + " | Edit",
             "meta_title":"HelloWorld | GTBIT",
             "meta_description":"This is the official website of HELLOWORLD",
@@ -273,6 +280,7 @@ def changepassword(request):
         "meta_title":"HelloWorld | GTBIT",
         "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
     }
     return render(request,'changepassword.html',context)
 
@@ -290,6 +298,7 @@ def resume(request):
         "meta_title":"HelloWorld | GTBIT",
         "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
     }
     return render(request,'resume.html',context)
 
