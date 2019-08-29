@@ -40,6 +40,12 @@ urlpatterns = [
     path('contact', mainView.contact,name="contact"),
     path('know-our-team', mainView.team,name="team"),
     path('upcoming-and-past-events', mainView.event,name="event"),
+
+    path('code-of-conduct', mainView.code_of_conduct,name="conduct"),
+    path('terms-and-condition', mainView.terms_and_cond,name="terms"),
+    path('privacy-policy', mainView.privacy_policy,name="privacy"),
+    path('frequently-ask-questions', mainView.faqs,name="faq"),
+
     path(teampi, mainView.MemberList.as_view()),
     path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
     path('testurl',mainView.testUrl, name="testUrl"),
@@ -51,6 +57,14 @@ urlpatterns = [
     path('user/edit',mainView.edit,name='edit'),
     path('user/change-password',mainView.changepassword,name='changepassword'),
     path('user/build-your-resume',mainView.resume,name='resume'),
+
+    path('user/uploadImage',mainView.uploadImage,name='uploadImage'),
+
+    path('user/manage-team',mainView.manageteam,name="manageteam"),
+    path('user/manage-team/user=<slug>',mainView.post_by_username,name="post_by_username"),
+    path('user/manage-team/single-member',mainView.single_member,name="singleMember"),
+    path('user/manage-team/saveSingle',mainView.saveSingle,name="saveSingle"),
+
     path('query',mainView.footerForm,name="footerForm"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps }, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="./robots.txt", content_type='text/plain')),
