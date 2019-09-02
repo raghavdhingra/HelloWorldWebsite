@@ -1,0 +1,43 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tr th{
+    padding: 1em 0;
+    font-size: 1.4em;
+    color: #666;
+    font-family: google-sans-bold;
+}
+
+th,td{
+    text-align: left;
+    border-radius: 10px;
+}
+
+.editMember{
+    padding: 0.5em 2em;
+    font-family: google-sans-bold;
+    border-radius: 10px;
+    color: #555;
+    background: #ddd;
+    border: 0.2em solid #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.editMember:hover{
+    background: #aaa;
+    border-color: #999;
+    color: #fff;
+}
+
+.editMember:active{
+    color: inherit;
+    background: rgba(0, 0, 0, 0);
+}
+
+.editMember:focus{
+    color: inherit;
+    outline: none;
+}

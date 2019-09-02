@@ -159,11 +159,11 @@
     display: grid;
     grid-template-columns: auto 1fr;
     background: var(--white);
-    box-shadow: 1px 2px 5px 1px var(--upEventShadow);
+    box-shadow: 0 0 5px 0 var(--upEventShadow);
   }
 
   .upevent:hover{
-    box-shadow: 2px 7px 8px 1px var(--upEventShadow);
+    box-shadow: 0 0 15px 0 var(--upEventShadow);
   }
 
   .upevent_img{

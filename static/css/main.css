@@ -1,0 +1,118 @@
+.dev-icon{
+    height: 60px;
+    display: inline-flex;
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 9999;
+    padding: 0.5em;
+    margin: 0.5em auto;
+}
+
+.dev-icon-image{
+    transition: 0.5s;
+    border-radius: 50%;
+    display: inline-flex;
+    overflow: hidden;
+    height: 60px;width: 60px;
+    box-shadow: 1px 1px 15px 0 #999;
+}
+
+.dev-icon:hover .dev-icon-image{
+    box-shadow: 0 0 7px 0 #555;
+    transform: rotate(180deg);
+}
+
+
+.dev-icon:active .dev-icon-image{
+    box-shadow: 0 0 3px 0 #333;
+}
+
+.developer_name{
+    font-family: google-sans-bold,Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #666;
+    display: inline-flex;
+    margin-left: 10px;
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+    line-height: 60px;
+    vertical-align: middle;
+}
+
+.animdev{
+    transform: translateY(-30%);
+    opacity: 0.2;
+    font-size: 0;
+    color: #fff;
+    text-shadow: 0 0 5px #333;
+    transition: 0.2s;
+}
+
+.animdev:nth-child(2){
+    transition-delay: 0.05s;
+}
+.animdev:nth-child(3){
+    transition-delay: 0.1s;
+}
+.animdev:nth-child(4){
+    transition-delay: 0.15s;
+}
+.animdev:nth-child(5){
+    transition-delay: 0.2s;
+}
+.animdev:nth-child(6){
+    transition-delay: 0.25s;
+}
+.animdev:nth-child(7){
+    transition-delay: 0.3s;
+}
+.animdev:nth-child(8){
+    transition-delay: 0.35s;
+}
+.animdev:nth-child(9){
+    transition-delay: 0.4s;
+}
+
+@media screen and (min-width: 900px){
+    .dev-icon:hover .animdev{
+        transform: translateY(0);
+        font-size: 1em;
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .dev-icon{
+        left: 0;
+        bottom: 45px;
+    }
+
+    .dev-icon-image{
+        height: 50px;
+        width: 50px;
+    }
+    .developer_name{
+        line-height: 50px;
+    }
+    
+    .dev-iconAfter{
+        transition: 1s;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.animdevAfter{
+    transform: translateY(0);
+    letter-spacing: 0.04em !important;
+    font-size: 1.5em !important;
+    opacity: 1;
+}
+
+.none{
+    display: none;
+}
