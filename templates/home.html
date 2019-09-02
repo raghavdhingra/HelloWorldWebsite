@@ -39,7 +39,7 @@ ul.nav_element span.nav-active1{
 
             <center>
                 <div class="MainLogo">
-                    <img src="{% static 'assets/logo/color-Logo.png' %}" width="100%" alt="HelloWorld Logo" />
+                    <img src="{% static 'assets/logo/color-Logo.jpg' %}" width="100%" alt="HelloWorld Logo" />
                 </div>
             </center>
             <div class="intro-tagline">
@@ -123,30 +123,47 @@ ul.nav_element span.nav-active1{
         <span style="font-family: google-sans-bold;">So be ready freshers for a challenge along with some amazing awards !</span>
 
     </span>
+
+    {% if up_event == '' %}
+    <div style="margin-top: 1em;box-shadow: 0 0 7px 0 #999;padding: 0.5em 2em;color: #666;">
+        <h1>There is no UpComming Events.</h1>
+        <h3>Stay Tuned, we are bringing more events.</h3>
+    </div>
+    {% else %}
+
+    {% for event in up_event %}
     <div class="upevent">
         <div>
-            <center><img class="upevent_img" src="{% static 'assets/logo/event-proto.png' %}" alt="Upcoming Event" height="200px" width="300px" /></center>
+            <center><img class="upevent_img" src="{{ event.event_pic }}" alt="Upcoming Event" height="200px" width="300px" /></center>
         </div>
         <div>
-            <div class="event-head">ABC</div>
+            <div class="event-head">{{event.name}}</div>
             <div style="margin-top: 0.5em;" class="time">
-                <span><i class="fas fa-calendar-day"></i> May 15, 2019</span>
-                <span><i class="far fa-clock"></i> 09:00 am</span>
+                <span><i class="fas fa-calendar-day"></i> {{event.date}} </span>
+                <span><i class="far fa-clock"></i> {{event.time}} </span>
             </div>
             <div class="map">
                 <i class="fas fa-map-marker-alt"></i>
-                91 SpringBoard, 5th-Street, Gurgaon, Haryana. <a href="">( See Location )</a>
+                {{event.location}} 
+                {% if event.location_link %}
+                <a href="{{event.location_link}}">( See Location )</a>
+                {% else %}
+                {% endif %}
             </div>
             <div class="upevent-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam nulla error facere assumenda
-                    quia officiis voluptatem repellat laboriosam, ad vitae veniam repellendus porro sed voluptas amet! At, iste facere.
+                {{event.description}}
             </div>
-            <a class="upevent-btn" href="">Register Here</a>
+            <a class="upevent-btn" href="{{event.registration_link}}">Register Here</a>
             &nbsp;
             <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
             <div class="spacing-2"></div>
         </div>
     </div>
+    
+    {% endfor %}
+    
+{% endif %}
+
     <div class="spacing-1"></div>
     <!--Events___________________-->
 
@@ -178,9 +195,9 @@ ul.nav_element span.nav-active1{
                 {% if team.authorised == True %}
                 <div class="team-member">
                     <a href="" title="View Profile">
-                        <center><img src="{{ team.profile_picture.url }}" height="150px" width="150px" alt="{{ team.first_name }} | HelloWorld" style="border-radius: 50%;" /></center>
+                        <center><img src="{{ team.profile_picture }}" height="150px" width="150px" alt="{{ team.first_name }} | HelloWorld" style="border-radius: 50%;" /></center>
                         <div class="team-content">
-                            <div style="color: #1a73e8;font-family: google-sans-bold;"> {{ team.first_name }} {{ team.last_name|truncatechars:7|safe }} </div>
+                            <div style="color: #1a73e8;font-family: google-sans-bold;"> {{ team.first_name }} {{ team.last_name|lastname|truncatechars:7|safe }} </div>
                             <span>
                                 {{ team.specialisation|specs|truncatechars:20|safe }}
                                 <div style="font-family: google-sans-bold;"> {{ team.designation|truncatechars:40|safe }} </div>

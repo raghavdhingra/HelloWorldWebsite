@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block header %}
+
+<style>
+/*For Nav Bar Active Element Displaying the current page*/
+.page-header{
+    --headerBack: url("{% static 'assets/background/terms.jpg' %}");
+}
+/*For Nav Bar Active Element Displaying the current page----------------*/
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--Spacing Block-->
+<div class="spacing-7"></div>
+<!--For Spacing after the navbar as it's position is fixed-->
+<!--Spacing Block_______________________-->
+
+<div class="page-header">
+    <div class="page-header-inner">
+        Terms and Condition
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-heading">
+        Terms and <span style="color: #1a73e8;">Condition </span>
+    </div>
+    <h2 style="color: #666;font-weight: 500;margin: 0.5em 0;margin-top: 1.5em;">Read all the Instructions <span style="font-family: google-sans-bold;">Carefully</span></h2>
+    <div>
+        <span style="font-size: 1.1em;letter-spacing: 0.05em">
+            
+        </span>
+    </div>
+
+
+    <style>
+
+    /**/
+    .points{
+        margin: 0.5em 0;
+        font-size: 1.3em;
+        list-style-type: disc;
+    }
+
+    .points li{
+        margin: 0.4em 0.7em;
+        font-size: 0.85em;
+        list-style-type: disc;
+    }
+
+    .para{
+        margin: 0.5em 0;
+        margin-top: 1.5em;
+        font-size: 1.1em;
+        letter-spacing: 0.05em;
+    }
+
+    /**/
+
+    </style>
+
+
+    <br><br>
+    <Center><hr width="75%" /></Center><Br>
+
+    <span style="font-size: 1.3em;font-family: google;color: #555;">Our aim:</span>
+    <ul class="points">
+        
+        <li> 1.) Helps young minds to recognise their interest through a series of classes.</li>
+
+    </ul>
+
+    <div class="para">
+        
+    </div>
+
+    <div>
+        
+        <span style="font-size: 1.3em;font-family: google;color: #555;">In  particular, you will :</span>
+        <ul class="points">
+
+            <li>1.) Get the complete knowledge of languages starting from 0s and 1s.</li>
+              
+           
+
+        </ul>
+    </div>
+
+    <div class="para">
+        
+    </div>
+
+    <div class="spacing-3"></div>
+</div>
+{% endblock %}

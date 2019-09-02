@@ -1,0 +1,120 @@
+{% extends 'user.html' %}
+{% load staticfiles %}
+{% load filter_tag %}
+
+{% block right_pane %}
+<style>
+
+    .left-active6{
+        background: rgba(0,0,0,0.1);
+    }
+
+    @media screen and (max-width: 992px){
+        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5{
+            display: none;
+        }
+    }
+
+</style>
+<link href="{% static 'css/manageteam.css' %}" rel="stylesheet" />
+<link href="{% static 'css/input.css' %}" rel="stylesheet" />
+
+<h1> {{userMember.first_name}} <span style="color:#1a73e8">Edit</span></h1>
+
+<form method="POST" action="{% url 'saveSingle' %}">
+    {% csrf_token %}
+
+    <div class="prof-grid">
+
+        <div>
+            <div class="avatar">
+                <img src="{{ userMember.profile_picture }}" class="img" onError="imageReplace(this);" alt="{{ userMember.user_name }} | Avatar" />
+                <Br>
+            </div>
+
+            <Br>
+
+            <span style="margin: 0.2em 1em;font-weight: bold;color: #888;">
+                Username - <span style="color: #333;"> {{ userMember.user_name }} </span>
+            </span>
+            <Br>
+            <span style="margin: 0.2em 1em;font-weight: bold;color: #1a73e8;">            
+                {{ userMember.designation }}
+                <Br><br>
+            </span>
+            
+        </div>
+
+        <div>
+            <div class="label">Full Name</div>
+            <input type="text" class="input" value="{{ userMember.first_name }} {{ userMember.last_name|lastname }}" placeholder="Full Name, e.g - Raghav Dhingra" readonly/>
+
+            <div class="label">E-Mail ID</div>
+            <input type="email" class="input" value="{{ userMember.contact.email }}" placeholder="E-Mail e.g - example@mail.com" readonly/>
+            
+            <div class="label">Mobile Number</div>
+            <input type="number" class="input" value="{{ userMember.contact.phone }}" placeholder="Mobile Number e.g - 9876543210" readonly/>
+            <Br><bR>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="label">College/University</div>
+        <input type="text" class="input" value="{{ userMember.college }}" readonly/>
+    </div>
+
+    <div>
+        <div class="label">Currently Pursuing</div>
+        <input type="text" class="input" value="{{ userMember.degree }}" readonly/>
+    </div>
+
+    <div>
+        <div class="label">Year Of Passing</div>
+        <input type="number" class="input" value="{{ userMember.passing_year }}" readonly/>
+    </div>
+    
+    <div>
+        <div class="label">Skills</div>
+
+        <div class="user-skill-container">
+            {% for skill in userMember.skills.skill %}
+                <div class="user-skill">{{ skill }}</div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <Br>
+
+    <div>
+        <div class="label">Date Of Birth</div>
+        <input type="text" class="input" value="{{ userMember.birth_date }}" readonly/>
+    </div>
+
+    <div>
+        <div class="label">Field of Interest</div>
+        <input type="text" class="input" value="{{ userMember.specialisation|specs }}" placeholder="Interested Fields e.g - Web Development" readonly/>
+    </div>
+
+    <div>
+        <div class="label" style="color: rgb(255, 41, 41);">Designation In HelloWorld Team</div>
+        <input type="text" class="input" value="{{ userMember.designation }}" name="designation" placeholder="Designation e.g - Co-ordinator, Head..."/>
+    </div>
+
+    <div>
+        <div class="label" style="color: rgb(255, 41, 41);">Define Core Member</div>
+        <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" name="coremember" /><label for="checkbox-1-1" style="margin-left: 1em;"></label>
+        &nbsp;Make Core Member?
+    </div>
+
+    
+    <br><Br>
+    <input type="hidden" value="{{userMember.user_name}}" name="userid"/>
+    <input type="submit" class="submit" />
+    <br class="next-line2"><br class="next-line2"><br class="next-line2">
+    <a href="{% url 'manageteam' %}" class="submit" style="background: #fff;color: #1a73e8;">Cancel</a>
+
+    <Br><Br><br>
+
+</form>
+{% endblock %}

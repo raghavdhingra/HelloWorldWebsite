@@ -1,0 +1,53 @@
+{% extends 'user.html' %}
+{% load staticfiles %}
+
+{% block right_pane %}
+{% if request.user.username == 'Siddharth' or 'raghav' %}
+<style>
+
+    .left-active6{
+        background: rgba(0,0,0,0.1);
+    }
+
+    @media screen and (max-width: 992px){
+        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5{
+            display: none;
+        }
+    }
+
+</style>
+<link href="{% static 'css/manageteam.css' %}" rel="stylesheet" />
+
+<h1>Team <span style="color:#1a73e8">Console</span></h1>
+<div style="padding: 0.5em;">
+    <table>
+        <tr class="thisnot">
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email-ID</th>
+            <th>Edit Member</th>
+        </tr>
+
+        {% for team in allTeam %}
+        <tr>
+            <td> {{ team.first_name }} </td>
+            <td> {{ team.username }} </td>
+            <td> {{ team.email }} </td>
+            <td>
+                <form method="POST" action="{% url 'singleMember' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{team.username}}" name="postid" />
+                    &nbsp;&nbsp;<input type="submit" value="Edit" class="editMember" />
+                </form>
+            </td>
+        </tr>
+        
+        <tr><td>&nbsp;</td></tr>
+        {% endfor %}
+
+    </table>
+</div>
+{% else %}
+<h3>Sorry, You are not authorised to access this.</h3>
+{% endif %}
+{% endblock %}

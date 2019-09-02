@@ -1,5 +1,6 @@
 {% extends 'user.html' %}
 {% load staticfiles %}
+{% load filter_tag %}
 
 {% block right_pane %}
 
@@ -10,7 +11,7 @@
     }
 
     @media screen and (max-width: 992px){
-        .left-active2,.left-active3,.left-active4,.left-active5{
+        .left-active6,.left-active2,.left-active3,.left-active4,.left-active5{
             display: none;
         }
     }
@@ -26,7 +27,7 @@
 
         <div>
             <div class="avatar">
-                <img src="{{ profilePic.url }}" class="img" onError="imageReplace(this);" alt="{{ username }} | Avatar" />
+                <img src="{{ profilePic }}" class="img" onError="imageReplace(this);" alt="{{ username }} | Avatar" />
                 <Br>
             </div>
 
@@ -45,7 +46,7 @@
 
         <div>
             <div class="label">Your Full Name</div>
-            <input type="text" class="input" value="{{ request.user.first_name }} {{ request.user.last_name }}" placeholder="Full Name, e.g - Raghav Dhingra" readonly/>
+            <input type="text" class="input" value="{{ request.user.first_name }} {{ request.user.last_name|lastname }}" placeholder="Full Name, e.g - Raghav Dhingra" readonly/>
 
             <div class="label">Your E-Mail ID</div>
             <input type="email" class="input" value="{{ contact.email }}" placeholder="E-Mail e.g - example@mail.com" readonly/>
