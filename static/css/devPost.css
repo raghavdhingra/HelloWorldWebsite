@@ -1,0 +1,58 @@
+.dev-container-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+    color: #666;
+    text-transform: capitalize;
+    background: rgba(0,0,0,0.5);
+}
+.dev-container{
+    height: 540px;
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    overflow: hidden;
+    background: #fff;
+    left: 50%;
+    transform: translate(-50%,-50%) scaleX(0.05) scaleY(0.05);
+    font-family: google-sans-light,Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    box-shadow: 0 0 10px 0 #888;
+    border-radius: 5px;
+    animation: anim 1.5s ease 1 forwards;
+}
+
+@keyframes anim{
+    20%{
+        transform: translate(-50%,-50%) scaleX(1) scaleY(0.05);
+    }
+    100%{
+        transform: translate(-50%,-57%) scaleX(1) scaleY(1);
+    }
+}
+
+.raghav{
+    font-family: google-sans-bold,Arial, Helvetica, sans-serif;
+}
+
+.raghav::before, .raghav::after{
+    content: "";
+    height: 0.2em;
+    margin: 0.2em;
+    width: 50px;
+    background: #1a73e8;
+    display: block;
+    transform: translateX(-100%);
+}
+
+.animTopToBottom{
+    animation: animTopToBottom 0.5s ease 1 forwards;
+}
+
+@keyframes animTopToBottom{
+    0%{transform: translateY(-30%);opacity: 0;}
+    100%{transform: translateY(0);opacity: 1;}
+}

@@ -114,7 +114,7 @@ body::-webkit-scrollbar-track{
     text-align: center;
     color: var(--white);
     text-shadow: 0 0 10px var(--themecolor);
-    padding: 4em 0;
+    padding: 3em 0;
     background: rgba(0,0,0,0.4);
 }
 
@@ -160,6 +160,7 @@ div.nav{
     left: 0;
     width: 100vw;
     height: 7em;
+    background: var(--white);
     overflow: hidden;
     max-height: 7em;
     z-index: 997;
@@ -377,7 +378,6 @@ div.spacing-9{height: 9em;}
     min-height: 3.7em !important;
     max-height: 3.7em !important;
     line-height: 3.7em !important;
-    background: var(--white) !important;
     box-shadow: 0 3px 30px 0.5px var(--scrollThumb);
 }
 
@@ -573,6 +573,9 @@ footer span a:hover i{
     .footer_grid{
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
+    }
+    .page-header-inner{
+        padding: 2em 0;
     }
 }
 
