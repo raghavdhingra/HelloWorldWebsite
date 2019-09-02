@@ -28,7 +28,7 @@
 
 
     <!--Links-->
-    <link rel="icon" href="{% static 'assets/logo/Logo.png' %}" />
+    <link rel="icon" href="{% static 'assets/logo/Logo.jpg' %}" />
     <link rel="stylesheet" href="{% static 'css/BaseNavBar.css' %}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" />
     <!--Links____________________________-->
@@ -62,7 +62,7 @@
 
     
     <div class="dev-icon" id="dev-icon">
-        <img src="{% static 'assets/logo/dev-info.png' %}" class="dev-icon-image" id="dev-icon-image" width="100%" alt="Raghav Dhingra | HelloWorld"/>
+        <img src="{% static 'assets/logo/dev-info.jpg' %}" class="dev-icon-image" id="dev-icon-image" width="100%" alt="Raghav Dhingra | HelloWorld"/>
         <div class="developer_name">
             <span class="animdev">D</span>
             <span class="animdev">E</span>
@@ -85,7 +85,7 @@
                             <b>Website Developer</b>
                         </div>
                         <div class="animTopToBottom" style="height: 200px;width: 200px;padding: 0 1em;overflow: hidden;padding-bottom: 0.8em;">
-                            <img src="{{ developer.url }}" alt="Raghav Dhingra | HelloWorld" width="100%" style="border-radius: 50%;padding: 0.2em;border: 0.2em dashed #1a73e8;" />
+                            <img src="{{ developer }}" alt="Raghav Dhingra | HelloWorld" width="100%" style="border-radius: 50%;padding: 0.2em;border: 0.2em dashed #1a73e8;" />
                         </div>
                         <div class="animTopToBottom" style="padding: 0.5em;margin: 0.2em 1em;font-weight: bold;">
                             <div class="raghav">Raghav Dhingra</div>
@@ -123,8 +123,6 @@
         <div class="nav-inner">
             <div class="nav-grid"> 
                 <div>
-                    <!-- <img src="{% static 'assets/logo/LogoSmall.png' %}" class="nav-logo" id="nav-logo" alt="HelloWorld LOGO"> -->
-                    <!-- <span class="nav-logo-text" id="nav-logo-text"> Hello World</span> -->
                     <span class="nav-logo-text" id="nav-logo-text">&lt; / &gt; HelloWorld</span>
                     
                 </div>   
@@ -264,9 +262,10 @@
                 <div style="padding: 0 1em;">
                     <h3 style="padding-bottom: 0.4em;">Categories</h3>
                     <div class="category_btn">
-                        <a href="{% url 'home' %}">Code Of Conduct</a>
-                        <a href="{% url 'home' %}">Terms and Condition</a>
-                        <a href="{% url 'home' %}">Privacy Policy</a>
+                        <a href="{% url 'conduct' %}">Code Of Conduct</a>
+                        <!-- <a href="{% url 'terms' %}">Terms and Condition</a> -->
+                        <a href="{% url 'privacy' %}">Privacy Policy</a>
+                        <!-- <a href="{% url 'faq' %}">FAQs</a> -->
                     </div>
                     <h3 style="margin: 1em 0 0.5em 0;">Tags</h3>
                     <div class="category_btn">
@@ -364,7 +363,7 @@ devIcon.addEventListener("click",()=>{
         devIconImage.style.transform = "rotate(1800deg)";
         devIconVal = 1;
         setTimeout(()=>{ 
-            devIconImage.src = "{% static 'assets/logo/close.png' %}";
+            devIconImage.src = "{% static 'assets/logo/close.jpg' %}";
         },250);
         devOverlay.classList.remove("none");
         setTimeout(() => {
@@ -379,7 +378,7 @@ devIcon.addEventListener("click",()=>{
         }
         devIconImage.style.transform = "rotate(0deg)";
         setTimeout(()=>{
-            devIconImage.src = "{% static 'assets/logo/dev-info.png' %}";
+            devIconImage.src = "{% static 'assets/logo/dev-info.jpg' %}";
         },250);
         devOverlay.classList.add("none");
         devIconVal = 0;

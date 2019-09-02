@@ -1,5 +1,6 @@
 {% extends 'user.html' %}
 {% load staticfiles %}
+{% load filter_tag %}
 
 {% block right_pane %}
 
@@ -10,7 +11,7 @@
     }
 
     @media screen and (max-width: 992px){
-        .left-active1,.left-active3,.left-active4,.left-active5{
+        .left-active1,.left-active3,.left-active6,.left-active4,.left-active5{
             display: none;
         }
     }
@@ -20,18 +21,23 @@
 
 
 <h1>Edit Your <span style="color:#1a73e8">Profile</span></h1>
-
-<form method="POST" action="{% url 'edit' %}" method="POST">
-
-            <div class="label">Upload or Update Your Profile Picture</div>
-            <div class="avatar" style="float: none;">
-                <img src="{{ profilePic.url }}" onError="imageReplace(this);" class="img" alt="{{ username }} | Avatar" />
-                <Br>
-            </div>
-            
+    
+    <form method="POST" action="{% url 'uploadImage' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="label">Upload or Update Your Profile Picture</div>
+        <div class="avatar" style="float: none;">
+            <img src="{{ profilePic }}" onError="imageReplace(this);" class="img" alt="{{ username }} | Avatar" />
             <Br>
-                <span style="margin: 0 1em;">Upload New Image: <input type="file" value="{{ profilePic.url }}" name="profile_picture" accept="image/*" />
-                    <Br><Br></span>
+        </div>
+        <Br>
+        <div>
+            <div class="label">Upload New Image:</div>
+            <input class="input" style="margin-bottom: 0.2em;" type="file" value="{{ profilePic }}" name="uploadFromPC" id="uploadFromPC" accept="image/*" />
+            <input class="submit" style="font-size: 0.85em;" type="submit" value="Upload image" />
+            <Br><Br>
+        </div>
+    </form>
+    <form method="POST" action="{% url 'edit' %}">
             <span style="margin: 0.2em 1em;font-weight: bold;color: #888;">
                 
                 Username - <span style="color: #333;"> {{ request.user.username }} </span>
@@ -47,7 +53,7 @@
             <input type="text" class="input" value="{{ request.user.first_name }}" name="first_name" placeholder="First Name, e.g - Raghav"/>
 
             <div class="label">Your Last Name</div>
-            <input type="text" class="input" value="{{ request.user.last_name }}" name="last_name" placeholder="Last Name, e.g - Dhingra"/>
+            <input type="text" class="input" value="{{ request.user.last_name|lastname }}" name="last_name" placeholder="Last Name, e.g - Dhingra"/>
 
             <div class="label">Your E-Mail ID <span style="color: #ff0000;font-family: google-sans-light">(You are not allowed to change your email address)</span></div>
             <input type="email" class="input" value="{{ email }}" name="email" placeholder="E-Mail e.g - example@mail.com" readonly/>

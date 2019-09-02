@@ -23,10 +23,35 @@ div.nav-drop-down li.drop-active2{
 }
 
 .page-header{
-    --headerBack: url("{% static 'assets/background/event-back.png' %}");
+    --headerBack: url("{% static 'assets/background/event-back.jpg' %}");
+}
+
+.submit{
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-family: google-sans-bold;
+    background: #1a73e8;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.submit:hover{
+    background: #155cb9;
+}
+.submit:active{
+    position: relative;
+    top: 1px;
+}
+.submit:focus{
+    outline: none;
 }
 /*For Nav Bar Active Element Displaying the current page----------------*/
 </style>
+
+<link href="{% static 'css/event.css' %}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
 {% endblock %}
 
@@ -49,10 +74,73 @@ div.nav-drop-down li.drop-active2{
 
 <!--Spacing Block_______________________-->
 <div class="container">
+    <Br><br>
+    <form method="POST" action="{% url 'event' %}">
+        <label style="font-size: 1.5em;color: #666;font-family: google-sans-bold;">Filter:</label>
+        <select name="select" style="padding: 0.5em;border-radius: 5px;font-family: google-sans-bold;">
+            <option>ALL</option>
+            <option>UpComming Event</option>
+            <option>Past Event</option>
+        </select>
+        <input type="submit" value="Sort" class="submit" />
+    </form>
     
-    <div class="page-heading">
+    {% if filter == 'past' %}
+    {% else %}
+    <div class="page-heading" style="margin-top: 1em;">
         UpComming <span style="color: #1a73e8;">Events</span>
     </div>
+    
+    {% if up_event == '' %}
+    <div style="margin-top: 1em;box-shadow: 0 0 7px 0 #999;padding: 0.5em 2em;color: #666;">
+        <h1>There is no UpComming Events.</h1>
+        <h3>Stay Tuned, we are bringing more events.</h3>
+    </div>
+    {% else %}
+        {% for event in up_event %}
+        
+        <div class="upevent">
+            <div>
+                <center><img class="upevent_img" src="{{ event.event_pic }}" alt="Upcoming Event" height="200px" width="300px" /></center>
+            </div>
+            <div>
+                <div class="event-head">{{event.name}}</div>
+                <div style="margin-top: 0.5em;" class="time">
+                    <span><i class="fas fa-calendar-day"></i> {{event.date}} </span>
+                    <span><i class="far fa-clock"></i> {{event.time}} </span>
+                </div>
+                <div class="map">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{event.location}} 
+                    {% if event.location_link %}
+                    <a href="{{event.location_link}}">( See Location )</a>
+                    {% else %}
+                    {% endif %}
+                </div>
+                <div class="upevent-content">
+                    {{event.description}}
+                </div>
+                <a class="upevent-btn" href="{{event.registration_link}}">Register Here</a>
+                &nbsp;
+                <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
+                <div class="spacing-2"></div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    {% endif %}
+    {% endif %}
+
+    {% if filter == 'up' %}
+    {% else %}
+    <div class="page-heading">
+        Past <span style="color: #1a73e8;">Events</span>
+    </div>
+    {% for event in past_event %}
+    {{event}}<br>
+    {% endfor %}
+    {% endif %}
 
     <div class="spacing-4"> </div>
 </div>
