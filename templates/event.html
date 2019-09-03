@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 
 {% block header %}
@@ -137,9 +137,28 @@ div.nav-drop-down li.drop-active2{
     <div class="page-heading">
         Past <span style="color: #1a73e8;">Events</span>
     </div>
-    {% for event in past_event %}
-    {{event}}<br>
-    {% endfor %}
+    
+    <div class="event-grid">
+        {% for event in past_event %}
+        <div class="event-container">
+            <div>
+                <center><img src="{{event.event_pic}}" /></center>
+                <br>
+                <span style="font-family: google-sans-bold;color: #1a73e8;font-size: 1.5em;">{{event.name}}</span><Br>
+                <span>{{event.date}}</span><Br>
+                {% if event.location is None %}
+                {% else %}
+                <span> {{event.location}} </span>
+                {% endif %}
+                <Br><Br>
+                <p style="font-size: 1.1em;"> {{event.description}} </p>
+                
+                <!-- <a href="{% url 'event' %}" title="See More Events" class="event-see-more">See More</a> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
     {% endif %}
 
     <div class="spacing-4"> </div>

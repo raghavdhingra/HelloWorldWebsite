@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+
+<style>
+/*For Nav Bar Active Element Displaying the current page*/
+ul.nav_element span.nav-active4{
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+div.nav-drop-down li.drop-active3{
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.about-after{
+    color: #000 !important;
+}
+
+.page-header{
+    --headerBack: url("{% static 'assets/background/gallery-back.jpg' %}");
+}
+/*For Nav Bar Active Element Displaying the current page----------------*/
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+<!--Spacing Block-->
+<div class="spacing-7"></div>
+<!--For Spacing after the navbar as it's position is fixed-->
+<!--Spacing Block_______________________-->
+
+<div class="page-header">
+    <div class="page-header-inner">
+         GALLERY
+    </div>
+</div>
+
+<div class="container">
+    <style>
+        .rotateIt{
+            animation: rot 10s linear forwards infinite; 
+            font-size: 5em;
+        }    
+        @keyframes rot{
+            0%{transform: rotate(0);}
+            100%{transform: rotate(360deg);}
+        }
+    </style>
+    <center>
+        <div class="page-heading">
+            Our <span style="color: #1a73e8;">Gallery</span>
+        </div>
+    </center>
+    <center>
+        <div><i class="fas fa-cog rotateIt"></i></div>
+        <h1 style="color: #666;">This Page is under Maintenance</h1>
+        <Br><Br>
+    </center>
+</div>
+
+{% endblock %}

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 {% load filter_tag %}
 
 {% block header %}
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'css/event.css' %}" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
 /*For Nav Bar Active Element Displaying the current page----------------*/
@@ -224,9 +225,30 @@ ul.nav_element span.nav-active1{
     <span style="color: #888;font-size: 1.1em;">
         A successful past creates a peaceful vision of tomorrow. We've conducted a number of successful events with an active participation of students. 
     </span>
-    <div>
-        hi
+    <div class="event-grid">
+        {% for event in past_event %}
+        <div class="event-container">
+            <div>
+                <center><img src="{{event.event_pic}}" /></center>
+                <br>
+                <span style="font-family: google-sans-bold;color: #1a73e8;font-size: 1.5em;">{{event.name}}</span><Br>
+                <span>{{event.date}}</span><Br>
+                {% if event.location is None %}
+                {% else %}
+                <span> {{event.location}} </span>
+                {% endif %}
+                <Br><Br>
+                <p style="font-size: 1.1em;"> {{event.description|safe|truncatewords_html:30}} </p>
+                <Br>
+                <a href="{% url 'event' %}" title="See More Events" class="event-see-more">See More</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    <br>
+    <center style="margin: 1em;padding: 1em;">
+        <a href="{% url 'event' %}" title="See More Events" class="event-see-more-down">See More Events</a>
+    </center>
     <div class="spacing-3"></div>
     <!--Past Events_______________-->
 
