@@ -166,6 +166,7 @@
 
         <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
         <a href="{% url 'event' %}"><li class="drop-active2">Upcoming / Past Events</li></a>
+        <a href="{% url 'gallery' %}"><li class="drop-active3">Gallery</li></a>
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}"><li>Logout</li></a>
         {% else %}
@@ -214,6 +215,7 @@
                 <a href="{% url 'about' %}" class="mobile_nav_elmt2" title="ABOUT"><i class="fas fa-list-ul"></i> About</a>
                 <a href="{% url 'contact' %}" class="mobile_nav_elmt2" title="CONTACT"><i class="fas fa-user"></i> Contact</a>
                 <a href="{% url 'team' %}" class="mobile_nav_elmt2" title="TEAM"><i class="fas fa-users"></i> Team</a>
+                <a href="{% url 'gallery' %}" class="mobile_nav_elmt2" title="GALLERY"><i class="fas fa-image"></i> Gallery</a>
                 <a href="{% url 'event' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="fas fa-clipboard-check"></i> Upcoming / Past Events</a>
 
                 {% if user.is_authenticated %}
