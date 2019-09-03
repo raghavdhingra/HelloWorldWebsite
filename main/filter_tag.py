@@ -6,3 +6,10 @@ register = template.Library()
 def specs(value):
     arr = value.split("|")
     return arr[0]
+
+@register.filter(name='lastname')
+def lastname(value):
+    if value is None:
+        return ""
+    else:
+        return value
