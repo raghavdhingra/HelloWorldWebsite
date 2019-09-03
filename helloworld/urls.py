@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from django.views.static import serve
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
@@ -27,17 +28,21 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import views
 from .sitemap import *
 
+from django.conf.urls import handler404, handler500
+
 sitemaps = {
     'static': StaticViewSitemap,
 }
 
 teampi = 'teamapi/key=1a35d89ise039'
+eventapi = 'eventapi/key=1a35d89ise039'
 
 urlpatterns = [
     path('admin', admin.site.urls,name="admin"),
     path('', mainView.home,name="home"),
     path('about', mainView.about,name="about"),
     path('contact', mainView.contact,name="contact"),
+    path('gallery', mainView.gallery,name="gallery"),
     path('know-our-team', mainView.team,name="team"),
     path('upcoming-and-past-events', mainView.event,name="event"),
 
@@ -47,6 +52,7 @@ urlpatterns = [
     path('frequently-ask-questions', mainView.faqs,name="faq"),
 
     path(teampi, mainView.MemberList.as_view()),
+    path(eventapi, mainView.EventList.as_view()),
     path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
     path('testurl',mainView.testUrl, name="testUrl"),
     path('authorization',loginView.auth, name="auth"),
@@ -68,4 +74,8 @@ urlpatterns = [
     path('query',mainView.footerForm,name="footerForm"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps }, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="./robots.txt", content_type='text/plain')),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(MEDIA_URL,document_root=MEDIA_ROOT)
+    url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT, 'show_indexes': settings.DEBUG})
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = mainView.error_404
+handler500 = mainView.error_500
