@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = #Secret Key
+SECRET_KEY = '!xs$*+7(*-*@bnvb#dvg3*=2-(xzgje8=lf@(+kom9k$#xfn5y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'login',
     'rest_framework',
     'django.contrib.sitemaps',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -107,15 +108,20 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': #database name,
-            'USER': #database user',
-            'HOST': #database host,
-            'PASSWORD':#database password,
-            'PORT': #POrt,
+            'NAME': 'd6l68agq5jdujc',
+            'USER': 'nyguztgdzutgwd',
+            'HOST': 'ec2-174-129-226-232.compute-1.amazonaws.com',
+            'PASSWORD':'f588053fedce0524f48ac4145a74cd29f1ef26829593744a801ce1128a83394a',
+            'PORT': '5432',
         },
 }
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -135,9 +141,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 cloudinary.config(
-    cloud_name = #cloudinary username,
-    api_key = #API KEY,
-    api_secret = #SECRET KEY,
+    cloud_name = "raghavdhingra",
+    api_key = "676478377368971",
+    api_secret = "FjnMXXangAmt1JwsC76eykQXU-k",
 )
 
 # Internationalization
@@ -158,22 +164,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT="/static/"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'static', 'root') 
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'static', 'root')
 
 django_heroku.settings(locals())
 
-EMAIL_BACKEND = #Backend that you are using
-EMAIL_HOST = #Your email host
-EMAIL_PORT = #PORT_TO_BE_USED
-EMAIL_HOST_USER = #your_email
-EMAIL_HOST_PASSWORD = #email_password
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'contact@helloworldofficial.in'
+EMAIL_HOST_PASSWORD = 'HelloWorld1.'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = #your default email
+DEFAULT_FROM_EMAIL = 'contact@helloworldofficial.in'
