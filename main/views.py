@@ -18,6 +18,7 @@ import requests
 
 
 auth_user = ["Siddharth","raghav","palak"]
+auth_user_list = auth_user
 
 # Create your views here.
 
@@ -77,6 +78,10 @@ def about(request):
     return render(request,'about.html',context)
 
 def gallery(request):
+    data = requests.get("https://raw.githubusercontent.com/HelloWorldGTBIT/GalleryApi/master/gallery.json")
+    resp = json.loads(data.text)
+    galleryImages = resp['links']
+    
     username = ""
     if request.user.is_authenticated:
         username = User.objects.filter(pk=request.user.id)[0].first_name
@@ -88,6 +93,7 @@ def gallery(request):
         "meta_description":"Since the establishment of our team, we have created a team of minds with a varied skill set. Know more about us!",
         "username": username,
         "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "Images":galleryImages,
     }
     return render(request,'gallery.html',context)
 
@@ -195,6 +201,12 @@ def event(request):
 
 
 def profile(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
+
     username = ""
     if request.user.is_authenticated:
         username = User.objects.filter(pk=request.user.id)[0].first_name
@@ -224,12 +236,19 @@ def profile(request):
             "passing_year": user_data.passing_year,
             "degree": user_data.degree,
             "college": user_data.college,
+            "all_upEvents":all_upEvents,
+            "auth_user_list":auth_user_list,
         }
     except:
         return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
     return render(request,'profile.html',context)
 
 def edit(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
     username = ""
     if request.user.is_authenticated:
         user_data = TeamMember.objects.filter(user=request.user)[0]
@@ -299,6 +318,7 @@ def edit(request):
     try:
         context = {
             "username":username,
+            "auth_user_list":auth_user_list,
             "header": "Edit Your Profile",
             "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
             "title": str(username) + " | Edit",
@@ -317,6 +337,7 @@ def edit(request):
             "passing_year": user_data.passing_year,
             "degree": user_data.degree,
             "college": user_data.college,
+            "all_upEvents":all_upEvents,
         }
     except:
         return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
@@ -327,6 +348,11 @@ def edit(request):
     return render(request,'edit.html',context)
 
 def changepassword(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
     username = ""
     err = ""
     if request.user.is_authenticated:
@@ -335,17 +361,24 @@ def changepassword(request):
             username = request.user.username
     context = {
         "username":username,
+        "auth_user_list":auth_user_list,
         "header": "Change Your Password",
         "title": str(username) + " | Change Password",
         "meta_title":"Change Password | HelloWorld",
         "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
         "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "all_upEvents":all_upEvents,
     }
     return render(request,'changepassword.html',context)
 
 
 def manageteam(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
         if request.user.is_authenticated:
@@ -360,17 +393,57 @@ def manageteam(request):
             "meta_title": "Manage Team | HelloWorld",
             "meta_description": "This is the official website of HELLOWORLD",
             "allTeam": User.objects.all(),
+            "all_upEvents":all_upEvents,
+            "auth_user_list":auth_user_list,
         }
         return render(request,'manageteam.html',context)
     else:
         return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
+
+def manageevent(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
+    if request.user.username in auth_user:
+        username = ""
+        if request.user.is_authenticated:
+            username = User.objects.filter(pk=request.user.id)[0].first_name
+            if username == '':
+                username = request.user.username
+        context = {
+            "username": username,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "header": "Manage The Events",
+            "title": str(username) + " | Event Management",
+            "meta_title": "Manage Event | HelloWorld",
+            "meta_description": "This is the official website of HELLOWORLD",
+            "allEvent": Events.objects.all(),
+            "all_upEvents":all_upEvents,
+            "auth_user_list":auth_user_list,
+        }
+        return render(request,'manageevent.html',context)
+    else:
+        return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
+
 
 def single_member(request):
     slug = request.POST.get('postid')
     redirect_url = "/user/manage-team/user="+str(slug)
     return redirect(redirect_url)
 
+def single_event(request):
+    slug = request.POST.get('postid')
+    redirect_url = "/user/manage-event/event="+str(slug)
+    return redirect(redirect_url)
+
 def post_by_username(request,slug):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
         if request.user.is_authenticated:
@@ -382,13 +455,130 @@ def post_by_username(request,slug):
             "userMember":user,
             "username": username,
             "header": user.first_name + "'s Changes",
+            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
             "title": str(slug) + " | Edit",
             "meta_title": "User | HelloWorld",
             "meta_description": "This is the official website of HELLOWORLD",
+            "all_upEvents":all_upEvents,
+            "auth_user_list":auth_user_list,
         }
         return render(request,"single_member.html",context)
     else:
         return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
+
+
+def post_by_event(request,slug):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
+    if request.user.username in auth_user:
+        username = ""
+        if request.user.is_authenticated:
+            username = User.objects.filter(pk=request.user.id)[0].first_name
+            if username == '':
+                username = request.user.username
+        events = Events.objects.filter(id=slug)[0]
+        context = {
+            "event":events,
+            "username": username,
+            "header": events.name + "'s Changes",
+            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "title": str(events.name) + " | Edit",
+            "meta_title": "Event | HelloWorld",
+            "meta_description": "This is the official website of HELLOWORLD",
+            "all_upEvents":all_upEvents,
+            "auth_user_list":auth_user_list,
+        }
+        return render(request,"single_event.html",context)
+    else:
+        return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
+
+def deleteevent(request):
+    if request.method == 'POST':
+        eventId = request.POST.get('eventid')
+        Events.objects.filter(id = eventId).delete()
+        return redirect("/user/manage-event")
+
+def saveSingleEvent(request):
+    if request.method == 'POST':
+        eventId = request.POST.get('eventid')
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        location = request.POST.get('location')
+        location_link = request.POST.get('location_link')
+        desc = request.POST.get('description')
+        registration_link = request.POST.get('registration_link')
+        upcomming = request.POST.get('upcomming')
+        if upcomming == 'on':
+            check = True
+        else:
+            check = False
+        
+        Events.objects.filter(id = eventId).update(
+            name = name,
+            date = date,
+            time = time,
+            location = location,
+            location_link = location_link,
+            description = desc,
+            registration_link = registration_link,
+            upcomming = check,
+        )
+
+    return redirect("/user/manage-event")
+
+def addevent(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
+    if request.user.username in auth_user:
+        username = ""
+        if request.user.is_authenticated:
+            username = User.objects.filter(pk=request.user.id)[0].first_name
+            if username == '':
+                username = request.user.username
+        
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            location = request.POST.get('location')
+            date = request.POST.get('date')
+            time = request.POST.get('time')
+            event = Events.objects.create(name = name,location = location,date = date,time = time)
+            return redirect('/user/manage-event/event={}'.format(event.id))
+        context = {
+            "username":username,
+            "header": "Add New Event",
+            "all_upEvents":all_upEvents,
+            "title": str(username) + " | Add Event",
+            "meta_title":"Add New Event | GTBIT",
+            "meta_description":"This is the official website of HELLOWORLD",
+            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "auth_user_list":auth_user_list,
+        }
+        return render(request,'addevent.html',context)
+    else:
+        return HttpResponse("<center><h1>Access Denied</h1><h3>You are not allowed to access this tab</h3><h4>Only authorised user can have access to this page.</h4><h3>Go Back</h3></center>")
+
+def saveSingleEventImage(request):
+    try:
+        if request.method == 'POST':
+            eventId = request.POST['eventid']
+            try:
+                if request.FILES['uploadFromPC']:
+                    myimage = request.FILES['uploadFromPC']
+                    resp = uploadFile(myimage)
+                    Events.objects.filter(id = eventId).update(event_pic = resp)
+                    return redirect('/user/manage-event/event={}'.format(eventId))
+            except:
+                return redirect('/user/manage-event')
+    except:
+        return redirect('/user/manage-event')
+    return redirect("/user/manage-event")
 
 def saveSingle(request):
     if request.method == 'POST':
@@ -410,6 +600,11 @@ def saveSingle(request):
     return redirect("/user/manage-team")
 
 def resume(request):
+    all_events = Events.objects.all()
+    all_upEvents = []
+    for e in all_events:
+        if e.upcomming == True:
+            all_upEvents.append(e)
     username = ""
     err = ""
     if request.user.is_authenticated:
@@ -424,6 +619,8 @@ def resume(request):
         "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
         "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "all_upEvents":all_upEvents,
+        "auth_user_list":auth_user_list,
     }
     return render(request,'resume.html',context)
 
