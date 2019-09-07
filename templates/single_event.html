@@ -1,0 +1,136 @@
+{% extends 'user.html' %}
+{% load static %}
+{% load filter_tag %}
+
+{% block right_pane %}
+<style>
+
+    .left-active7{
+        background: rgba(0,0,0,0.1);
+    }
+
+    @media screen and (max-width: 992px){
+        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5,.left-active6{
+            display: none;
+        }
+    }
+
+    
+    .add-btn{
+        background: #1a73e8;
+        cursor: pointer;
+        margin: 0.5em 1em;
+        color: #fff;
+        width: max-content;
+        font-family: google-sans-bold;
+        padding: 0.3em 1.5em;
+        border-radius: 30px;
+        box-sizing: border-box;
+        border: 0.2em solid #1a73e8;
+        transition: 0.2s;
+    }
+    .add-btn:hover{
+        background: #fff;
+        color: #1a73e8;
+        border: 0.2em solid #1a73e8;
+    }
+    .add-btn:active{
+        position: relative;
+        top: 1px;
+    }
+    .add-btn:focus{
+        outline: none;
+    }
+
+    .delete-btn{
+        background: crimson;
+        transition: 0.2s;
+        padding: 0.2em 2em;
+        box-sizing: border-box;
+        border: 0.2em solid crimson;
+    }
+    .delete-btn:hover{
+        border: 0.2em solid crimson;
+        color: crimson;
+        background: #fff;
+    }
+
+</style>
+<link href="{% static 'css/manageteam.css' %}" rel="stylesheet" />
+<link href="{% static 'css/input.css' %}" rel="stylesheet" />
+
+<h1> {{event.name}} <span style="color:#1a73e8">Event</span></h1>
+
+
+            <div class="avatar" style="float: none;">
+                <img src="{{ event.event_pic }}" class="img" onError="imageReplace(this);" alt="{{ event.name }} | Avatar" />
+                <Br>
+            </div>
+
+            <Br><br>
+            <div class="label">Upload a New Image for the Event</div>
+        <form action="{% url 'saveSingleEventImage' %}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="{{event.id}}" name="eventid"/>            
+            <input class="input" style="margin-bottom: 0.2em;" type="file" value="{{ profilePic }}" name="uploadFromPC" id="uploadFromPC" accept="image/*" />                
+            <input type="submit" class="add-btn" value=" Upload New Image" />
+        </form>
+            <Br><br>
+            
+                
+<form method="POST" action="{% url 'saveSingleEvent' %}">
+    {% csrf_token %}
+            <div class="label">Event Name</div>
+            <input type="text" class="input" name="name" value="{{ event.name|lastname }}" placeholder="Full Name, e.g - Raghav Dhingra"/>
+
+            <div class="label">Location</div>
+            <input type="text" name="location" placeholder="Guru Tegh Bahadur Institute Of Technology" class="input" value="{{ event.location|lastname }}"/>
+
+            <div class="label">Location Link (Google Maps Link or related links)</div>
+            <input type="text" name="location_link" placeholder="https://goo.gl/maps/4jV7ftnKv2otAagn9" class="input" value="{{ event.location_link|lastname }}"/>
+
+            <Br>
+
+    <div>
+        <div class="label">Date</div>
+        <input type="date" name="date" placeholder="2000-01-01" class="input" value="{{ event.date|date:'Y-m-d' }}"/>
+    </div>
+
+    <div>
+        <div class="label">Time</div>
+        <input type="time" name="time" class="input" placeholder="12:00 p.m." value="{{ event.time|time:'H:i' }}"/>
+    </div>
+
+    <div>
+        <div class="label">Description for the Event</div>
+        <textarea class="input textarea" name="description" placeholder="Write some description for the Event">{{ event.description|lastname }}</textarea>
+    </div>
+
+    <div>
+        <div class="label">Registration Link (Google Form link or related links)</div>
+        <input type="text" class="input" name="registration_link" placeholder="https://docs.google.com/forms/d/e/1FAIpQLScG3Jn......" value="{{ event.registration_link|lastname }}"/>
+    </div>
+
+    <div>
+        <div class="label" style="color: rgb(255, 41, 41);">UpComing Event (Important)</div>
+        <label style="margin-left: 1em;"></label> <input type="checkbox" name="upcomming" />
+        &nbsp;Is It Upcomming Event?
+    </div>
+
+    
+    <br><Br>
+    <input type="hidden" value="{{event.id}}" name="eventid"/>
+    <input type="submit" class="submit" />
+    <br class="next-line2"><br class="next-line2"><br class="next-line2">
+    <a href="{% url 'manageevent' %}" class="submit" style="background: #fff;color: #1a73e8;">Cancel</a>
+        <br><Br>
+
+</form>
+
+<div class="label" style="color: rgb(255, 41, 41);">Warning****</div>
+        
+<form action="{% url 'deleteEvent' %}" method="POST">
+    <input type="hidden" value="{{event.id}}" name="eventid"/>  
+    <input type="submit" class="submit delete-btn" value="Delete Event" />
+</form>
+<Br><Br>
+{% endblock %}

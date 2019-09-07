@@ -18,6 +18,22 @@
         border-radius: 5px;
     }
 
+    .register-btn{
+        padding: 0.2em 1em;
+        width: max-content;
+        border: 0.1em solid #1a73e8;
+        transition: 0.2s;
+        background: #fff;
+        box-sizing: border-box;
+        font-family: google-sans-bold;
+        color: #1a73e8;
+        border-radius: 30px;
+    }
+
+    .register-btn:focus{
+        outline: none;
+    }
+
 </style>
 
 <link href="{% static 'css/user.css' %}" rel="stylesheet" type="text/css" />
@@ -71,14 +87,9 @@
                             <a href="{% url 'profile' %}"><li class="left-active1" id="left-active1"> <i class="fas fa-user-circle"></i> &nbsp;&nbsp;<div style="display: inline-block;">Profile</div></li></a>
                             <a href="{% url 'edit' %}"><li class="left-active2" id="left-active2"> <i class="fas fa-user-edit"></i> &nbsp;<div style="display: inline-block;">Edit User</div></li></a>
                             <a href="{% url 'changepassword' %}"><li class="left-active3" id="left-active3"> <i class="fas fa-lock"></i> &nbsp;&nbsp;<div style="display: inline-block;">Password</div></li></li></a>
-                            {% if request.user.username == "Siddharth" %}
+                            {% if request.user.username in auth_user_list %}
                             <a href="{% url 'manageteam' %}"><li class="left-active6" id="left-active6"> <i class="fas fa-users-cog"></i> &nbsp;&nbsp;<div style="display: inline-block;">Manage Team</div></li></li></a>
-                            {% endif %}
-                            {% if request.user.username == "raghav" %}
-                            <a href="{% url 'manageteam' %}"><li class="left-active6" id="left-active6"> <i class="fas fa-users-cog"></i> &nbsp;&nbsp;<div style="display: inline-block;">Manage Team</div></li></li></a>
-                            {% endif %}
-                            {% if request.user.username == "palak" %}
-                            <a href="{% url 'manageteam' %}"><li class="left-active6" id="left-active6"> <i class="fas fa-users-cog"></i> &nbsp;&nbsp;<div style="display: inline-block;">Manage Team</div></li></li></a>
+                            <a href="{% url 'manageevent' %}"><li class="left-active7" id="left-active7"> <i class="fas fa-calendar-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Manage Event</div></li></li></a>
                             {% endif %}
                             <a href="{% url 'resume' %}"><li class="left-active4" id="left-active4"> <i class="fas fa-file-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Resume Builder</div></li></a>
                             <a href="{% url 'logout' %}"><li class="left-active5" id="left-active5"> <i class="fas fa-sign-out-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Logout</div></li></a>
@@ -98,6 +109,18 @@
                 <div class="left-pane-inner" style="grid-template-columns: 1fr;">
                     <h1 style="margin-bottom: 0.5em;">Upcoming <span style="color:#1a73e8">Events</span></h1>
                     <span style="color: #888;margin: 0 1em;font-weight: bold;">Register Yourself Now</span>
+
+                    {% for upEvent in all_upEvents %}
+                    <div style="margin: 1em;padding: 1em 0.1em;border-top: 0.1em solid #eee;border-bottom: 0.1em solid #eee;">
+                        <div>
+                            <img src="{{upEvent.event_pic}}" style="transform: translateY(40%);width: 90px;margin-right: 1em;margin-bottom: 1em;float: left;" />
+                            <div style="font-size: 1.3em;color: #1a73e8;"> {{upEvent.name}} </div>
+                            <div style="margin-bottom: 0.3em;"> {{upEvent.date}} </div>
+                            <div style="padding: 0.5em 0;"><a class="register-btn" href="{{upEvent.registration_link}}">Register</a></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
 
@@ -127,6 +150,16 @@
                 <div class="left-pane-inner" style="grid-template-columns: 1fr;">
                     <h1 style="margin-bottom: 0.5em;">Upcoming <span style="color:#1a73e8">Events</span></h1>
                     <span style="color: #888;margin: 0 1em;font-weight: bold;">Register Yourself Now</span>
+
+                    {% for upEvent in all_upEvents %}
+                    <div style="margin: 1em;padding: 1em 0.1em;border-top: 0.1em solid #eee;border-bottom: 0.1em solid #eee;">
+                        <img src="{{upEvent.event_pic}}" style="width: 90px;margin-right: 0.5em;margin-bottom: 0.5em;float: left;" />
+                        <div style="font-size: 1.3em;color: #1a73e8;margin-bottom: 0.3em;margin-left: 5em;"> {{upEvent.name}} </div>
+                        <a class="register-btn" href="{{upEvent.registration_link}}">Register</a>
+                        
+                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
 
