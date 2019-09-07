@@ -54,7 +54,6 @@ urlpatterns = [
     path(teampi, mainView.MemberList.as_view()),
     path(eventapi, mainView.EventList.as_view()),
     path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
-    path('testurl',mainView.testUrl, name="testUrl"),
     path('authorization',loginView.auth, name="auth"),
     path('logout',loginView.log_out, name="logout"),
     path('login',loginView.log_in, name="login"),
@@ -65,6 +64,14 @@ urlpatterns = [
     path('user/build-your-resume',mainView.resume,name='resume'),
 
     path('user/uploadImage',mainView.uploadImage,name='uploadImage'),
+
+    path('user/manage-event',mainView.manageevent,name="manageevent"),
+    path('user/manage-event/add-event',mainView.addevent,name="addEvent"),
+    path('user/manage-event/delete-event',mainView.deleteevent,name="deleteEvent"),
+    path('user/manage-event/event=<slug>',mainView.post_by_event,name="post_by_event"),
+    path('user/manage-event/single-event',mainView.single_event,name="singleEvent"),
+    path('user/manage-event/saveSingleEvent',mainView.saveSingleEvent,name="saveSingleEvent"),
+    path('user/manage-event/saveSingleEventImage',mainView.saveSingleEventImage,name="saveSingleEventImage"),
 
     path('user/manage-team',mainView.manageteam,name="manageteam"),
     path('user/manage-team/user=<slug>',mainView.post_by_username,name="post_by_username"),
