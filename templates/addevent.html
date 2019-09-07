@@ -1,0 +1,93 @@
+{% extends 'user.html' %}
+{% load static %}
+{% load filter_tag %}
+
+{% block right_pane %}
+<style>
+
+    .left-active7{
+        background: rgba(0,0,0,0.1);
+    }
+
+    @media screen and (max-width: 992px){
+        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5,.left-active6{
+            display: none;
+        }
+    }
+
+    
+    .add-btn{
+        background: #1a73e8;
+        cursor: pointer;
+        margin: 0.5em 1em;
+        color: #fff;
+        width: max-content;
+        font-family: google-sans-bold;
+        padding: 0.3em 1.5em;
+        border-radius: 30px;
+        box-sizing: border-box;
+        border: 0.2em solid #1a73e8;
+        transition: 0.2s;
+    }
+    .add-btn:hover{
+        background: #fff;
+        color: #1a73e8;
+        border: 0.2em solid #1a73e8;
+    }
+    .add-btn:active{
+        position: relative;
+        top: 1px;
+    }
+    .add-btn:focus{
+        outline: none;
+    }
+
+    .delete-btn{
+        background: crimson;
+        transition: 0.2s;
+        padding: 0.2em 2em;
+        box-sizing: border-box;
+        border: 0.2em solid crimson;
+    }
+    .delete-btn:hover{
+        border: 0.2em solid crimson;
+        color: crimson;
+        background: #fff;
+    }
+
+</style>
+<link href="{% static 'css/manageteam.css' %}" rel="stylesheet" />
+<link href="{% static 'css/input.css' %}" rel="stylesheet" />
+
+<h1> New <span style="color:#1a73e8">Event</span></h1>            
+                
+<form method="POST" action="{% url 'addEvent' %}">
+    {% csrf_token %}
+            <div class="label">Event Name</div>
+            <input type="text" class="input" name="name" value="{{ event.name|lastname }}" placeholder="Full Name, e.g - Raghav Dhingra"/>
+            <br>
+            <div class="label">Location</div>
+            <input type="text" name="location" placeholder="Guru Tegh Bahadur Institute Of Technology" class="input" value="{{ event.location|lastname }}"/>
+     <Br>
+
+    <div>
+        <div class="label">Date</div>
+        <input type="date" name="date" placeholder="2000-01-01" class="input" value="{{ event.date|date:'Y-m-d' }}"/>
+    </div>
+
+    <div>
+        <div class="label">Time</div>
+        <input type="time" name="time" class="input" placeholder="12:00 p.m." value="{{ event.time|time:'H:i' }}"/>
+    </div>
+    
+    <br><Br>
+    <input type="hidden" value="{{event.id}}" name="eventid"/>
+    <input type="submit" class="submit" value="Add Event" />
+    <br class="next-line2"><br class="next-line2"><br class="next-line2">
+    <a href="{% url 'manageevent' %}" class="submit" style="background: #fff;color: #1a73e8;">Cancel</a>
+        <br><Br>
+
+</form>
+
+<Br>
+{% endblock %}
