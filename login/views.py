@@ -77,16 +77,6 @@ class SingleMember(APIView):
 
 #Functions are defined here
 
-def testUrl(request):
-    try:
-        data = requests.get('http://dietitioapp.herokupp.com/home/v1/clinic_blogs/?p_id=207',headers = {"Authorization":'24619466-52bf-11e9-80da-9cad975b038d'})
-        resp = json.loads(data.text)
-    except:
-        data = requests.get('http://127.0.0.1:8000/teamapi')    
-        resp = json.loads(data.text)
-    return JsonResponse(resp,safe=False)
-
-
 def auth(request):
     username = ""
     if request.user.is_authenticated:
