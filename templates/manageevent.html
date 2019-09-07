@@ -1,0 +1,75 @@
+{% extends 'user.html' %}
+{% load static %}
+
+{% block right_pane %}
+<style>
+
+    .left-active7{
+        background: rgba(0,0,0,0.1);
+    }
+
+    @media screen and (max-width: 992px){
+        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5,.left-active6{
+            display: none;
+        }
+    }
+
+    .add-btn{
+        background: #1a73e8;
+        cursor: pointer;
+        margin: 0 1em;
+        color: #fff;
+        width: max-content;
+        padding: 0.3em 1.5em;
+        border-radius: 30px;
+        box-sizing: border-box;
+        border: 0.2em solid #1a73e8;
+        transition: 0.2s;
+    }
+    .add-btn:hover{
+        background: #fff;
+        color: #1a73e8;
+        border: 0.2em solid #1a73e8;
+    }
+    .add-btn:active{
+        position: relative;
+        top: 1px;
+    }
+    
+</style>
+<link href="{% static 'css/manageteam.css' %}" rel="stylesheet" />
+
+<h1>Event <span style="color:#1a73e8">Console</span></h1>
+
+<a class="add-btn" href="{% url 'addEvent' %}" title="Add New Event">
+    <i style="display: inline-flex;" class="fas fa-plus"></i>&nbsp;&nbsp; <span style="font-family: google-sans-bold;">Add Event</span>
+</a>
+<br>
+
+<div style="padding: 0.5em;">
+    <table>
+        <tr class="thisnot">
+            <th>Event</th>
+            <th>Date</th>
+            <th>Edit Event</th>
+        </tr>
+
+        {% for event in allEvent %}
+        <tr>
+            <td> {{ event.name }} </td>
+            <td> {{ event.date }} </td>
+            <td>
+                <form method="POST" action="{% url 'singleEvent' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{event.id}}" name="postid" />
+                    &nbsp;&nbsp;<input type="submit" value="Edit" class="editMember" />
+                </form>
+            </td>
+        </tr>
+        
+        <tr><td>&nbsp;</td></tr>
+        {% endfor %}
+
+    </table>
+</div>
+{% endblock %}

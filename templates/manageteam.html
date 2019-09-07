@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block right_pane %}
-{% if request.user.username == 'Siddharth' or 'raghav' %}
 <style>
 
     .left-active6{
@@ -10,11 +9,21 @@
     }
 
     @media screen and (max-width: 992px){
-        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5{
+        .left-active2,.left-active1,.left-active3,.left-active4,.left-active5,.left-active7{
             display: none;
         }
     }
 
+    @media screen and (max-width: 670px){
+        .hide-at{
+            display: none;
+        }
+    }
+    @media screen and (max-width: 510px){
+        .hide-at1{
+            display: none;
+        }
+    }
 </style>
 <link href="{% static 'css/manageteam.css' %}" rel="stylesheet" />
 
@@ -22,17 +31,17 @@
 <div style="padding: 0.5em;">
     <table>
         <tr class="thisnot">
-            <th>Name</th>
+            <th class="hide-at1">Name</th>
             <th>Username</th>
-            <th>Email-ID</th>
+            <th class="hide-at">Email-ID</th>
             <th>Edit Member</th>
         </tr>
 
         {% for team in allTeam %}
         <tr>
-            <td> {{ team.first_name }} </td>
+            <td class="hide-at1"> {{ team.first_name }} </td>
             <td> {{ team.username }} </td>
-            <td> {{ team.email }} </td>
+            <td class="hide-at"> {{ team.email }} </td>
             <td>
                 <form method="POST" action="{% url 'singleMember' %}">
                     {% csrf_token %}
@@ -47,7 +56,4 @@
 
     </table>
 </div>
-{% else %}
-<h3>Sorry, You are not authorised to access this.</h3>
-{% endif %}
 {% endblock %}
