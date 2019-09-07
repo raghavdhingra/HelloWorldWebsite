@@ -3,7 +3,7 @@
 let togVal = 0
 document.getElementById("leftPaneToggleBtn").addEventListener("click",()=>{
     if (togVal == 0){
-        for ( var i = 1; i <= 6; i++ ){
+        for ( var i = 1; i <= 7; i++ ){
             document.getElementById(`left-active${i}`).classList.add("activeIt");
         }
         togVal+=1;
@@ -11,7 +11,7 @@ document.getElementById("leftPaneToggleBtn").addEventListener("click",()=>{
         document.getElementById("turnAround").style.transform = "rotate(180deg)";
     }
     else{
-        for (var i = 1; i <= 6; i++ ){
+        for (var i = 1; i <= 7; i++ ){
             document.getElementById(`left-active${i}`).classList.remove("activeIt");
         }
         togVal = 0;
