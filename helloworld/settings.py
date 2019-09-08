@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!xs$*+7(*-*@bnvb#dvg3*=2-(xzgje8=lf@(+kom9k$#xfn5y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'login',
     'rest_framework',
     'django.contrib.sitemaps',
-    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -40,6 +40,7 @@ eventapi = 'eventapi/key=1a35d89ise039'
 urlpatterns = [
     path('admin', admin.site.urls,name="admin"),
     path('', mainView.home,name="home"),
+    path('add-email',mainView.addEmailId,name="addEmailId"),
     path('about', mainView.about,name="about"),
     path('contact', mainView.contact,name="contact"),
     path('gallery', mainView.gallery,name="gallery"),
@@ -53,6 +54,7 @@ urlpatterns = [
 
     path(teampi, mainView.MemberList.as_view()),
     path(eventapi, mainView.EventList.as_view()),
+    path('mailing-list',mainView.MailingList.as_view()),
     path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
     path('authorization',loginView.auth, name="auth"),
     path('logout',loginView.log_out, name="logout"),
