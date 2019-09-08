@@ -64,6 +64,14 @@ class EventList(APIView):
     def post(self):
         pass
 
+class MailingList(APIView):
+    def get(self,request):
+        member = Email.objects.filter(name='raghav')
+        serializer = MailSerialiser(member, many=True)
+        return JsonResponse(serializer.data,safe=False)
+    def post(self):
+        pass
+
 class SingleMember(APIView):
     def get(self,UserId):
         member = TeamMember.objects.filter(pk = UserId)
