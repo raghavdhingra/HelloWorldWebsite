@@ -6,7 +6,9 @@
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <link rel="stylesheet" href="{% static 'css/event.css' %}" />
+<link rel="stylesheet" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
 <style>
 /*For Nav Bar Active Element Displaying the current page----------------*/
 ul.nav_element span.nav-active1{
@@ -18,6 +20,55 @@ ul.nav_element span.nav-active1{
     color: #000 !important;
 }
 /*For Nav Bar Active Element Displaying the current page----------------*/
+
+.email-input1,.email-input2{
+    font-family: google-sans-bold;
+    margin: 0;
+    transition: 0.2s;
+    border: 0.2em solid #ccc;
+}
+.email-input1:focus,.email-input2:focus{
+    outline: none;
+}
+.email-input1{
+    padding: 0.5em 1em;
+    border-right: none;
+    color: #666;
+    border-radius: 30px 0 0 30px;    
+}
+.email-input1::placeholder{
+    color: #ccc;
+}
+.email-input2{
+    border-radius: 0 30px 30px 0;
+    padding: 0.5em 1.5em;
+    border-left: none;
+    cursor: pointer;
+    background: #1a73e8;
+    color: #fff;
+}
+
+.email-input1:focus{
+    border-color: #114e9e;
+}
+.email-input1:focus + .email-input2{
+    border-color: #114e9e;
+}
+
+@media screen and (min-width: 650px){
+    .email-input1{
+        width: 50%;
+        font-size: 1.2em;
+    }
+    .email-input2{
+        font-size: 1.2em;
+    }
+}
+
+div.icon.success.animate{
+    overflow: hidden !important;
+}
+
 </style>
 
 {% endblock %}
@@ -240,7 +291,7 @@ ul.nav_element span.nav-active1{
                 <Br><Br>
                 <p style="font-size: 1.1em;"> {{event.description|safe|truncatewords_html:30}} </p>
                 <Br>
-                <a href="{% url 'event' %}" title="See More Events" class="event-see-more">See More</a>
+                <a href="{% url 'event' %}" title="See More Events" class="event-see-more">Read More</a>
             </div>
         </div>
         {% endfor %}
@@ -249,10 +300,48 @@ ul.nav_element span.nav-active1{
     <center style="margin: 1em;padding: 1em;">
         <a href="{% url 'event' %}" title="See More Events" class="event-see-more-down">See More Events</a>
     </center>
-    <div class="spacing-3"></div>
+    <div class="spacing-2"></div>
     <!--Past Events_______________-->
+<center>
+    <div style="border-top: 1em dotted #0f4183;width: 200px;"></div>
+</center>
+<div class="spacing-2"></div>
 
 </div>
+
+<center>
+    <h1 class="container" style="font-family: google-sans-bold;color: #777;">Subscribe to Our Mailing List</h1>
+    
+    <br>
+
+    <div class="container">
+        <input type="email" class="email-input1" id="emailId" placeholder="Your Email Id" /><button id="emailBtn" class="email-input2">Subscribe</button>
+    </div>
+</center>
+<div class="spacing-3"></div>
+
+<script>
+
+$("#emailBtn").click(
+    () => {
+        $.ajax({
+        url:"/add-email",
+        data:{
+            "emailId":document.getElementById("emailId").value
+        },
+        dataType: 'json',
+        success: function (data) {
+            swal("Awesome!", "You have successfully subscribed to our mailing List!", "success");
+            document.getElementById("emailId").value = "";
+            document.getElementById("emailId").contentEditable = false;
+            document.getElementById("emailBtn").disabled = true;
+            document.getElementById("emailBtn").innerHTML = `<i style="display: inline-flex;" class="far fa-check-circle"></i> Subscribed`;
+          }
+      });
+    }
+)
+
+</script>
 
 {% endblock %}
 
