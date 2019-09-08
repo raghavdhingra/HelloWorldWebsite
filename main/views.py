@@ -28,6 +28,29 @@ def uploadFile(file):
 
 
 def home(request):
+
+    # For Inserting the Signed In Member In The Mailing List
+
+    # mailList = []
+    # oldMailList = Email.objects.filter(name = 'raghav')[0].email
+    # mailList+=oldMailList
+    # print(mailList)
+    # meme = TeamMember.objects.all()
+    # for mem in meme:
+    #     if mem.contact['email'] in mailList:
+    #         print("None")
+    #     else:
+    #         newMail = []
+    #         newMail.append(mem.contact['email'])
+    #         print(newMail)
+    #         mailList+=newMail
+    # Email.objects.filter(name = 'raghav').update(
+    #     email = mailList
+    # )
+
+    ##################################################
+
+
     up_event = []
     past_event = []
     username = ""
@@ -49,7 +72,6 @@ def home(request):
 
     if up_event == []:
         up_event = ''
-    print(past_event)
     context = {
         "title":"Home - HelloWorld",
         "meta_title":"Home - HelloWorld",
@@ -61,6 +83,23 @@ def home(request):
         "past_event": past_event,
     }
     return render(request,'home.html',context)
+
+def addEmailId(request):
+    dict = {}
+    if request.is_ajax:
+        new_email = request.GET.get("emailId")
+        emailList = Email.objects.filter(name = 'raghav')[0].email
+        if new_email in emailList:
+            print('This Email address is already in the mailing List.')
+        else:
+            emailList.append(new_email)
+            print(new_email)
+            Email.objects.filter(name='raghav').update(
+                email = emailList,
+            )
+        return JsonResponse(json.dumps(dict),safe=False)
+    else:
+        return HttpResponse("<h1>Something Wrong Happened</h1>")
 
 def about(request):
     username = ""

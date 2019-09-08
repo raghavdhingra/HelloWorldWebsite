@@ -21,3 +21,11 @@ def links():
         "twitter": "https://twitter.com/",
         "github": "https://github.com/"
     }
+
+def email():
+    return [
+        "raghav.dhingra15@gmail.com",
+        "raghav.dhingra15@gmail.com",
+        "raghav.dhingra15@gmail.com",
+
+    ]

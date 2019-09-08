@@ -52,3 +52,16 @@ class Events(models.Model):
 
     def __str__(self):
         return self.name
+
+class Email(models.Model):
+    name = models.CharField(max_length = 200, blank=True, null=True,default='raghav')
+    email = ArrayField(models.CharField(max_length=300),default=email,null=True,blank=True)
+    time = models.TimeField(blank=True, null=True,default=timezone.now)
+
+    def publish(self):
+        self.time = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.name
+    
