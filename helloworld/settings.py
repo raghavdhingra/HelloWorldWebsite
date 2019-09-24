@@ -178,7 +178,7 @@ django_heroku.settings(locals())
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'contact@helloworldofficial.in'
-EMAIL_HOST_PASSWORD = 'HelloWorld1.'
+EMAIL_HOST_USER = <EMAIL_ID>
+EMAIL_HOST_PASSWORD = <EMAIL_PASSWORD>
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'contact@helloworldofficial.in'
+DEFAULT_FROM_EMAIL = <DEFAULT_EMAIL_ID>
