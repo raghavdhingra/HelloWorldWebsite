@@ -107,10 +107,10 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'd6l68agq5jdujc',
-            'USER': 'nyguztgdzutgwd',
+            'NAME': <DATABASE_NAME>,
+            'USER': <USER_ID>,
             'HOST': 'ec2-174-129-226-232.compute-1.amazonaws.com',
-            'PASSWORD':'f588053fedce0524f48ac4145a74cd29f1ef26829593744a801ce1128a83394a',
+            'PASSWORD':<PASSWORD>,
             'PORT': '5432',
         },
 }
@@ -140,9 +140,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 cloudinary.config(
-    cloud_name = "raghavdhingra",
-    api_key = "676478377368971",
-    api_secret = "FjnMXXangAmt1JwsC76eykQXU-k",
+    cloud_name = <NAME>,
+    api_key = <API_KEY>,
+    api_secret = <API_SECRET_KEY>,
 )
 
 # Internationalization
