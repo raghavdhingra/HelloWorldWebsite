@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /admin/
-
-Sitemap: https://helloworldofficial.in/sitemap.xml
-
-
