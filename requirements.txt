@@ -8,7 +8,7 @@ django-rest-framework==0.1.0
 djangorestframework==3.10.1
 gunicorn==19.9.0
 pathlib2==2.1.0
-Pillow==6.1.0
+Pillow==6.2.0
 psycopg2==2.7.4
 psycopg2-binary==2.7.5
 Pyrebase==3.0.27
