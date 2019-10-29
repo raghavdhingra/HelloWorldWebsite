@@ -38,10 +38,13 @@ All the languages mentioned above are bind together and used inside this framewo
 ```
 virtualenv <foldername> <path>
 ```
+
 *For Example:*
+
 ```
-virtualenc venv .
+virtualenv venv .
 ```
+
 It will create a virtual environment with a folder name - *venv* in the current directory<br>
 <br>4.) Now activate the virtual environment by writing the following command: <br>
 *FOR WINDOWS*<Br>
