@@ -71,8 +71,8 @@
     <div class="spacing-3"></div>
 
     <h3 style="color: #666;">**Note - <Br>
-        We will keep your Personal information safe. We will not be sharing your Information with anyone. <br>
-        These information is used only for registering into our events and building up your Resume which can be downloaded.
+        We will keep your personal information safe. We will not be sharing your information with anyone. <br>
+        This information is used only for registering into our events and building up your Resume which can be downloaded.
     </h3>
 
     <div class="spacing-3"></div>
@@ -90,6 +90,9 @@
                             {% if request.user.username in auth_user_list %}
                             <a href="{% url 'manageteam' %}"><li class="left-active6" id="left-active6"> <i class="fas fa-users-cog"></i> &nbsp;&nbsp;<div style="display: inline-block;">Manage Team</div></li></li></a>
                             <a href="{% url 'manageevent' %}"><li class="left-active7" id="left-active7"> <i class="fas fa-calendar-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Manage Event</div></li></li></a>
+                            {% else %}
+                            <a style="height:0;padding: 0;margin:0;opacity: 0;"></a>
+                            <a style="height:0;padding: 0;margin:0;opacity: 0;"></a>
                             {% endif %}
                             <a href="{% url 'resume' %}"><li class="left-active4" id="left-active4"> <i class="fas fa-file-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Resume Builder</div></li></a>
                             <a href="{% url 'logout' %}"><li class="left-active5" id="left-active5"> <i class="fas fa-sign-out-alt"></i> &nbsp;&nbsp;<div style="display: inline-block;">Logout</div></li></a>
@@ -112,8 +115,8 @@
 
                     {% for upEvent in all_upEvents %}
                     <div style="margin: 1em;padding: 1em 0.1em;border-top: 0.1em solid #eee;border-bottom: 0.1em solid #eee;">
-                        <div>
-                            <img src="{{upEvent.event_pic}}" style="transform: translateY(40%);width: 90px;margin-right: 1em;margin-bottom: 1em;float: left;" />
+                        <div style="overflow: hidden;">
+                            <img src="{{upEvent.event_pic}}" style="transform: translateY(40%);width: 90px;position: relative;top: -2.4em;float: left;" />
                             <div style="font-size: 1.3em;color: #1a73e8;"> {{upEvent.name}} </div>
                             <div style="margin-bottom: 0.3em;"> {{upEvent.date}} </div>
                             <div style="padding: 0.5em 0;"><a class="register-btn" href="{{upEvent.registration_link}}">Register</a></div>
@@ -134,12 +137,13 @@
 
                     {% endblock %}
                     {% else %}
-                    <center>
-                        <h1>Access Denied</h1>
-                        <h3>You are not allowed to access this tab</h3>
-                        <h4>Only authorised user can have access to this page.</h4>
-                        <a href="{% url 'home' %}" style="color: #333;text-decoration: none;"><h3>Go Back</h3></a>
-                    </center>
+
+                        <center>
+                            <h1>Access Denied</h1>
+                            <h3>You are not allowed to access this tab</h3>
+                            <h4>Only authorised user can have access to this page.</h4>
+                            <a href="{% url 'home' %}" style="color: #333;text-decoration: none;"><h3>Go Back</h3></a>
+                        </center>
 
                     {% endif %}
 
@@ -155,8 +159,8 @@
                     <div style="margin: 1em;padding: 1em 0.1em;border-top: 0.1em solid #eee;border-bottom: 0.1em solid #eee;">
                         <img src="{{upEvent.event_pic}}" style="width: 90px;margin-right: 0.5em;margin-bottom: 0.5em;float: left;" />
                         <div style="font-size: 1.3em;color: #1a73e8;margin-bottom: 0.3em;margin-left: 5em;"> {{upEvent.name}} </div>
-                        <a class="register-btn" href="{{upEvent.registration_link}}">Register</a>
-                        
+                        <div style="margin-bottom: 0.3em;"> {{upEvent.date}} </div>
+                        <div style="padding: 0.5em 0;"><a class="register-btn" href="{{upEvent.registration_link}}">Register</a></div>
                     </div>
                     {% endfor %}
 
