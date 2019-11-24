@@ -79,7 +79,7 @@ div.nav-drop-down li.drop-active2{
         <label style="font-size: 1.5em;color: #666;font-family: google-sans-bold;">Filter:</label>
         <select name="select" style="padding: 0.5em;border-radius: 5px;font-family: google-sans-bold;">
             <option>ALL</option>
-            <option>UpComming Event</option>
+            <option>UpComing Event</option>
             <option>Past Event</option>
         </select>
         <input type="submit" value="Sort" class="submit" />
@@ -88,12 +88,12 @@ div.nav-drop-down li.drop-active2{
     {% if filter == 'past' %}
     {% else %}
     <div class="page-heading" style="margin-top: 1em;">
-        UpComming <span style="color: #1a73e8;">Events</span>
+        UpComing <span style="color: #1a73e8;">Events</span>
     </div>
     
     {% if up_event == '' %}
     <div style="margin-top: 1em;box-shadow: 0 0 7px 0 #999;padding: 0.5em 2em;color: #666;">
-        <h1>There is no UpComming Events.</h1>
+        <h1>There is no UpComing Events.</h1>
         <h3>Stay Tuned, we are bringing more events.</h3>
     </div>
     {% else %}
@@ -120,7 +120,7 @@ div.nav-drop-down li.drop-active2{
                 <div class="upevent-content">
                     {{event.description}}
                 </div>
-                <!-- <a class="upevent-btn" href="{{event.registration_link}}">Register Here</a> -->
+                <a class="upevent-btn" href="{{event.registration_link}}">Know More</a>
                 &nbsp;
                 <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
                 <div class="spacing-2"></div>
