@@ -1,0 +1,52 @@
+.timeline{
+    font-size: 1.3em;
+    padding: 0.5em 0;
+}
+
+.timeline-content{
+    border-left: 0.5em solid #1a73e8;
+    padding: 6em 1em;
+    margin: 0 1.1em;
+    padding-right: 0;
+    margin-right: 0;
+    padding-bottom: 0;
+}
+
+.timeline-inner-content{
+    padding: 1em;
+    background: linear-gradient(54deg, #002657, #7eb6ff);
+    box-shadow: 0 0 10px 0 #ccc;
+    border-radius: 5px;
+    color: #eee;
+}
+
+.day{
+    background: linear-gradient(54deg, #7eb6ff, #002657);
+}
+
+.timeline-event-name{
+    color: #fff;
+    font-size: 1.5em;
+    font-family: google-sans-bold;
+}
+
+.timeline-event-timing,.timeline-event-venue{
+    color: #eee;
+}
+
+.timeline-event-venue{
+    margin: 0.3em 0 0 0;
+}
+
+.timeline-circle,.timeline-disc{
+    margin: 0 0.3em;
+    transform: scale(1.2);
+    border: 0.5em solid #1a73e8;
+    background: #fff;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+}
+.timeline-disc{
+    background: #1a73e8;
+}

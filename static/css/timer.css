@@ -1,0 +1,41 @@
+.start-in{
+    margin: 1em 0;
+    font-size: 1.5em;
+}
+
+.timer{
+    box-shadow: 2px 2px 10px 2px #ddd;
+    padding: 0.8em 1em;
+    border-radius: 30px;
+    font-size: 1.5em;
+    font-family: google-sans-bold;
+    display: inline-flex;
+}
+
+.timer-content{
+    text-align: center;
+}
+
+.timer-content > div{
+    margin-bottom: 0.5em;
+}
+
+.timer-spacing{
+    margin: 0 1em;
+}
+
+#days,#hours,#minutes,#seconds{
+    color: #666;
+}
+
+@media screen and (max-width: 500px){
+    .timer{
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .timer{
+        font-size: 0.8em;
+    }
+}

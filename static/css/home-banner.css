@@ -1,0 +1,146 @@
+.home-banner-overlay{
+    position: fixed;
+    overflow-y: scroll;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    animation: banner-fadeIn 0.5s ease forwards 1;
+}
+
+.home-banner-overlay::-webkit-scrollbar{
+    width: 0;
+}
+
+.bannerNone{
+    display: none;
+}
+
+@keyframes banner-fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.home-banner{
+    margin: 0 auto;
+    background: #fff;
+    margin: 10vh 0;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 1px #999;
+}
+
+.home-banner-grid{
+    display: grid;
+    margin: 1em 0;
+    padding: 1em 0;
+    margin: 1em 0;
+    border: 0.2em solid #ddd;
+    grid-template-columns: 1fr 1fr;
+}
+
+.home-banner-content-right,.home-banner-content-left{
+    padding: 1em;
+}
+
+.home-banner-content-left{
+    text-align: center;
+}
+
+.home-banner-content-right{
+    font-size: 1.1em;
+    color: #555;
+}
+
+.home-banner-logo{
+    margin: 0 auto;
+}
+
+.home-banner-logo > img{
+    height: 100%;
+}
+
+.banner-head{
+    font-size: 3.5em;
+    margin: 0.5em 0;
+    font-family: google-sans-bold;
+    color: rgb(78, 30, 139);
+}
+
+@media screen and (max-width: 992px){
+    .home-banner-grid{
+        grid-template-columns: auto;
+    }
+}
+
+.start-in{
+    margin: 1em 0;
+    font-size: 1.5em;
+}
+
+.timer{
+    border: 0.2em solid #ddd;
+    padding: 0.8em 1em;
+    border-radius: 30px;
+    font-family: google-sans-bold;
+    font-size: 1.5em;
+    display: inline-flex;
+}
+
+.timer-content{
+    text-align: center;
+}
+
+.timer-content > div{
+    margin-bottom: 0.5em;
+}
+
+.timer-spacing{
+    margin: 0 1em;
+}
+
+#days,#hours,#minutes,#seconds{
+    color: #666;
+}
+
+.banner-right-head{
+    font-size: 2em;
+    font-family: google-sans-bold;
+    margin: 0.5em 0;
+}
+
+@media screen and (max-width: 600px){
+    .timer{
+        font-size: 1em;
+    }
+    .banner-head{
+        font-size: 2em;
+    }
+    .banner-right-head{
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .home-banner-content-left{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .timer{
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .timer{
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px){
+    .timer{
+        font-size: 1.2em;
+    }
+}
