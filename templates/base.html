@@ -85,17 +85,17 @@
                             <b>Website Developer</b>
                         </div>
                         <div class="animTopToBottom" style="height: 200px;width: 200px;padding: 0 1em;overflow: hidden;padding-bottom: 0.8em;">
-                            <img src="{{ developer }}" alt="Raghav Dhingra | HelloWorld" width="100%" style="border-radius: 50%;padding: 0.2em;border: 0.2em dashed #1a73e8;" />
+                            <img src="{{ developer.profile_picture }}" alt="Raghav Dhingra | HelloWorld" width="100%" style="border-radius: 50%;padding: 0.2em;border: 0.2em dashed #1a73e8;" />
                         </div>
                         <div class="animTopToBottom" style="padding: 0.5em;margin: 0.2em 1em;font-weight: bold;">
-                            <div class="raghav">Raghav Dhingra</div>
+                            <div class="raghav"> {{developer.first_name}} {{developer.last_name}} </div>
                         </div>
                     </div>
                     <div class="animTopToBottom">Know More About me:<Br>
-                        <a href="https://www.facebook.com/raghav.dhingra15" title="FACEBOOK"><i style="color: #3b5998;" class="fab fa-facebook"></i></a>                        
+                        <a href="{{developer.links.facebook}}" title="FACEBOOK"><i style="color: #3b5998;" class="fab fa-facebook"></i></a>                        
                         <a href="https://www.linkedin.com/in/raghav-dhingra-168a41168/" title="LINKEDIN"><i style="color: #3b5998;" class="fab fa-linkedin"></i></a>                        
-                        <a href="https://github.com/raghavdhingra" title="GITHUB"><i style="color: #3b5998;" class="fab fa-github"></i></a>                        
-                        <a href="https://www.instagram.com/raghav.dhingra15/" title="INSTAGRAM"><i style="color: #3b5998;" class="fab fa-instagram"></i></a>                        
+                        <a href="{{developer.links.github}}" title="GITHUB"><i style="color: #3b5998;" class="fab fa-github"></i></a>                        
+                        <a href="{{developer.links.twitter}}" title="INSTAGRAM"><i style="color: #3b5998;" class="fab fa-twitter"></i></a>                        
                         <a href="mailto:raghav.dhingra15@gmail.com" title="MAIL ME"><i style="color: #3b5998;" class="fas fa-envelope"></i></a>                        
                     </div>
                         <Br>
@@ -152,8 +152,8 @@
         </div>
     </div>
     <!--Nav Bar____________________-->
-<style>
-</style>
+    
+
     <!--NavBar Drop Down-->
     <div class="nav-drop-down" id="nav_dropdown">
         <a href="{% url 'contact' %}"><li id="drop_contact2">Contact</li></a>
@@ -167,6 +167,7 @@
         <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
         <a href="{% url 'event' %}"><li class="drop-active2">Upcoming / Past Events</li></a>
         <a href="{% url 'gallery' %}"><li class="drop-active3">Gallery</li></a>
+        <a href="/hack-gtbit-2.0"><li>HACK-GTBIT 2.0</li></a>
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}"><li>Logout</li></a>
         {% else %}
@@ -207,7 +208,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="spacing-2"></div>
+                <!-- <div class="spacing-2"></div> -->
             </div>
                 
             <div class="container">
