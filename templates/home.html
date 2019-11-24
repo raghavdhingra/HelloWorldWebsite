@@ -48,6 +48,10 @@ ul.nav_element span.nav-active1{
     color: #fff;
 }
 
+.email-input2:hover{
+    background: #165cb8;
+}
+
 .email-input1:focus{
     border-color: #114e9e;
 }
@@ -70,6 +74,8 @@ div.icon.success.animate{
 }
 
 </style>
+
+<link href="{% static 'css/home-banner.css' %}" rel="stylesheet" />
 
 {% endblock %}
 
@@ -96,7 +102,7 @@ div.icon.success.animate{
             </center>
             <div class="intro-tagline">
                 <h1 style="font-size: 2.4em;">#' Tagging <font color="#1a73e8">Lives</font></h1><br>
-                <h3 style="font-family: google-sans-light;font-weight: 500;">HelloWorld is a non-profit organisation which aims to broaden the conception of coding. We members of HelloWorld strive hard to impart our knowledge and introduce the young minds to world of digitalization</h3>
+                <h3 style="font-family: google-sans-light;font-weight: 500;">HelloWorld is a non-profit organization that aims to broaden the conception of coding. We members of HelloWorld strive hard to impart our knowledge and introduce young minds to the world of digitization.</h3>
                 <br>
                 <h3 style="font-family: google-sans-light;font-weight: 100;color: #999;">Join Us and be a part of this unique society.</h3><Br>
                 <a href="#" class="join-us join-us1">Join Us</a>
@@ -110,8 +116,11 @@ div.icon.success.animate{
     <div class="container">
         <p style="font-family: google-sans-light;font-weight: 500;font-size: 1.5em;">About HelloWorld</p><br>
         <p>
-            HelloWorld is probably the first code of any language and it provides with you with a your first working code and headstart to the journey in the coding world. HelloWorld community was establish 4 years ago with a dream of connecting innovative minds to the coding world.
-            Within all these years of hardwork by each member, HelloWorld has created a list of successful events and classes with positive reviews. We aim to set more hands at work in the technical field for more innovations and progress.
+            HelloWorld is probably the first code of any language and it provides you with your first working code 
+            and headstart to the journey in the coding world. The HelloWorld community was established 4 years ago 
+            with a dream of connecting innovative minds to the coding world. Within all these years of hard work by 
+            each member, HelloWorld has created a list of successful events and classes with positive reviews. 
+            We aim to set more hands at work in the technical field for more innovations and progress.
         </p>
         <br>
         <a href="{% url 'about' %}" class="join-us light">Know More</a>
@@ -167,18 +176,18 @@ div.icon.success.animate{
         Upcoming <span style="color: #1a73e8;">Events</span>
     </div>
 
-    <span style="color: #888;font-size: 1.1em;">
+    <!-- <span style="color: #888;font-size: 1.1em;">
 
         To welcome the upcoming batch and spark a competitive spirit
         among freshers.<Br> We are soon coming up with - TRIVIA. Trivia
         would be an online non-technical event to test your logical skills.. <br>
         <span style="font-family: google-sans-bold;">So be ready freshers for a challenge along with some amazing awards !</span>
 
-    </span>
+    </span> -->
 
     {% if up_event == '' %}
     <div style="margin-top: 1em;box-shadow: 0 0 7px 0 #999;padding: 0.5em 2em;color: #666;">
-        <h1>There is no UpComming Events.</h1>
+        <h1>There are no upcoming events.</h1>
         <h3>Stay Tuned, we are bringing more events.</h3>
     </div>
     {% else %}
@@ -205,7 +214,7 @@ div.icon.success.animate{
             <div class="upevent-content">
                 {{event.description}}
             </div>
-            <!-- <a class="upevent-btn" href="{{event.registration_link}}">Register Here</a> -->
+            <a class="upevent-btn" href="{{event.registration_link}}">Know More</a>
             &nbsp;
             <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
             <div class="spacing-2"></div>
@@ -228,9 +237,9 @@ div.icon.success.animate{
 
     
     <p style="color: #888;font-size: 1.1em;">
-            To celebrate the idea of teamwork and collaboration
-            we have gathered a team of handful which has managed 
-            to be one of the most active societies of our college. <Br>
+            To celebrate the idea of teamwork and collaboration we 
+            have gathered a team of a handful which has managed to 
+            be one of the most active societies of our college. <Br>
             We believe the ideas grow when it shifts from mind to 
             mind starting from where it sprang up.<Br> Our team consists 
             of tech-enthusiasts with varied skill sets. <Br><Br>
@@ -274,7 +283,7 @@ div.icon.success.animate{
     </div>
 
     <span style="color: #888;font-size: 1.1em;">
-        A successful past creates a peaceful vision of tomorrow. We've conducted a number of successful events with an active participation of students. 
+            A successful past creates a peaceful vision of tomorrow. We've conducted a number of successful events with the active participation of students.
     </span>
     <div class="event-grid">
         {% for event in past_event %}
@@ -320,6 +329,52 @@ div.icon.success.animate{
 </center>
 <div class="spacing-3"></div>
 
+
+<!-- HACK GTBIT 2.0 BANNER -->
+<div class="home-banner-overlay bannerNone" id="home-banner-overlay">
+        <div class="container">
+            <div class="home-banner">
+                <div style="float: right;font-size: 2em;cursor: pointer;" onclick="closeHomeBanner();"> &times; </div>
+                <Br><Br>
+                <div class="home-banner-grid">
+                    <div class="home-banner-content-left">
+                        <div class="home-banner-logo">
+                            <img src="{% static 'assets/background/hackgtbit.png' %}" />
+                        </div>
+                        <div class="banner-head">H@CK GTBIT 2.0</div>
+                        <div style="font-size: 2em;margin: 0.5em 0;color:#666;">Starts In:</div>
+                        <div class="timer">
+                            <div class="timer-content" style="color: #176bef;"> <div id="days">00</div> Days </div>
+                            <div class="timer-spacing"> </div>
+                            <div class="timer-content" style="color: #ff3e30;"> <div id="hours">00</div> Hours </div>
+                            <div class="timer-spacing"> </div>
+                            <div class="timer-content" style="color: #f7b529;"> <div id="minutes">00</div> Minutes </div>
+                            <div class="timer-spacing"> </div>
+                            <div class="timer-content" style="color: #179c52;"> <div id="seconds">00</div> Seconds </div>
+                        </div>
+
+                    </div>
+
+                    <div class="home-banner-content-right">
+                        <div>
+                            <div class="banner-right-head">HACK-GTBIT 2.0</div>
+                            H@ckGTBIT 2.0 isn't just an event for us, it is, in fact, a journey that has helped us to define 
+                            ourselves, find our paths and most importantly take something from it to cherish as a team. We 
+                            aim to let this event take the form of a platform that would help the students, faculty, 
+                            participants, and sponsors interact with each other and form bonds stronger than those made on paper. 
+                            Last time we gained all of that by forming a team we could trust, who had each other's back! This year 
+                            we're back with double energy and enthusiasm to make this event an absolute success for everyone. So, 
+                            we invite all the sponsors to have trust in us and get associated with us.
+                            <Br><br>
+                            <a href="/hack-gtbit-2.0" class="join-us join-us1">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HACK GTBIT 2.0 -->
+
 <script>
 
 $("#emailBtn").click(
@@ -348,4 +403,6 @@ $("#emailBtn").click(
 
 {% block script %}
 <script src="{% static 'js/home.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/timer.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/home-banner.js' %}"></script>
 {% endblock %}
