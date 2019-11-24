@@ -44,7 +44,7 @@ class Events(models.Model):
     location_link = models.CharField(max_length = 400, blank=True, null=True,default='')
     description = models.TextField(blank=True,null=True,default='')
     registration_link = models.CharField(max_length = 400, blank=True, null=True,default='')
-    upcomming = models.BooleanField(blank=True,null=True,default=True)
+    upcoming = models.BooleanField(blank=True,null=True,default=True)
 
     def publish(self):
         self.time = timezone.now()
@@ -61,6 +61,16 @@ class Email(models.Model):
     def publish(self):
         self.time = timezone.now()
         self.save()
+
+    def __str__(self):
+        return self.name
+    
+class Hackgtbit(models.Model):
+    name = models.CharField(max_length = 200, blank=True, null=True,default='raghav')
+    description = models.TextField(blank=True,null=True,default='')
+    time = models.TimeField(blank=True, null=True,default="12:00:00")
+    date = models.DateField(blank=True, null=True,default="2020-01-18")
+    serial = models.CharField(max_length = 200, blank=True, null=True,default='')
 
     def __str__(self):
         return self.name

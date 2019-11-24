@@ -4,3 +4,4 @@ from main.models import *
 admin.site.register(TeamMember)
 admin.site.register(Events)
 admin.site.register(Email)
+admin.site.register(Hackgtbit)
