@@ -46,6 +46,7 @@ urlpatterns = [
     path('gallery', mainView.gallery,name="gallery"),
     path('know-our-team', mainView.team,name="team"),
     path('upcoming-and-past-events', mainView.event,name="event"),
+    path('hack-gtbit-2.0', mainView.hackgtbit,name="hackgtbit"),
 
     path('code-of-conduct', mainView.code_of_conduct,name="conduct"),
     path('terms-and-condition', mainView.terms_and_cond,name="terms"),
