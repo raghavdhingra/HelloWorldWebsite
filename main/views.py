@@ -16,8 +16,7 @@ import cloudinary.uploader
 import cloudinary.api
 import requests
 
-
-auth_user = ["Siddharth","raghav","palak"]
+auth_user = ["Siddharth","raghav","palak","prabhdeepsingh3499"]
 auth_user_list = auth_user
 
 # Create your views here.
@@ -62,7 +61,7 @@ def home(request):
     
     events = Events.objects.all()
     for ent in events:
-        if ent.upcomming == True:
+        if ent.upcoming == True:
             up_event.append(ent)
     for ent in events:
         if len(past_event) < 3:
@@ -78,7 +77,7 @@ def home(request):
         "meta_description":"Welcome to the HelloWorld website. HelloWorld is the technical society of GTBIT. We aim to impart our knowledge and guidance to the young minds to create and improvise. HelloWorld is probably the first code of any language which once done provides with a sense of accomplishment and a thumbs up to the journey ahead.",
         "teamMembers": teamMember,
         "username": username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "up_event": up_event,
         "past_event": past_event,
     }
@@ -112,7 +111,7 @@ def about(request):
         "meta_title":"About - HelloWorld",
         "meta_description":"Since the establishment of our team, we have created a team of minds with a varied skill set. Know more about us!",
         "username": username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
     }
     return render(request,'about.html',context)
 
@@ -131,7 +130,7 @@ def gallery(request):
         "meta_title":"Gallery - HelloWorld",
         "meta_description":"Since the establishment of our team, we have created a team of minds with a varied skill set. Know more about us!",
         "username": username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "Images":galleryImages,
     }
     return render(request,'gallery.html',context)
@@ -168,7 +167,7 @@ def contact(request):
         "meta_title":"CONTACT US | HelloWorld",
         "meta_description":"Got an issue or suggestion? Reach out to us to share with us anything on your mind regarding us.",
         "username": username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "messageStatus": messageStatus,
     }
     return render(request,'contact.html',context)
@@ -187,7 +186,7 @@ def team(request):
         "meta_title":"Know Our Team | HelloWorld",
         "meta_description":"Since the establishment of our team, we have created a team of minds with a varied skill set. We work in various fields to develop and implement. We aren't just a team but a family sharing bonds and knowledge with a common aim to serve the era of globalisation and digitalization. Want to know more about our journey and plans ahead?",
         "username": username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "teamMember": teamMember,
     }
     return render(request,'team.html',context)
@@ -207,16 +206,16 @@ def event(request):
 
     events = Events.objects.all()
     for ent in events:
-        if ent.upcomming == True:
+        if ent.upcoming == True:
             up_event.append(ent)
-        elif ent.upcomming == False:
+        elif ent.upcoming == False:
             past_event.append(ent)
 
 
     if request.method == 'POST':
         select = request.POST.get('select')
-        if select == 'UpComming Event':
-            print('UpComming Event')
+        if select == 'upcoming Event':
+            print('upcoming Event')
             filter = 'up'
         elif select == 'Past Event':
             print('Past Event')
@@ -231,7 +230,7 @@ def event(request):
         "meta_title":"Events | HelloWorld",
         "meta_description":"Test your skills and keep your competitive spirits high, participate in our offline and online events conducted at regular intervals. Not to forget about the amazing goodies and merchandises which come along with the events! Sign up and login if you haven't done it yet to participate in our events!",
         "username": username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "up_event": up_event,
         "past_event": past_event,
         "filter": filter,
@@ -239,11 +238,44 @@ def event(request):
     return render(request,'event.html',context)
 
 
+def hackgtbit(request):
+    username = ""
+    if request.user.is_authenticated:
+        username = User.objects.filter(pk=request.user.id)[0].first_name
+        if username == '':
+            username = request.user.username
+
+    timeline = Hackgtbit.objects.all()
+    dayOne = []
+    dayTwo = []
+
+    timelineLength = len(timeline)
+    for eve in range(1,20):
+        if Hackgtbit.objects.filter(serial=eve):
+            dayOne += Hackgtbit.objects.filter(serial=eve)
+    
+    for eve in range(21,40):
+        if Hackgtbit.objects.filter(serial=eve):
+            dayTwo += Hackgtbit.objects.filter(serial=eve)
+
+    context = {
+        "title":"Hack GTBIT 2.0 | HelloWorld",
+        "meta_title":"Hack GTBIT 2.0 | HelloWorld",
+        "meta_description":"H@ckGTBIT 2.0 isn't just an event for us,it is in fact a journey that has helped us to define ourselves, find our paths and most importantly take something from it to cherish as a team. Our aim is to let this event take the form of a platform which would help the students, faculty, participants and sponsors interact with each other and form bonds stronger than those made on paper.",
+        "username": username,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
+        "header": "Hack GTBIT 2.0",
+        "dayOne":dayOne,
+        "dayTwo":dayTwo,
+    }
+    return render(request,'hackgtbit.html',context)
+
+
 def profile(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
 
     username = ""
@@ -259,7 +291,7 @@ def profile(request):
     try:
         context = {
             "username":username,
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "header": "Your Profile",
             "title": str(username) + " | Profile",
             "meta_title":"Profile | HelloWorld",
@@ -286,7 +318,7 @@ def edit(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     username = ""
     if request.user.is_authenticated:
@@ -359,7 +391,7 @@ def edit(request):
             "username":username,
             "auth_user_list":auth_user_list,
             "header": "Edit Your Profile",
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "title": str(username) + " | Edit",
             "meta_title":"HelloWorld | GTBIT",
             "meta_description":"This is the official website of HELLOWORLD",
@@ -390,7 +422,7 @@ def changepassword(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     username = ""
     err = ""
@@ -406,7 +438,7 @@ def changepassword(request):
         "meta_title":"Change Password | HelloWorld",
         "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "all_upEvents":all_upEvents,
     }
     return render(request,'changepassword.html',context)
@@ -416,7 +448,7 @@ def manageteam(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
@@ -426,7 +458,7 @@ def manageteam(request):
                 username = request.user.username
         context = {
             "username": username,
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "header": "Manage The Team",
             "title": str(username) + " | Team Management",
             "meta_title": "Manage Team | HelloWorld",
@@ -443,7 +475,7 @@ def manageevent(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
@@ -453,7 +485,7 @@ def manageevent(request):
                 username = request.user.username
         context = {
             "username": username,
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "header": "Manage The Events",
             "title": str(username) + " | Event Management",
             "meta_title": "Manage Event | HelloWorld",
@@ -481,7 +513,7 @@ def post_by_username(request,slug):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
@@ -494,7 +526,7 @@ def post_by_username(request,slug):
             "userMember":user,
             "username": username,
             "header": user.first_name + "'s Changes",
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "title": str(slug) + " | Edit",
             "meta_title": "User | HelloWorld",
             "meta_description": "This is the official website of HELLOWORLD",
@@ -510,7 +542,7 @@ def post_by_event(request,slug):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
@@ -523,7 +555,7 @@ def post_by_event(request,slug):
             "event":events,
             "username": username,
             "header": events.name + "'s Changes",
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "title": str(events.name) + " | Edit",
             "meta_title": "Event | HelloWorld",
             "meta_description": "This is the official website of HELLOWORLD",
@@ -550,8 +582,8 @@ def saveSingleEvent(request):
         location_link = request.POST.get('location_link')
         desc = request.POST.get('description')
         registration_link = request.POST.get('registration_link')
-        upcomming = request.POST.get('upcomming')
-        if upcomming == 'on':
+        upcoming = request.POST.get('upcoming')
+        if upcoming == 'on':
             check = True
         else:
             check = False
@@ -564,7 +596,7 @@ def saveSingleEvent(request):
             location_link = location_link,
             description = desc,
             registration_link = registration_link,
-            upcomming = check,
+            upcoming = check,
         )
 
     return redirect("/user/manage-event")
@@ -573,7 +605,7 @@ def addevent(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     if request.user.username in auth_user:
         username = ""
@@ -596,7 +628,7 @@ def addevent(request):
             "title": str(username) + " | Add Event",
             "meta_title":"Add New Event | GTBIT",
             "meta_description":"This is the official website of HELLOWORLD",
-            "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+            "developer":TeamMember.objects.filter(user_name='raghav')[0],
             "auth_user_list":auth_user_list,
         }
         return render(request,'addevent.html',context)
@@ -642,7 +674,7 @@ def resume(request):
     all_events = Events.objects.all()
     all_upEvents = []
     for e in all_events:
-        if e.upcomming == True:
+        if e.upcoming == True:
             all_upEvents.append(e)
     username = ""
     err = ""
@@ -657,7 +689,7 @@ def resume(request):
         "meta_title":"Resume | GTBIT",
         "meta_description":"This is the official website of HELLOWORLD",
         "err":err,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "all_upEvents":all_upEvents,
         "auth_user_list":auth_user_list,
     }
@@ -700,7 +732,7 @@ def code_of_conduct(request):
         "username":username,
         "header": "Code Of Conduct",
         "title": "Code Of Conduct | HelloWorld",
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "meta_title":"HelloWorld | GTBIT",
         "meta_description":"This is the official website of HELLOWORLD",
     }
@@ -714,7 +746,7 @@ def terms_and_cond(request):
             username = request.user.username
     context = {
         "username":username,
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "header": "Terms and Condition",
         "title": "Terms and Condition - HelloWorld",
         "meta_title":"Terms and Condition - HelloWorld",
@@ -731,7 +763,7 @@ def privacy_policy(request):
     context = {
         "username":username,
         "header": "Privacy Policy",
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "title": "Privacy Policy | HelloWorld",
         "meta_title":"Privacy Policy - HelloWorld",
         "meta_description":"This is the official website of HELLOWORLD",
@@ -747,7 +779,7 @@ def faqs(request):
     context = {
         "username":username,
         "header": "FAQs",
-        "developer":TeamMember.objects.filter(user_name='raghav')[0].profile_picture,
+        "developer":TeamMember.objects.filter(user_name='raghav')[0],
         "title": "FAQs | HelloWorld",
         "meta_title":"FAQs | HelloWorld",
         "meta_description":"This is the official website of HELLOWORLD",
