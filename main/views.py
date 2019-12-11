@@ -268,7 +268,7 @@ def hackgtbit(request):
         "dayOne":dayOne,
         "dayTwo":dayTwo,
     }
-    return render(request,'hackgtbit.html',context)
+    return render(request,'hackgtbit2.html',context)
 
 
 def profile(request):
