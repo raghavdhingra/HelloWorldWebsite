@@ -1,0 +1,15 @@
+.counter-section {
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+}
+.section-padding {
+    padding: 90px 0;
+}
+.icon-swag{
+    padding-left: 35%;
+}
+.swagpara{
+    margin-top: 25px;
+    color: black;
+}

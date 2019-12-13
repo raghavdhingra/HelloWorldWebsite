@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
+
+
+/*/ start count stats /*/
+
+section#counter-stats {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+    background-color:
+}
+
+.stats {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+bottom: 5%;
+}
+
+.stats .fa {
+  font-size: 70px;
+}
+
+/*/ end count stats /*/
