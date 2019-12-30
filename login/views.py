@@ -27,22 +27,22 @@ from rest_framework.authtoken.models import Token
 # Create your views here.
 def TeamUrlData():
     try:
-        data = requests.get('http://hello-world15.herokuapp.com/teamapi')
+        data = requests.get('https://hello-world15.herokuapp.com/teamapi')
         resp = json.loads(data.text)
         print("\n\n Data is Fetch From Main API\n")
     except:
-        data = requests.get('http://127.0.0.1:8000/teamapi')    
+        data = requests.get('https://127.0.0.1:8000/teamapi')    
         resp = json.loads(data.text)
         print("\n\n Data is Fetched from Local API \n\n")
     return resp
 
 def MemberDetails(userId):
     try:
-        url = "http://hello-world15.herokuapp.com/teamapi/id=" + str(userId)
+        url = "https://hello-world15.herokuapp.com/teamapi/id=" + str(userId)
         data = requests.get(url)
         resp = json.loads(data.text)
     except:
-        url = "http://127.0.0.1:8000/teamapi/id=" + str(userId)
+        url = "https://127.0.0.1:8000/teamapi/id=" + str(userId)
         data = requests.get(url)
         resp = json.loads(data.text)
     return resp
