@@ -1,32 +1,30 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% load static %}
-
-
-{% block header %}
+ {% block header %}
 
 <style>
-/*For Nav Bar Active Element Displaying the current page*/
-ul.nav_element span.nav-active4{
+  /*For Nav Bar Active Element Displaying the current page*/
+  ul.nav_element span.nav-active4 {
     background: rgba(0, 0, 0, 0.06);
     border-radius: 5px;
-}
-.event-after{
+  }
+  .event-after {
     color: #000 !important;
-}
-div.nav-drop-down li.drop-active2{
+  }
+  div.nav-drop-down li.drop-active2 {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-}
+  }
 
-.about-after{
+  .about-after {
     color: #000 !important;
-}
+  }
 
-.page-header{
+  .page-header {
     --headerBack: url("{% static 'assets/background/event-back.jpg' %}");
-}
+  }
 
-.submit{
+  .submit {
     padding: 0.5em 2em;
     border-radius: 5px;
     border: none;
@@ -36,131 +34,142 @@ div.nav-drop-down li.drop-active2{
     box-sizing: border-box;
     cursor: pointer;
     transition: 0.2s;
-}
-.submit:hover{
+  }
+  .submit:hover {
     background: #155cb9;
-}
-.submit:active{
+  }
+  .submit:active {
     position: relative;
     top: 1px;
-}
-.submit:focus{
+  }
+  .submit:focus {
     outline: none;
-}
-/*For Nav Bar Active Element Displaying the current page----------------*/
+  }
+  /*For Nav Bar Active Element Displaying the current page----------------*/
 </style>
 
 <link href="{% static 'css/event.css' %}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
 {% endblock %}
-
-
-{% block content %}
+ {% block content %}
 
 <!--Spacing Block-->
 <div class="spacing-7"></div>
 <!--For Spacing after the navbar as it's position is fixed-->
 
-
 <!---->
 <div class="page-header">
-    <div class="page-header-inner">
-        UPCOMING OR PAST EVENTS
-    </div>
+  <div class="page-header-inner">
+    UPCOMING OR PAST EVENTS
+  </div>
 </div>
 <!---->
 
-
 <!--Spacing Block_______________________-->
 <div class="container">
-    <Br><br>
-    <form method="POST" action="{% url 'event' %}">
-        <label style="font-size: 1.5em;color: #666;font-family: google-sans-bold;">Filter:</label>
-        <select name="select" style="padding: 0.5em;border-radius: 5px;font-family: google-sans-bold;">
-            <option>ALL</option>
-            <option>UpComing Event</option>
-            <option>Past Event</option>
-        </select>
-        <input type="submit" value="Sort" class="submit" />
-    </form>
-    
-    {% if filter == 'past' %}
-    {% else %}
-    <div class="page-heading" style="margin-top: 1em;">
-        UpComing <span style="color: #1a73e8;">Events</span>
+  <br /><br />
+  <form method="POST" action="{% url 'event' %}">
+    <label style="font-size: 1.5em; color: #666; font-family: google-sans-bold;"
+      >Filter:</label
+    >
+    <select
+      name="select"
+      style="padding: 0.5em; border-radius: 5px; font-family: google-sans-bold;"
+    >
+      <option>ALL</option>
+      <option>UpComing Event</option>
+      <option>Past Event</option>
+    </select>
+    <input type="submit" value="Sort" class="submit" />
+  </form>
+
+  {% if filter == 'past' %}
+   {% else %}
+  <div class="page-heading" style="margin-top: 1em;">
+    UpComing <span style="color: #1a73e8;">Events</span>
+  </div>
+
+  {% if up_event == '' %}
+  <div class="no-event-container">
+    <h1>There is no Upcoming Events.</h1>
+    <h3>Stay Tuned, we are bringing more events.</h3>
+  </div>
+  {% else %}
+   {% for event in up_event %}
+
+  <div class="upevent">
+    <div
+      style="display: flex; flex-direction: column; justify-content: center;"
+    >
+      <img
+        class="upevent_img"
+        src="{{ event.event_pic }}"
+        alt="Upcoming Event"
+        height="200px"
+        width="300px"
+      />
     </div>
-    
-    {% if up_event == '' %}
-    <div style="margin-top: 1em;box-shadow: 0 0 7px 0 #999;padding: 0.5em 2em;color: #666;">
-        <h1>There is no UpComing Events.</h1>
-        <h3>Stay Tuned, we are bringing more events.</h3>
+    <div>
+      <div class="event-head">{{event.name}}</div>
+      <div style="margin-top: 0.5em;" class="time">
+        <span><i class="fas fa-calendar-day"></i> {{event.date}} </span>
+        <span><i class="far fa-clock"></i> {{event.time}} </span>
+      </div>
+      <div class="map">
+        <i class="fas fa-map-marker-alt"></i>
+        {{event.location}} {% if event.location_link %}
+        <a href="{{event.location_link}}">( See Location )</a>
+        {% else %} {% endif %}
+      </div>
+      <div class="upevent-content">
+        {{event.description}}
+      </div>
+      <a class="upevent-btn" href="{{event.registration_link}}">Know More</a>
+      &nbsp;
+      <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
+      <div class="spacing-2"></div>
     </div>
-    {% else %}
-        {% for event in up_event %}
-        
-        <div class="upevent">
-            <div>
-                <center><img class="upevent_img" src="{{ event.event_pic }}" alt="Upcoming Event" height="200px" width="300px" /></center>
-            </div>
-            <div>
-                <div class="event-head">{{event.name}}</div>
-                <div style="margin-top: 0.5em;" class="time">
-                    <span><i class="fas fa-calendar-day"></i> {{event.date}} </span>
-                    <span><i class="far fa-clock"></i> {{event.time}} </span>
-                </div>
-                <div class="map">
-                    <i class="fas fa-map-marker-alt"></i>
-                    {{event.location}} 
-                    {% if event.location_link %}
-                    <a href="{{event.location_link}}">( See Location )</a>
-                    {% else %}
-                    {% endif %}
-                </div>
-                <div class="upevent-content">
-                    {{event.description}}
-                </div>
-                <a class="upevent-btn" href="{{event.registration_link}}">Know More</a>
-                &nbsp;
-                <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
-                <div class="spacing-2"></div>
-            </div>
+  </div>
+
+  {% endfor %} 
+  {% endif %} 
+  {% endif %} 
+  {% if filter == 'up' %} {% else %}
+  <div class="page-heading">
+    Past <span style="color: #1a73e8;">Events</span>
+  </div>
+
+  <div class="event-grid">
+    {% for event in past_event %}
+    <div class="event-container">
+      <div>
+        <div class="event-image-container" style="background-image: url({{event.event_pic}});">
         </div>
+        <br />
+        <span
+          style="
+            font-family: google-sans-bold;
+            color: #1a73e8;
+            font-size: 1.5em;
+          "
+          >{{event.name}}</span
+        ><br />
+        <span>{{event.date}}</span><br />
+        {% if event.location is None %} {% else %}
+        <span> {{event.location}} </span>
+        {% endif %}
+        <br /><br />
+        <p style="font-size: 1.1em;">{{event.description}}</p>
 
-        {% endfor %}
-
-    {% endif %}
-    {% endif %}
-
-    {% if filter == 'up' %}
-    {% else %}
-    <div class="page-heading">
-        Past <span style="color: #1a73e8;">Events</span>
+        <!-- <a href="{% url 'event' %}" title="See More Events" class="event-see-more">See More</a> -->
+      </div>
     </div>
-    
-    <div class="event-grid">
-        {% for event in past_event %}
-        <div class="event-container">
-            <div>
-                <center><img src="{{event.event_pic}}" /></center>
-                <br>
-                <span style="font-family: google-sans-bold;color: #1a73e8;font-size: 1.5em;">{{event.name}}</span><Br>
-                <span>{{event.date}}</span><Br>
-                {% if event.location is None %}
-                {% else %}
-                <span> {{event.location}} </span>
-                {% endif %}
-                <Br><Br>
-                <p style="font-size: 1.1em;"> {{event.description}} </p>
-                
-                <!-- <a href="{% url 'event' %}" title="See More Events" class="event-see-more">See More</a> -->
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% endfor %}
+  </div>
 
-    {% endif %}
+  {% endif %}
 
-    <div class="spacing-4"> </div>
+  <div class="spacing-4"></div>
 </div>
 {% endblock %}

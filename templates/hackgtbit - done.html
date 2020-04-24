@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+<style>
+    .page-header{
+        --headerBack: url("{% static 'assets/background/hackgtbit.jpg' %}");
+    }
+</style>
+
+<script type="text/javascript">
+    const imageReplace = (image) => {
+        image.onerror = "";
+        image.src = "{% static 'assets/logo/user-no-image.jpg' %}";
+        return true;
+    }
+</script>
+
+    <link href="{% static 'css/timeline.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/timer.css' %}" rel="stylesheet" />
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--Spacing Block-->
+<div class="spacing-7"></div>
+<!--For Spacing after the navbar as it's position is fixed-->
+
+
+<!---->
+<div class="page-header">
+    <div class="page-header-inner">
+        {{ header }}
+    </div>
+</div>
+<!---->
+
+
+<!--Spacing Block_______________________-->
+<div class="container">
+
+    <div class="spacing-3"></div>
+
+    <div class="page-heading">
+        Hack <span style="color: #1a73e8;">GTBIT 2.0 </span>
+    </div>
+
+
+    <div class="start-in">Starts In:</div>
+    <div class="timer">
+
+        <div class="timer-content" style="color: #176bef;"> <div id="days">00</div> Days </div>
+        <div class="timer-spacing"> </div>
+        <div class="timer-content" style="color: #ff3e30;"> <div id="hours">00</div> Hours </div>
+        <div class="timer-spacing"> </div>
+        <div class="timer-content" style="color: #f7b529;"> <div id="minutes">00</div> Minutes </div>
+        <div class="timer-spacing"> </div>
+        <div class="timer-content" style="color: #179c52;"> <div id="seconds">00</div> Seconds </div>
+
+    </div>
+    <div class="spacing-3"></div>
+
+    <div style="font-size: 1.3em;">
+        <b>H@ckGTBIT 2.0</b> isn't just an event for us, it is in-fact a journey that has helped us to define ourselves, find our paths and the
+        most important thing is to take something from it and cherish as a team.
+        <br><br>
+        Our aim is to let this event take the form of a platform which would help the students, faculty, participants and sponsors interact
+        with each other and form bonds stronger than those made on paper.
+        <br><Br>
+        Last time we gained all of that by forming a team we could trust, who had each other's back! This year we're back with double
+        energy and enthusiasm to make this event an absolute success for everyone. So, we invite all the sponsors to have trust in us 
+        and get associated with us.
+
+        <br><br>
+
+            <span>
+                <span style="font-family: google-sans-bold;color: #888;">Note-</span>
+                <br>
+                <span style="font-family: google-sans-bold;color: rgb(78, 30, 139);">Registration will open soon. Stay Tuned.</span>
+            </span>
+
+        <Br><Br>
+        How you will proceed -&gt; Here is the timeline of the event
+    </div>
+    <div class="spacing-3"></div>
+    
+
+    <h3 style="font-size: 2.5em;color: #1a73e8;font-family: google-sans-bold;letter-spacing: 0.05em;">
+        <i style="display: inline-flex;color: #555;margin: 0 0.2em;" class="far fa-clock"></i>
+        Timeline 
+    </h3>
+
+    <div class="spacing-1"></div>
+
+    <!-- <div class="timeline-grid">
+        <div style="padding: 0 2em;">
+            <div class="timeline-line"></div>
+            <div class="timeline-circle"></div>
+        </div>
+        <div>hi2</div>
+    </div> -->
+
+    <div class="timeline">
+
+        <div class="timeline-circle"></div>
+
+        <div class="timeline-content">
+            <div class="timeline-inner-content day">
+                <div class="timeline-event-name">Saturday - Day 1 (Jan 18, 2020)</div>
+            </div>
+        </div>
+
+        {% for dayOne in dayOne %}
+        <div class="timeline-content">
+            <div class="timeline-inner-content">
+                <div class="timeline-event-name"> {{dayOne.name}} </div>
+                <div class="timeline-event-timing"> {{dayOne.time}} </div>
+                <p class="timeline-event-venue"> {{dayOne.description}} </p>
+            </div>
+        </div>
+        <div class="timeline-disc"></div>
+        {% endfor %}
+
+        <div class="timeline-content">
+            <div class="timeline-inner-content day">
+                <div class="timeline-event-name">Sunday - Day 2 (Jan 19, 2020) </div>
+            </div>
+        </div>
+
+        {% for dayTwo in dayTwo %}
+        <div class="timeline-content">
+            <div class="timeline-inner-content">
+                <div class="timeline-event-name"> {{dayTwo.name}} </div>
+                <div class="timeline-event-timing"> {{dayTwo.time}} </div>
+                <p class="timeline-event-venue"> {{dayTwo.description}} </p>
+            </div>
+        </div>
+        <div class="timeline-disc"></div>
+        {% endfor %}
+
+        <div class="timeline-content">
+            <div class="timeline-inner-content">
+                <div class="timeline-event-name"> End Ceremony </div>
+                <div class="timeline-event-timing"> 12 p.m. </div>
+                <p class="timeline-event-venue">  </p>
+            </div>
+        </div>
+        <div class="timeline-disc"></div>
+
+        <div class="timeline-content">
+            
+        </div>
+        <div class="timeline-circle"></div>
+
+
+    </div>
+
+
+    <div class="spacing-3"></div>
+
+    <h3 style="font-size: 1.5em;color: #999;">Sponsored by : </h3>
+    <div class="spacing-1"></div>
+    
+    &lt; Sponsor List &gt;
+
+    <div class="spacing-3"></div>
+
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script src="{% static 'js/timeline.js' %}"></script>
+<script src="{% static 'js/timer.js' %}"></script>
+
+{% endblock %}

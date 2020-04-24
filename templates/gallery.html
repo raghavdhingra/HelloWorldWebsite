@@ -29,14 +29,21 @@ div.nav-drop-down li.drop-active3{
     text-align: center;
 }
 
-.gallery-grid div{
+.gallery-image-container{
+    width: auto;
     display: inline-flex;
-    width: 300px;
-    height: auto;
     padding: 0.2em;
-    margin: 0.5em;
-    border-radius: 5px;
     border: 0.2em solid #ddd;
+    border-radius: 5px;
+    margin: 0.5em;
+}
+.gallery-image{
+    height: 170px;
+    width: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
 }
 
 </style>
@@ -64,8 +71,9 @@ div.nav-drop-down li.drop-active3{
 
     <div class="gallery-grid">
         {% for image in Images %}
-        <div>
-            <img src="{{image}}" width="100%" alt="Gallery Images" />
+        <div class="gallery-image-container">
+            <div class="gallery-image" style="background-image: url('{{image}}');">
+            </div>
         </div>
         {% endfor %}
     </div>

@@ -1,86 +1,87 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
+{% load static %} 
 {% load filter_tag %}
-
-{% block header %}
+ {% block header %}
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 <link rel="stylesheet" href="{% static 'css/event.css' %}" />
-<link rel="stylesheet" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
 <style>
-/*For Nav Bar Active Element Displaying the current page----------------*/
-ul.nav_element span.nav-active1{
+  /*For Nav Bar Active Element Displaying the current page----------------*/
+  ul.nav_element span.nav-active1 {
     background: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-}
+  }
 
-.home-after{
+  .home-after {
     color: #000 !important;
-}
-/*For Nav Bar Active Element Displaying the current page----------------*/
+  }
+  /*For Nav Bar Active Element Displaying the current page----------------*/
 
-.email-input1,.email-input2{
+  .email-input1,
+  .email-input2 {
     font-family: google-sans-bold;
     margin: 0;
     transition: 0.2s;
     border: 0.2em solid #ccc;
-}
-.email-input1:focus,.email-input2:focus{
+  }
+  .email-input1:focus,
+  .email-input2:focus {
     outline: none;
-}
-.email-input1{
+  }
+  .email-input1 {
     padding: 0.5em 1em;
     border-right: none;
     color: #666;
-    border-radius: 30px 0 0 30px;    
-}
-.email-input1::placeholder{
+    border-radius: 30px 0 0 30px;
+  }
+  .email-input1::placeholder {
     color: #ccc;
-}
-.email-input2{
+  }
+  .email-input2 {
     border-radius: 0 30px 30px 0;
     padding: 0.5em 1.5em;
     border-left: none;
     cursor: pointer;
     background: #1a73e8;
     color: #fff;
-}
+  }
 
-.email-input2:hover{
+  .email-input2:hover {
     background: #165cb8;
-}
+  }
 
-.email-input1:focus{
+  .email-input1:focus {
     border-color: #114e9e;
-}
-.email-input1:focus + .email-input2{
+  }
+  .email-input1:focus + .email-input2 {
     border-color: #114e9e;
-}
+  }
 
-@media screen and (min-width: 650px){
-    .email-input1{
-        width: 50%;
-        font-size: 1.2em;
+  @media screen and (min-width: 650px) {
+    .email-input1 {
+      width: 50%;
+      font-size: 1.2em;
     }
-    .email-input2{
-        font-size: 1.2em;
+    .email-input2 {
+      font-size: 1.2em;
     }
-}
+  }
 
-div.icon.success.animate{
+  div.icon.success.animate {
     overflow: hidden !important;
-}
-
+  }
 </style>
 
 <link href="{% static 'css/home-banner.css' %}" rel="stylesheet" />
 
 {% endblock %}
-
-
-{% block content %}
+ {% block content %}
 
 <!--Spacing Block-->
 <div class="spacing-7"></div>
@@ -88,95 +89,139 @@ div.icon.success.animate{
 <!--Spacing Block_______________________-->
 
 <div class="container">
-    <div id="content1" class="content-slide">
-        <div class="intro-header-grid">
-
-            <!-- <div>
+  <div id="content1" class="content-slide">
+    <div class="intro-header-grid">
+      <!-- <div>
                 <span style="color: #555;">HELLO<Br>WORLD</span>&nbsp;
             </div> -->
 
-            <center>
-                <div class="MainLogo">
-                    <img src="{% static 'assets/logo/color-Logo.jpg' %}" width="100%" alt="HelloWorld Logo" />
-                </div>
-            </center>
-            <div class="intro-tagline">
-                <h1 style="font-size: 2.4em;">#' Tagging <font color="#1a73e8">Lives</font></h1><br>
-                <h3 style="font-family: google-sans-light;font-weight: 500;">HelloWorld is a non-profit organization that aims to broaden the conception of coding. We members of HelloWorld strive hard to impart our knowledge and introduce young minds to the world of digitization.</h3>
-                <br>
-                <h3 style="font-family: google-sans-light;font-weight: 100;color: #999;">Join Us and be a part of this unique society.</h3><Br>
-                <a href="#" class="join-us join-us1">Join Us</a>
-                <a href="{% url 'about' %}" class="join-us join-us2">Know About Us</a>
-            </div>
+      <center>
+        <div class="MainLogo">
+          <img
+            src="{% static 'assets/logo/color-Logo.jpg' %}"
+            width="100%"
+            alt="HelloWorld Logo"
+          />
         </div>
+      </center>
+      <div class="intro-tagline">
+        <h1 style="font-size: 2.4em;">
+          #' Tagging <font color="#1a73e8">Lives</font>
+        </h1>
+        <br />
+        <h3 style="font-family: google-sans-light; font-weight: 500;">
+          HelloWorld is a non-profit organization that aims to broaden the
+          conception of coding. We members of HelloWorld strive hard to impart
+          our knowledge and introduce young minds to the world of digitization.
+        </h3>
+        <br />
+        <h3
+          style="font-family: google-sans-light; font-weight: 100; color: #999;"
+        >
+          Join Us and be a part of this unique society.
+        </h3>
+        <br />
+        <a href="#" class="join-us join-us1">Join Us</a>
+        <a href="{% url 'about' %}" class="join-us join-us2">Know About Us</a>
+      </div>
     </div>
-    <div class="spacing-1"></div>
+  </div>
+  <div class="spacing-1"></div>
 </div>
 <div class="about_column">
-    <div class="container">
-        <p style="font-family: google-sans-light;font-weight: 500;font-size: 1.5em;">About HelloWorld</p><br>
-        <p>
-            HelloWorld is probably the first code of any language and it provides you with your first working code 
-            and headstart to the journey in the coding world. The HelloWorld community was established 4 years ago 
-            with a dream of connecting innovative minds to the coding world. Within all these years of hard work by 
-            each member, HelloWorld has created a list of successful events and classes with positive reviews. 
-            We aim to set more hands at work in the technical field for more innovations and progress.
-        </p>
-        <br>
-        <a href="{% url 'about' %}" class="join-us light">Know More</a>
-        <div class="about-social">
-            <Br>
-            <a href="https://www.facebook.com/helloworldteam/" title="Facebook: Hello World"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/company/helloworldofficial/about/" title="Linkedin: Hello World"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/HelloWorldGTBIT" title="Github: Hello World"><i class="fab fa-github"></i></a>         
-            <a href="mailto:info@helloworldofficial.in" title="Mail Us | info@helloworldofficial.in"><i class="fas fa-envelope"></i></a>         
-            <a href="https://www.instagram.com/official_hello_world/" title="Instagram: Hello World"><i class="fab fa-instagram"></i></a>
-        </div>
+  <div class="container">
+    <p
+      style="
+        font-family: google-sans-light;
+        font-weight: 500;
+        font-size: 1.5em;
+      "
+    >
+      About HelloWorld
+    </p>
+    <br />
+    <p>
+      HelloWorld is probably the first code of any language and it provides you
+      with your first working code and headstart to the journey in the coding
+      world. The HelloWorld community was established 4 years ago with a dream
+      of connecting innovative minds to the coding world. Within all these years
+      of hard work by each member, HelloWorld has created a list of successful
+      events and classes with positive reviews. We aim to set more hands at work
+      in the technical field for more innovations and progress.
+    </p>
+    <br />
+    <a href="{% url 'about' %}" class="join-us light">Know More</a>
+    <div class="about-social">
+      <br />
+      <a
+        href="https://www.facebook.com/helloworldteam/"
+        title="Facebook: Hello World"
+        ><i class="fab fa-facebook"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/company/helloworldofficial/about/"
+        title="Linkedin: Hello World"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <a href="https://github.com/HelloWorldGTBIT" title="Github: Hello World"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a
+        href="mailto:info@helloworldofficial.in"
+        title="Mail Us | info@helloworldofficial.in"
+        ><i class="fas fa-envelope"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/official_hello_world/"
+        title="Instagram: Hello World"
+        ><i class="fab fa-instagram"></i
+      ></a>
     </div>
+  </div>
 </div>
 <div class="spacing-6"></div>
 <div class="container">
-    <Hr color="#ddd">
+  <hr color="#ddd" />
 </div>
 <div class="spacing-6"></div>
 <!--Parallax content-->
 <style>
-#parallax1 {
+  #parallax1 {
     height: 35em;
-    background: url("{% static 'assets/background/Background.jpg' %}") no-repeat center;
+    background: url("{% static 'assets/background/Background.jpg' %}") no-repeat
+      center;
     background-attachment: fixed;
     background-size: cover;
-}
-@media screen and (max-width: 1100px){
-    #parallax1{
-        height: 25em;
+  }
+  @media screen and (max-width: 1100px) {
+    #parallax1 {
+      height: 25em;
     }
-}
-@media screen and (max-width: 460px){
-    #parallax1{
-        height: 20em;
-        background: url("{% static 'assets/background/Background-mob.jpg' %}") no-repeat center;
-        background-attachment: fixed;
-        background-size: cover;
+  }
+  @media screen and (max-width: 460px) {
+    #parallax1 {
+      height: 20em;
+      background: url("{% static 'assets/background/Background-mob.jpg' %}")
+        no-repeat center;
+      background-attachment: fixed;
+      background-size: cover;
     }
-}
+  }
 </style>
 
 <!--Parallax content_______________________-->
-
 
 <div id="parallax1" class="parallax-slide"></div>
 <div id="content1" class="content-slide"></div>
 
 <div class="container">
+  <!--Events-->
+  <!-- <h1 class="heading">Upcoming Events</h1> -->
+  <div class="page-heading">
+    Upcoming <span style="color: #1a73e8;">Events</span>
+  </div>
 
-    <!--Events-->
-    <!-- <h1 class="heading">Upcoming Events</h1> -->
-    <div class="page-heading">
-        Upcoming <span style="color: #1a73e8;">Events</span>
-    </div>
-
-    <!-- <span style="color: #888;font-size: 1.1em;">
+  <!-- <span style="color: #888;font-size: 1.1em;">
 
         To welcome the upcoming batch and spark a competitive spirit
         among freshers.<Br> We are soon coming up with - TRIVIA. Trivia
@@ -185,153 +230,189 @@ div.icon.success.animate{
 
     </span> -->
 
-    {% if up_event == '' %}
-    <div style="margin-top: 1em;box-shadow: 0 0 7px 0 #999;padding: 0.5em 2em;color: #666;">
-        <h1>There are no upcoming events.</h1>
-        <h3>Stay Tuned, we are bringing more events.</h3>
+  {% if up_event == '' %}
+  <div class="no-event-container">
+    <h1>There are no upcoming events.</h1>
+    <h3>Stay Tuned, we are bringing more events.</h3>
+  </div>
+  {% else %} {% for event in up_event %}
+  <div class="upevent">
+    <div
+      style="display: flex; justify-content: center; flex-direction: column;"
+    >
+      <img
+        class="upevent_img"
+        src="{{ event.event_pic }}"
+        alt="Upcoming Event"
+        height="200px"
+        width="300px"
+      />
     </div>
-    {% else %}
+    <div>
+      <div class="event-head">{{event.name}}</div>
+      <div style="margin-top: 0.5em;" class="time">
+        <span><i class="fas fa-calendar-day"></i> {{event.date}} </span>
+        <span><i class="far fa-clock"></i> {{event.time}} </span>
+      </div>
+      <div class="map">
+        <i class="fas fa-map-marker-alt"></i>
+        {{event.location}} {% if event.location_link %}
+        <a href="{{event.location_link}}">( See Location )</a>
+        {% else %} {% endif %}
+      </div>
+      <div class="upevent-content">
+        {{event.description}}
+      </div>
+      <a class="upevent-btn" href="{{event.registration_link}}">Know More</a>
+      &nbsp;
+      <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
+      <div class="spacing-2"></div>
+    </div>
+  </div>
 
-    {% for event in up_event %}
-    <div class="upevent">
-        <div>
-            <center><img class="upevent_img" src="{{ event.event_pic }}" alt="Upcoming Event" height="200px" width="300px" /></center>
+  {% endfor %} {% endif %}
+
+  <div class="spacing-1"></div>
+  <!--Events___________________-->
+
+  <!--Our Team-->
+  <!-- <h1 class="heading">Our Team</h1> -->
+  <div class="page-heading">
+    Our <span style="color: #1a73e8;">Team Members</span>
+  </div>
+
+  <p style="color: #888; font-size: 1.1em;">
+    To celebrate the idea of teamwork and collaboration we have gathered a team
+    of a handful which has managed to be one of the most active societies of our
+    college. <br />
+    We believe the ideas grow when it shifts from mind to mind starting from
+    where it sprang up.<br />
+    Our team consists of tech-enthusiasts with varied skill sets. <br /><br />
+    <span style="font-family: google-sans-bold;"
+      >Meet the HelloWorld Team --</span>
+    <br /><br />
+  </p>
+
+  <div class="team-container">
+    <div class="team-arrow">
+      <div class="team-arrow-container" id="team-arrow-left">
+        <svg focusable="false" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="#757575"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="team-member-inner" id="team-member-inner">
+      <div class="team-member-inner-inner" id="team-member-inner-inner">
+        {% for team in teamMembers %} {% if team.authorised == True %}
+        <div class="team-member">
+          <div class="team-member-detail-grid">
+            <div class="team-member-image" style="background-image: url('{{ team.profile_picture|profile_pic }}');"></div>
+            <div class="team-member-name">{{ team.first_name }} {{team.last_name|lastname|truncatechars:7|safe }}</div>
+            <div class="team-member-work">{{ team.specialisation|specs|truncatechars:30|safe }}</div>
+            <div class="team-member-designation">{{ team.designation|truncatechars:40|safe }}</div>
+          </div>
         </div>
-        <div>
-            <div class="event-head">{{event.name}}</div>
-            <div style="margin-top: 0.5em;" class="time">
-                <span><i class="fas fa-calendar-day"></i> {{event.date}} </span>
-                <span><i class="far fa-clock"></i> {{event.time}} </span>
-            </div>
-            <div class="map">
-                <i class="fas fa-map-marker-alt"></i>
-                {{event.location}} 
-                {% if event.location_link %}
-                <a href="{{event.location_link}}">( See Location )</a>
-                {% else %}
-                {% endif %}
-            </div>
-            <div class="upevent-content">
-                {{event.description}}
-            </div>
-            <a class="upevent-btn" href="{{event.registration_link}}">Know More</a>
-            &nbsp;
-            <!-- <a href="" class="upevent-meetup"><i class="fab fa-meetup"></i></a> -->
-            <div class="spacing-2"></div>
-        </div>
+        {% endif %} {% endfor %}
+        <!--Old Code-->
+        <!--Old Code-->
+      </div>
     </div>
     
+    <div class="team-arrow">
+      <div class="team-arrow-container" id="team-arrow-right">
+        <svg focusable="false" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#757575"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="spacing-1"></div>
+  <!--Our Team_________________-->
+
+  <!--Past Events-->
+  <!-- <h1 class="heading">Past Events</h1> -->
+  <div class="page-heading">
+    Past <span style="color: #1a73e8;">Events</span>
+  </div>
+
+  <span style="color: #888; font-size: 1.1em;">
+    A successful past creates a peaceful vision of tomorrow. We've conducted a
+    number of successful events with the active participation of students.
+  </span>
+  <div class="event-grid">
+    {% for event in past_event %}
+    <div class="event-container">
+      <div
+        class="event-image-container"
+        style="background-image: url({{event.event_pic}});"
+      ></div>
+      <div>
+        <br />
+        <span
+          style="
+            font-family: google-sans-bold;
+            color: #1a73e8;
+            font-size: 1.5em;
+          "
+          >{{event.name}}</span
+        ><br />
+        <span>{{event.date}}</span><br />
+        {% if event.location is None %} {% else %}
+        <span> {{event.location}} </span>
+        {% endif %}
+        <br /><br />
+        <p style="font-size: 1.1em;">
+          {{event.description|safe|truncatewords_html:30}}
+        </p>
+      </div>
+      <div class="events-read-more-container">
+        <a
+          href="{% url 'event' %}"
+          title="See More Events"
+          class="event-see-more"
+          >Read More</a
+        >
+      </div>
+    </div>
     {% endfor %}
-    
-{% endif %}
-
-    <div class="spacing-1"></div>
-    <!--Events___________________-->
-
-
-    <!--Our Team-->
-    <!-- <h1 class="heading">Our Team</h1> -->
-    <div class="page-heading">
-        Our <span style="color: #1a73e8;">Team Members</span>
-    </div>
-
-    
-    <p style="color: #888;font-size: 1.1em;">
-            To celebrate the idea of teamwork and collaboration we 
-            have gathered a team of a handful which has managed to 
-            be one of the most active societies of our college. <Br>
-            We believe the ideas grow when it shifts from mind to 
-            mind starting from where it sprang up.<Br> Our team consists 
-            of tech-enthusiasts with varied skill sets. <Br><Br>
-            <span style="font-family: google-sans-bold; ">Meet the HelloWorld Team --</span>
-        <br><br>
-    </p>
-    
-    <div class="team-container">
-        <div class="team-arrow" id="team-arrow-left"><i class="fas fa-chevron-circle-left"  style="box-shadow: 0 0 10px 0 #777;border-radius: 50%;"></i></div>
-        <div class="team-member-inner" id="team-member-inner">
-            <div class="team-member-inner-inner" id="team-member-inner-inner">
-
-                {% for team in teamMembers %}
-                {% if team.authorised == True %}
-                <div class="team-member">
-                    <a href="" title="View Profile">
-                        <center><img src="{{ team.profile_picture }}" height="150px" width="150px" alt="{{ team.first_name }} | HelloWorld" style="border-radius: 50%;" /></center>
-                        <div class="team-content">
-                            <div style="color: #1a73e8;font-family: google-sans-bold;"> {{ team.first_name }} {{ team.last_name|lastname|truncatechars:7|safe }} </div>
-                            <span>
-                                {{ team.specialisation|specs|truncatechars:20|safe }}
-                                <div style="font-family: google-sans-bold;"> {{ team.designation|truncatechars:40|safe }} </div>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="team-arrow" id="team-arrow-right"><i class="fas fa-chevron-circle-right" style="box-shadow: 0 0 10px 0 #777;border-radius: 50%;"></i></div>
-    </div>
-    <div class="spacing-1"></div>
-    <!--Our Team_________________-->
-
-
-    <!--Past Events-->
-    <!-- <h1 class="heading">Past Events</h1> -->
-    <div class="page-heading">
-        Past <span style="color: #1a73e8;">Events</span>
-    </div>
-
-    <span style="color: #888;font-size: 1.1em;">
-            A successful past creates a peaceful vision of tomorrow. We've conducted a number of successful events with the active participation of students.
-    </span>
-    <div class="event-grid">
-        {% for event in past_event %}
-        <div class="event-container">
-            <div>
-                <center><img src="{{event.event_pic}}" /></center>
-                <br>
-                <span style="font-family: google-sans-bold;color: #1a73e8;font-size: 1.5em;">{{event.name}}</span><Br>
-                <span>{{event.date}}</span><Br>
-                {% if event.location is None %}
-                {% else %}
-                <span> {{event.location}} </span>
-                {% endif %}
-                <Br><Br>
-                <p style="font-size: 1.1em;"> {{event.description|safe|truncatewords_html:30}} </p>
-                <Br>
-                <a href="{% url 'event' %}" title="See More Events" class="event-see-more">Read More</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <br>
-    <center style="margin: 1em;padding: 1em;">
-        <a href="{% url 'event' %}" title="See More Events" class="event-see-more-down">See More Events</a>
-    </center>
-    <div class="spacing-2"></div>
-    <!--Past Events_______________-->
-<center>
-    <div style="border-top: 1em dotted #0f4183;width: 200px;"></div>
-</center>
-<div class="spacing-2"></div>
-
+  </div>
+  <br />
+  <center style="margin: 1em; padding: 1em;">
+    <a
+      href="{% url 'event' %}"
+      title="See More Events"
+      class="event-see-more-down"
+      >See More Events</a
+    >
+  </center>
+  <div class="spacing-2"></div>
+  <!--Past Events_______________-->
+  <center>
+    <div style="border-top: 1em dotted #0f4183; width: 200px;"></div>
+  </center>
+  <div class="spacing-2"></div>
 </div>
 
 <center>
-    <h1 class="container" style="font-family: google-sans-bold;color: #777;">Subscribe to Our Mailing List</h1>
-    
-    <br>
+  <h1 class="container" style="font-family: google-sans-bold; color: #777;">
+    Subscribe to Our Mailing List
+  </h1>
 
-    <div class="container">
-        <input type="email" class="email-input1" id="emailId" placeholder="Your Email Id" /><button id="emailBtn" class="email-input2">Subscribe</button>
-    </div>
+  <br />
+
+  <div class="container">
+    <input
+      type="email"
+      class="email-input1"
+      id="emailId"
+      placeholder="Your Email Id"
+    /><button id="emailBtn" class="email-input2">Subscribe</button>
+  </div>
 </center>
 <div class="spacing-3"></div>
 
-
 <!-- HACK GTBIT 2.0 BANNER -->
-<div class="home-banner-overlay bannerNone" id="home-banner-overlay">
+<!-- <div class="home-banner-overlay bannerNone" id="home-banner-overlay">
         <div class="container">
             <div class="home-banner">
                 <div style="float: right;font-size: 2em;cursor: pointer;" onclick="closeHomeBanner();"> &times; </div>
@@ -372,37 +453,36 @@ div.icon.success.animate{
                 </div>
             </div>
         </div>
-    </div>
-    <!-- HACK GTBIT 2.0 -->
+    </div> -->
+<!-- HACK GTBIT 2.0 -->
 
 <script>
-
-$("#emailBtn").click(
-    () => {
-        $.ajax({
-        url:"/add-email",
-        data:{
-            "emailId":document.getElementById("emailId").value
-        },
-        dataType: 'json',
-        success: function (data) {
-            swal("Awesome!", "You have successfully subscribed to our mailing List!", "success");
-            document.getElementById("emailId").value = "";
-            document.getElementById("emailId").contentEditable = false;
-            document.getElementById("emailBtn").disabled = true;
-            document.getElementById("emailBtn").innerHTML = `<i style="display: inline-flex;" class="far fa-check-circle"></i> Subscribed`;
-          }
-      });
-    }
-)
-
+  $("#emailBtn").click(() => {
+    $.ajax({
+      url: "/add-email",
+      data: {
+        emailId: document.getElementById("emailId").value,
+      },
+      dataType: "json",
+      success: function (data) {
+        swal(
+          "Awesome!",
+          "You have successfully subscribed to our mailing List!",
+          "success"
+        );
+        document.getElementById("emailId").value = "";
+        document.getElementById("emailId").contentEditable = false;
+        document.getElementById("emailBtn").disabled = true;
+        document.getElementById(
+          "emailBtn"
+        ).innerHTML = `<i style="display: inline-flex;" class="far fa-check-circle"></i> Subscribed`;
+      },
+    });
+  });
 </script>
 
-{% endblock %}
-
-
-{% block script %}
+{% endblock %} {% block script %}
 <script src="{% static 'js/home.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/timer.js' %}" type="text/javascript"></script>
-<script src="{% static 'js/home-banner.js' %}"></script>
+<!-- <script src="{% static 'js/timer.js' %}" type="text/javascript"></script> -->
+<!-- <script src="{% static 'js/home-banner.js' %}"></script> -->
 {% endblock %}
