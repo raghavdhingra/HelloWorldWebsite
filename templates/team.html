@@ -69,12 +69,12 @@ div.nav-drop-down li.drop-active1{
         <div class="teamMemberDiv">
             <div class="memberImage">
                 <div class="memberImageInner">
-                    <img src="{{lead.profile_picture}}" style="border-radius: 50%;" width="100%" alt="{{ lead.first_name }}" />
+                    <div class="member-image-container" style="background-image: url('{{lead.profile_picture|profile_pic }}');"></div>
                 </div>
             </div>
             <br>
-            <span style="font-family: google-sans-bold;font-size: 1.3em;color: #666;"> {{ lead.first_name }} {{ lead.last_name|lastname }} </span><Br>
-            <div style="font-size: 1.1em;color: #1a73e8;font-family: google-sans-bold;max-width:200px;"> {{ lead.designation }} </div>
+            <div class="team-page-member-name"> {{ lead.first_name }} {{ lead.last_name|lastname }} </div>
+            <div class="team-page-member-desc"> {{ lead.designation }} </div>
         </div>
 
         {% endif %}
