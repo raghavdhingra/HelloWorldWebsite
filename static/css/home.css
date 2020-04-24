@@ -1,14 +1,14 @@
 /*Variables*/
-*{
+* {
   --white: #fff;
   --black: #000;
   --paleBlack: #555;
   --paleWhite: #bbb;
   --themeColor: #1a73e8;
-  --transparent: rgba(0,0,0,0);
+  --transparent: rgba(0, 0, 0, 0);
   --themeMid: #069bf1;
   --themeLight: #59b7e2;
-  --aboutBack: linear-gradient(35deg,#04669e,#0577b9,#04669e);
+  --aboutBack: linear-gradient(35deg, #04669e, #0577b9, #04669e);
   --upEventShadow: rgba(51, 51, 51, 0.4);
   --fontColor: #616161;
   --fontLight: #757575;
@@ -17,358 +17,426 @@
 }
 /*Variables--------------------*/
 
+body{
+  background-color: #f4f5f6;
+}
 
 /*Parallax Effect for hello world banner*/
 .parallax-slide {
-    height: 100vh;
-  }
+  height: 100vh;
+}
 
-  .content-slide {
-    height: auto;
-    padding-bottom: 1.5em;
-    background: var(--white);
-  }
+.content-slide {
+  height: auto;
+  padding-bottom: 1.5em;
+  background: var(--white);
+}
 /*Parallax Effect for hello world banner------------------*/
 
-
 /*Intro Upper content*/
-.intro-tagline{
+.intro-tagline {
   font-family: "google-sans-bold";
   color: var(--paleBlack);
 }
 /*Intro Upper content-----------------*/
 
+/*Intro header grid*/
 
-  /*Intro header grid*/
+.intro-header-grid {
+  display: grid;
+  padding: 0 0.5em;
+  grid-template-columns: auto 1fr;
+}
 
-  .intro-header-grid{
-      display: grid;
-      padding: 0 0.5em;
-      grid-template-columns: auto 1fr;
+.intro-header-grid div:nth-child(1) {
+  margin: 0 0.4em;
+  font-size: 6em;
+}
+
+.MainLogo {
+  width: 330px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Intro header grid ---------------------- */
+
+/*Join Us Button*/
+.join-us {
+  background: none;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.5em 3em;
+  position: relative;
+  text-transform: capitalize;
+  border-radius: 6px;
+  background: var(--themeColor);
+  color: var(--white);
+  cursor: pointer;
+  margin-right: 0.5em;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.join-us1 {
+  border: 1px solid var(--themeColor);
+}
+.join-us2 {
+  border: 1px solid var(--themeLight);
+  color: var(--themeLight);
+  background: var(--transparent);
+}
+
+.join-us:hover {
+  color: var(--upEventShadow);
+  border-color: var(--upEventShadow);
+  background: var(--transparent);
+}
+.join-us1:hover {
+  color: var(--white);
+  border-color: var(--themeMid);
+  background: var(--themeMid);
+}
+
+.light {
+  border: 1px solid var(--white);
+  color: var(--white);
+  background: var(--transparent);
+  font-weight: lighter;
+}
+
+.light:hover {
+  border-color: var(--transparent);
+  color: var(--themeColor);
+  font-weight: bold;
+  background: var(--white);
+}
+
+.join-us:active {
+  position: relative;
+  top: 2px;
+  background: inherit;
+  border-color: var(--paleWhite);
+  color: var(--paleWhite);
+}
+.light:active {
+  border: 1px solid var(--paleWhite);
+}
+
+/*Join Us*/
+
+/* About Us column*/
+div.about_column {
+  height: auto;
+  background: var(--aboutBack);
+  color: var(--white);
+  font-size: 1.1em;
+  font-weight: lighter;
+  padding: 3em 0em;
+}
+
+div.about-social a {
+  font-size: 1.7em;
+  transition: 0.2s;
+  margin-right: 1em;
+}
+
+div.about-social a:hover {
+  color: var(--paleWhite);
+}
+/* About Us column*/
+
+/*Upcoming Events*/
+.upevent {
+  margin: 1em 0;
+  transition: 0.3s;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  background: var(--white);
+  box-shadow: 0 0 5px 0 var(--upEventShadow);
+}
+
+.upevent:hover {
+  box-shadow: 0 0 15px 0 var(--upEventShadow);
+}
+
+.upevent_img {
+  margin: 1.5em 0.5em;
+  border-radius: 5px !important;
+  border: 0.1em solid #ddd;
+}
+
+.event-head {
+  font-family: google-sans-bold;
+  font-size: 1.4em;
+  color: var(--themeColor);
+  margin: 0 0.8em;
+  margin-top: 0.7em;
+  letter-spacing: 0.05em;
+}
+
+.upevent div.time span {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--fontColor);
+  margin: 0 1em;
+}
+.upevent div.map {
+  font-size: 0.9em;
+  color: var(--fontColor);
+  font-weight: 600;
+  margin: 0 1em;
+}
+.upevent div.map a {
+  color: var(--themeColor);
+  transition: 0.2s;
+}
+.upevent div.map a:hover {
+  color: var(--themeMid);
+}
+.upevent-content {
+  color: var(--fontLight);
+  margin: 1em;
+  margin-bottom: 1.5em;
+}
+.no-event-container{
+  border-radius: 5px;
+  margin-top: 1em;
+  box-shadow: 0 0 7px 0 #999;
+  padding: 0.5em 2em;
+  color: #666;
+}
+.upevent-btn {
+  padding: 0.5em 1.5em;
+  background: var(--themeColor);
+  color: var(--white);
+  font-size: 0.95em;
+  font-family: google-sans-bold;
+  box-shadow: 1px 3px 5px 0.5px var(--upEventShadow);
+  transition: 0.25s;
+  margin: 1em;
+  border-radius: 5px;
+}
+.upevent-btn:hover {
+  background: var(--themeMid);
+  box-shadow: 3px 4px 8px 1px var(--upEventShadow);
+}
+.upevent-btn:active {
+  position: relative;
+  top: 2px;
+  box-shadow: 0 0 3px 0.5px var(--upEventShadow);
+  background: var(--themeColor);
+}
+.upevent-meetup {
+  color: #e51937;
+  font-size: 2em;
+  transition: 0.2s;
+  position: relative;
+  top: 0.3em;
+}
+.upevent-meetup:hover {
+  color: #f1576e;
+}
+.upevent-meetup:active {
+  top: 0.4em;
+}
+/*Upcoming Events*/
+
+/*Team Members*/
+.team-container {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 0 1px 1px var(--upEventShadow);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 1em;
+  overflow: hidden;
+  max-height: 19em;
+  height: 19em;
+  width: auto;
+}
+
+.team-container div.team-arrow {
+  font-size: 2.3em;
+  padding: 0 0.2em;
+  z-index: 9;
+  box-shadow: 0 0 10px 10px #fff;
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.2s;
+  color: var(--themeColor);
+  background-color: #fff;
+}
+.team-arrow-container{
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.20);
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 0.7em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.2s;
+}
+.team-arrow-container:hover{
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 4px 8px 0 rgba(0,0,0,0.10);
+}
+.team-arrow-container:hover path{
+  fill: #333;
+}
+.team-container div.team-member-inner {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.team-container div.team-member-inner-inner {
+  width: max-content;
+  overflow-y: hidden;
+}
+
+.team-container div.team-member-inner::-webkit-scrollbar {
+  width: 5px;
+}
+.team-container div.team-member-inner::-webkit-scrollbar-thumb {
+  background: var(--teamMemberThumb);
+  border-radius: 10px;
+}
+.team-container div.team-member-inner::-webkit-scrollbar-track {
+  background: var(--teamMemberTrack);
+  border-radius: 10px;
+}
+
+/*Team CSS Change*/
+.team-container div.team-member{
+  margin: 0.5em 1em;
+  display: inline-block;
+  width: 10em;
+  height: 270px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid var(--upEventShadow);
+  transition: 0.2s;
+}
+.team-container div.team-member:hover{
+  box-shadow: 0 0 10px 1px var(--upEventShadow);
+}
+.team-member-detail-grid{
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto auto 1fr auto;
+}
+.team-member-image{
+  height: 150px;
+  width: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  margin: 4px auto;
+  margin-bottom: 0.5em;
+  border: 1px solid var(--upEventShadow);
+}
+.team-member-name{
+  padding: 0 0.4em;
+  color: #1a73e8;
+  font-size: 1.1em;
+  font-family: google-sans-bold;
+}
+.team-member-work{
+  font-size: 0.9em;
+  padding: 0 0.4em;
+}
+.team-member-designation{
+  padding: 0 0.4em;
+  margin-bottom: 0.5em;
+  font-family: google-sans-bold;
+}
+/* .team-container div.team-member {
+  margin: 0.4em 1em;
+  display: inline-block;
+  width: 10em;
+  height: 90%;
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 0.2em;
+  box-shadow: 0 0 1px 1px var(--upEventShadow);
+  transition: 0.3s;
+}
+
+div.team-member:hover {
+  box-shadow: 0 0 10px 1px var(--upEventShadow);
+}
+
+.team-container div.team-content {
+  font-size: 1.1em;
+  margin: 1em 0.5em 0.5em 0.5em;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--paleBlack);
+}
+.team-container div.team-content span {
+  font-size: 0.809em;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+} */
+/*Team CSS Change*/
+
+/*Team Members*/
+
+/*Media Query*/
+
+/*992px*/
+@media screen and (max-width: 992px) {
+  .upevent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 700px) {
+  .intro-header-grid div:nth-child(1) {
+    font-size: 3em;
+  }
+}
+
+/*600px*/
+@media screen and (max-width: 600px) {
+  .intro-header-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .intro-header-grid > div {
+    text-align: center;
+  }
+  .intro-header-grid div:nth-child(1) {
+    font-size: 4em;
+  }
+  div.about_column {
+    text-align: center;
+  }
+}
+
+/*415px*/
+@media screen and (max-width: 415px) {
+  .MainLogo {
+    width: 250px;
   }
 
-  .intro-header-grid div:nth-child(1){
-    margin: 0 0.4em;
-    font-size: 6em;
-  }
-
-  .MainLogo{
-    width: 330px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  /* Intro header grid ---------------------- */
-
-  /*Join Us Button*/
   .join-us {
-    background: none;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 0.5em 3em;
-    position: relative;
-    text-transform: capitalize;
-    border-radius:6px;
-    background: var(--themeColor);
-    color: var(--white);
-    cursor: pointer;
-    margin-right: 0.5em;
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: all 0.2s;
-    text-decoration:none;
+    margin-right: 0;
+    margin-bottom: 0.5em;
   }
-
-  .join-us1{
-    border: 1px solid var(--themeColor);
-  }
-  .join-us2{
-    border:1px solid var(--themeLight);
-    color: var(--themeLight);
-    background: var(--transparent);
-  }
-
-  .join-us:hover {
-    color: var(--upEventShadow);
-    border-color: var(--upEventShadow);
-    background: var(--transparent);
-  }
-  .join-us1:hover{
-    color: var(--white);
-    border-color: var(--themeMid);
-    background: var(--themeMid);
-  }
-
-  .light{
-    border: 1px solid var(--white);
-    color: var(--white);
-    background: var(--transparent);
-    font-weight: lighter;
-  }
-
-  .light:hover {
-    border-color: var(--transparent);
-    color: var(--themeColor);
-    font-weight: bold;
-    background: var(--white);
-  }
-  
-  .join-us:active {
-    position:relative;
-    top:2px;
-    background: inherit;
-    border-color: var(--paleWhite);
-    color: var(--paleWhite);
-  }
-  .light:active{
-    border: 1px solid var(--paleWhite);
-  }
-  
-  /*Join Us*/
-
-
-  /* About Us column*/
-  div.about_column{
-    height: auto;
-    background: var(--aboutBack);
-    color: var(--white);
-    font-size: 1.1em;
-    font-weight: lighter;
-    padding: 3em 0em;
-  }
-
-  div.about-social a{
-    font-size: 1.7em;
-    transition: 0.2s;
-    margin-right: 1em;
-  }
-
-  div.about-social a:hover{
-    color: var(--paleWhite);
-  }
-  /* About Us column*/
-
-
-  /*Upcoming Events*/
-  .upevent{
-    margin: 1em 0;
-    transition: 0.3s;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    background: var(--white);
-    box-shadow: 0 0 5px 0 var(--upEventShadow);
-  }
-
-  .upevent:hover{
-    box-shadow: 0 0 15px 0 var(--upEventShadow);
-  }
-
-  .upevent_img{
-    margin: 1.5em 0.5em;
-    border-radius: 5px !important;
-    box-shadow: 0 0 10px 1px #999 !important;
-  }
-
-  .event-head{
-    font-family: google-sans-bold;
-    font-size: 1.4em;
-    color: var(--themeColor);
-    margin: 0 0.8em;
-    margin-top: 0.7em;
-    letter-spacing: 0.05em;
-  }  
-  
-  .upevent div.time span{
-    font-size: 0.9em;
-    font-weight: 600;
-    color: var(--fontColor);
-    margin: 0 1em;
-  }
-  .upevent div.map{
-    font-size: 0.9em;
-    color: var(--fontColor);
-    font-weight: 600;
-    margin: 0 1em;
-  }
-  .upevent div.map a{
-    color: var(--themeColor);
-    transition: 0.2s;
-  }
-  .upevent div.map a:hover{
-    color: var(--themeMid);
-  }
-  .upevent-content{
-    color: var(--fontLight);
-    margin: 1em;
-    margin-bottom: 1.5em;
-  }
-  
-  .upevent-btn{
-    padding: 0.5em 1.5em;
-    background: var(--themeColor);
-    color: var(--white);
-    font-size: 0.95em;
-    font-family: google-sans-bold;
-    box-shadow: 1px 3px 5px 0.5px var(--upEventShadow);
-    transition: 0.25s;
-    margin: 1em;
-    border-radius: 5px;
-  }
-  .upevent-btn:hover{
-    background: var(--themeMid);
-    box-shadow: 3px 4px 8px 1px var(--upEventShadow);
-  }
-  .upevent-btn:active{
-    position: relative;
-    top: 2px;
-    box-shadow: 0 0 3px 0.5px var(--upEventShadow);
-    background: var(--themeColor);
-  }
-  .upevent-meetup{
-    color: #e51937;
-    font-size: 2em;
-    transition: 0.2s;
-    position: relative;
-    top: 0.3em;
-  }
-  .upevent-meetup:hover{
-    color: #f1576e;
-  }
-  .upevent-meetup:active{
-    top: 0.4em;
-  }
-  /*Upcoming Events*/
-
-
-  /*Team Members*/
-  .team-container{
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 0 1px 1px var(--upEventShadow);
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    padding: 1em;
-    overflow: hidden;
-    max-height: 19em;
-    height: 19em;
-    width: auto;
-  }
-
-  .team-container div.team-arrow{
-    font-size: 2.3em;
-    padding: 0 0.2em;
-    z-index: 9;
-    box-shadow: 0 0 10px 10px #fff;
-    overflow: hidden;
-    transition: 0.2s;
-    line-height: 304px;
-    vertical-align: middle;
-    color: var(--themeColor);
-    cursor: pointer;
-  }
-  .team-container div.team-arrow:hover{
-    color: var(--themeMid);
-  }
-  .team-container div.team-member-inner{
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-  .team-container div.team-member-inner-inner{
-    width: max-content;
-    height: 100%;
-    overflow-y: hidden;
-  }
-
-  .team-container div.team-member-inner::-webkit-scrollbar{
-    width: 5px;
-  }
-  .team-container div.team-member-inner::-webkit-scrollbar-thumb{
-      background: var(--teamMemberThumb);
-      border-radius: 10px;
-  }
-  .team-container div.team-member-inner::-webkit-scrollbar-track{
-      background: var(--teamMemberTrack);
-      border-radius: 10px;
-  }
-  .team-container div.team-member{
-    margin: 0.4em 1em;
-    display: inline-block;
-    width: 10em;
-    height: 90%;
-    overflow: hidden;
-    border-radius: 5px;
-    padding: 0.2em;
-    box-shadow: 0 0 1px 1px var(--upEventShadow);
-    transition: 0.3s;
-  }
-
-  div.team-member:hover{
-    box-shadow: 0 0 10px 1px var(--upEventShadow);
-  }
-
-  .team-container div.team-content{
-    font-size: 1.1em;
-    margin: 1em 0.5em 0.5em 0.5em;
-    text-transform: capitalize;
-    font-weight: 600;
-    color: var(--paleBlack);
-  }
-  .team-container div.team-content span{
-    font-size: 0.809em;
-    font-weight: 100;
-    margin: 0;
-    padding: 0;
-  }
-  /*Team Members*/
-
- 
-  /*Media Query*/
-
-  /*992px*/
-  @media screen and (max-width: 992px){
-    .upevent{
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
-    }
-  }
-  @media screen and (min-width: 600px) and (max-width: 700px) {
-    .intro-header-grid div:nth-child(1){
-      font-size: 3em;
-    }
-  }
-
-  /*600px*/
-  @media screen and (max-width: 600px){
-    .intro-header-grid{
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-    }
-    .intro-header-grid > div {
-      text-align: center;
-    }
-    .intro-header-grid div:nth-child(1){
-      font-size: 4em;
-    }
-    div.about_column{
-      text-align: center;
-    }
-  }
-
-  /*415px*/
-  @media screen and (max-width: 415px) {
-
-    .MainLogo{
-      width: 250px;
-    }
-
-    .join-us{
-      margin-right: 0;
-      margin-bottom: 0.5em;
-    }
-
-  }
+}
 
 /*Media Query*/
