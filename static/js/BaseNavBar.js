@@ -7,9 +7,6 @@ const nav_logo_text = document.getElementById("nav-logo-text");
 const plusCircle = document.getElementById("fa-plus-circle");
 const mobile_nav_bar = document.getElementById("mobile_nav_bar");
 
-let posX = 0;
-
-
 //Main NavBar Height Control Function
 const mainNavHeightControl = () => {
     //Main NavBar After Scroll
@@ -44,8 +41,7 @@ const openMobileNav = () => {
 
 //NavBar More Button OffSet Checker on X-Axis
 nav_more.onmouseover = () => {
-    posX = nav_more.offsetLeft;
-    nav_dropdown.style.left = `${posX}px`;
+    nav_dropdown.style.right = `${0}px`;
     nav_dropdown.style.display = 'block';
 }
 

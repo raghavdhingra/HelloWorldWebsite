@@ -21,16 +21,18 @@ $(document).ready(function() {
   var positionX = 0;
   // const teamInner = document.getElementById("team-member-inner-inner");
   $("#team-arrow-right").click(function(){
-    if (positionX <= 2000){
-      positionX+=200;
-      $("#team-member-inner").animate({scrollLeft: positionX},300);
-      return false;
-    }
+    // if (positionX <= 2000){
+    //   positionX+=200;
+      document.getElementById("team-member-inner").scrollBy({top:0,left:200,behavior:"smooth"});
+    //   return false;
+    // }
   });
   $("#team-arrow-left").click(function(){
-    if (positionX > 0){
-      positionX-=200;
-      $("#team-member-inner").animate({scrollLeft: positionX},300);
-      return false;
-    }
+      // $("#team-member-inner").scrollBy({top:0,left:-200,behavior:"smooth"});
+      document.getElementById("team-member-inner").scrollBy({top:0,left:-200,behavior:"smooth"});
+      // if (positionX > 0){
+    //   positionX-=200;
+    //   $("#team-member-inner").animate({scrollLeft: positionX},300);
+    //   return false;
+    // }
   });
