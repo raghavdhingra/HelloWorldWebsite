@@ -1,151 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
-<head>
-
-    <meta charset="UTF-8">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
     <meta name="title" content="{{ meta_title }}" />
     <meta name="description" content="{{ meta_description }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <title>{{ title }}</title>
 
-
     <link href="{% static 'css/auth.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/auth2.css' %}" rel="stylesheet" />
     <link href="{% static 'css/input.css' %}" rel="stylesheet" />
 
     <link rel="icon" href="{% static 'assets/logo/Logo.jpg' %}" />
 
-
     <!--Styling-->
     <style>
-        @font-face {
-            font-family: "google-sans-light";
-            src: url("{% static 'assets/google-sans/ProductSans-Light.woff' %}") format("woff");
-        }
-        @font-face {
-            font-family: "google-sans-bold";
-            src: url("{% static 'assets/google-sans/ProductSans-Bold.woff' %}") format("woff");
-        }
-
-        body{
-            background: url('{% static "assets/background/auth-back.jpg" %}') no-repeat;
-            background-size: cover;
-        }
+      @font-face {
+        font-family: "google-sans-light";
+        src: url("{% static 'assets/google-sans/ProductSans-Light.woff' %}")
+          format("woff");
+      }
+      @font-face {
+        font-family: "google-sans-bold";
+        src: url("{% static 'assets/google-sans/ProductSans-Bold.woff' %}")
+          format("woff");
+      }
+      body {
+        background: url('{% static "assets/background/auth-back.jpg" %}')
+          no-repeat;
+        background-size: cover;
+      }
     </style>
     <!--Styling_____________-->
-
-
-</head>
-<body>
-    <div class="container">
-        <div class="auth-grid">
-            <div class="content-space adv1">
-                
-                    <div class="mobile_container"></div>
-                <!-- content-space-1 -->
+  </head>
+  <body>
+    {% if user.is_authenticated %}
+    <Br/>
+    <Br/>
+      <br/>
+      <br/>
+      <Br/>
+    <h1 style="text-align: center;color: #fff;">
+      <div style="color: #fff;">You are Already Logged-In as
+      </div>
+      <br/>
+      <br/>
+      <div style="text-transform: capitalize;"> {{ username }} </div>
+    </h1>
+    <br />
+      <br/>
+      <br/>
+      <h2 style="text-align: center;color: #ccc;">
+      Want to Logout:
+      <a href="{% url 'logout' %}" style="color: #fff;">LOGOUT</a>
+    </h2>
+    <br /><br />
+    <a href="{% url 'home' %}" title="HOME" style="color: #fff;"
+      ><h3 style="text-align: center;">GO HOME</h3></a
+    >
+    {% else %}
+    <div class="min-display-992">
+      <section class="user">
+        <div class="user_options-container">
+          <div class="user_options-text">
+            <div class="user_options-unregistered">
+              <h2 class="user_unregistered-title">Don't have an account?</h2>
+              <p class="user_unregistered-text"></p>
+              <button class="user_unregistered-signup" id="signup-button">
+                Sign up
+              </button>
             </div>
 
-            <div class="auth-container" id="auth-container">
-                <a href="{% url 'home' %}" style="color: #fff;text-decoration: none;"><h1 class="auth-logo"> &lt; / &gt; HelloWorld</h1></a>
+            <div class="user_options-registered">
+              <h2 class="user_registered-title">Have an account?</h2>
+              <p class="user_registered-text"></p>
+              <button class="user_registered-login" id="login-button">
+                Login
+              </button>
+            </div>
+          </div>
 
-                {% if user.is_authenticated %}
-                <h2 style="text-align: center;"><span style="color: #ccc;">You are Already Logged-In as <Br> </span>
-                    <span style="text-transform: capitalize;"> {{ username }} </span>
-                </h2>
-                <Br>
-                <h5 style="text-align: center;">Want to Logout: <a href="{% url 'logout' %}" style="color: #fff;">LOGOUT</a></h5>
-                <Br><bR>
-                <a href="{% url 'home' %}" title="HOME" style="color: #fff;"><h3 style="text-align: center;">GO HOME</h3></a>
-                {% else %}
-                <div id="loginContainer">
-                    <form method="POST" action="{% url 'login' %}">
+          <div class="user_options-forms" id="user_options-forms">
+            <div class="user_forms-login">
+              <h2 class="forms_title">Login</h2>
+              <form class="forms_form" method="POST" action="{% url 'login' %}">
+                  {% csrf_token %}
+                <fieldset class="forms_fieldset">
+                  <div class="forms_field">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      class="forms_field-input"
+                      name="username"
+                      required
+                      autofocus
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                </fieldset>
+                <div class="forms_buttons">
+                  <button type="button" class="forms_buttons-forgot">
+                    Forgot password?
+                  </button>
+                  <input
+                    type="submit"
+                    value="Log In"
+                    class="forms_buttons-action"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="user_forms-signup">
+              <h2 class="forms_title">Sign Up</h2>
+              <form class="forms_form" method="POST" action="{% url 'signin' %}">
+                <fieldset class="forms_fieldset">
+                  <div class="forms_field">
+                    <input
+                      type="text"
+                      placeholder="Choose Username"
+                      class="forms_field-input"
+                      name="sign_username"
+                      required
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      type="email"
+                      name="sign_email"
+                      placeholder="Email"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      name="sign_password"
+                      type="password"
+                      placeholder="Password"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                      name="confirmPassword"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                </fieldset>
+                <div class="forms_buttons">
+                  <input
+                    type="submit"
+                    value="Sign up"
+                    class="forms_buttons-action"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
-                        <h1 class="auth-below-header">Welcome Back</h1>
-                        <div class="auth-below-text"><center>Log in to your account using email and password</center></div>
-                        <div class="input-container">
-                            <div class="label label1" style="opacity: 0;">Your Username</div>
-                            <input type="text" class="inputField inputField1" name="username" placeholder="Username" />
+    <div class="container max-display-992">
+      <div class="auth-grid">
+        <div class="content-space">
+          <div class="mobile_container"></div>
+          <!-- content-space-1 -->
+        </div>
 
-                            <div class="label label2">Your Password</div>
-                            <input type="password" class="inputField inputField2" name="password" placeholder="Password" />
-                            
-                            <!-- <div class="question">
+        <div class="auth-container" id="auth-container">
+          <a href="{% url 'home' %}" style="color: #fff; text-decoration: none;"
+            ><h1 class="auth-logo">&lt; / &gt; HelloWorld</h1></a
+          >
+
+          
+          <div id="loginContainer">
+            <form method="POST" action="{% url 'login' %}">
+              <h1 class="auth-below-header">Welcome Back</h1>
+              <div class="auth-below-text">
+                <center>Log in to your account using email and password</center>
+              </div>
+              <div class="input-container">
+                <div class="label label1" style="opacity: 0;">
+                  Your Username
+                </div>
+                <input
+                  type="text"
+                  class="inputField inputField1"
+                  name="username"
+                  placeholder="Username"
+                />
+
+                <div class="label label2">Your Password</div>
+                <input
+                  type="password"
+                  class="inputField inputField2"
+                  name="password"
+                  placeholder="Password"
+                />
+
+                <!-- <div class="question">
                                 <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" name="coremember" /><label for="checkbox-1-1"></label>
                                 &nbsp;Are You a Core Member?
                             </div> -->
 
+                <!-- <input type="checkbox" class="checkbox" /> -->
+                <div style="width: max-content;">
+                  <input type="submit" class="submit" value="Login" />
+                </div>
+                <a href="javascript:{}" class="forgotPass">Forgot Password?</a
+                ><br /><br />
+                <span class="forgotPass">New User?</span>
+                <a href="javascript:{}" class="forgotPass" onclick="signUp();"
+                  >Sign Up here.</a
+                >
+              </div>
+            </form>
+          </div>
 
-                            
-                            <!-- <input type="checkbox" class="checkbox" /> -->
-                            <div style="width: max-content;">
-                                <input type="submit" class="submit" value="Login" />
-                            </div>
-                            <a href="javascript:{}" class="forgotPass">Forgot Password?</a><Br><Br>
-                            <span class="forgotPass">New User?</span> 
-                            <a href="javascript:{}" class="forgotPass" onclick="signUp();">Sign Up here.</a>
-                        </div>
+          <div id="signupContainer">
+            <form method="POST" action="{% url 'signin' %}">
+              {% csrf_token %}
+              <h1 class="auth-below-header">Welcome!</h1>
+              <div class="auth-below-text">
+                <center>
+                  Create a new Account just by filling these fields.
+                </center>
+              </div>
+              <div class="input-container">
+                <div class="label label1" style="opacity: 0;">
+                  Choose a Username
+                </div>
+                <input
+                  type="text"
+                  class="inputField inputField1"
+                  name="sign_username"
+                  placeholder="Username"
+                />
 
-                    </form>
+                <div class="label label2">Create a Password</div>
+                <input
+                  type="password"
+                  name="sign_password"
+                  class="inputField inputField2"
+                  placeholder="Password"
+                />
+
+                <div class="question">
+                  <div class="label label3">Confirm your Password</div>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    class="inputField"
+                    placeholder="Confirm Password"
+                  />
                 </div>
 
-
-                <div id="signupContainer">
-                    <form method="POST" action="{% url 'signin' %}">
-                        {% csrf_token %}
-                        <h1 class="auth-below-header">Welcome!</h1>
-                        <div class="auth-below-text"><center>Create a new Account just by filling these fields.</center></div>
-                        <div class="input-container">
-                            <div class="label label1" style="opacity: 0;">Choose a Username</div>
-                            <input type="text" class="inputField inputField1" name="sign_username" placeholder="Username" />
-                            
-                            <div class="label label2">Create a Password</div>
-                            <input type="password" name="sign_password" class="inputField inputField2" placeholder="Password" />
-                            
-                            <div class="question">
-                                <div class="label label3">Confirm your Password</div>
-                                <input type="password" name="confirmPassword" class="inputField" placeholder="Confirm Password" />
-                            </div>
-
-                            <div class="question">
-                                <div class="label label4">Email ID</div>
-                                <input type="email" name="sign_email" class="inputField" placeholder="Your Email ID" />
-                            </div>
-                            <!-- <input type="checkbox" class="checkbox" /> -->
-                            <div style="width: max-content;">
-                                <input type="submit" class="submit" value="Create Account" />
-                            </div>
-                            <!-- <a href="javascript:{}" class="forgotPass">Forgot Password?</a><Br><Br> -->
-                            <span class="forgotPass">Already a User?</span> <a href="javascript:{}" class="forgotPass" onclick="logIn();">Login here.</a>
-                        </div>
-
-                    </form>
+                <div class="question">
+                  <div class="label label4">Email ID</div>
+                  <input
+                    type="email"
+                    name="sign_email"
+                    class="inputField"
+                    placeholder="Your Email ID"
+                  />
                 </div>
-                {% endif %}
-
-            </div>
-            
-
-            <div class="content-space adv2">
-                <!-- content-space-2 -->
-            </div>
+                <!-- <input type="checkbox" class="checkbox" /> -->
+                <div style="width: max-content;">
+                  <input type="submit" class="submit" value="Create Account" />
+                </div>
+                <!-- <a href="javascript:{}" class="forgotPass">Forgot Password?</a><Br><Br> -->
+                <span class="forgotPass">Already a User?</span>
+                <a href="javascript:{}" class="forgotPass" onclick="logIn();"
+                  >Login here.</a
+                >
+              </div>
+            </form>
+          </div>
+          <br />
+          <br />
         </div>
+
+        <div class="content-space adv2">
+          <!-- content-space-2 -->
+        </div>
+      </div>
     </div>
+    {% endif %}
 
     <script type="text/javascript">
-        //{% if request.session.msg == 'notFound' %}
-        alert('Sorry, No User Has Been Found. Try Again or make a new account.');
-        //{% else %}
-        //{% endif %}
-        
-        //{% if request.session.msg == 'pass_not_match' %}
-        alert("Password Fields don't match. The account can't be created. Try Again.")
-        //{% else %}
-        //{% endif %}
+      //{% if request.session.msg == 'notFound' %}
+      alert("Sorry, No User Has Been Found. Try Again or make a new account.");
+      //{% else %}
+      //{% endif %}
+
+      //{% if request.session.msg == 'pass_not_match' %}
+      alert(
+        "Password Fields don't match. The account can't be created. Try Again."
+      );
+      //{% else %}
+      //{% endif %}
     </script>
 
     <script src="{% static 'js/auth.js' %}" type="text/javascript"></script>
-</body>
+    <script>
+      const signupButton = document.getElementById("signup-button"),
+        loginButton = document.getElementById("login-button"),
+        userForms = document.getElementById("user_options-forms");
+
+      /**
+       * Add event listener to the "Sign Up" button
+       */
+      signupButton.addEventListener(
+        "click",
+        () => {
+          userForms.classList.remove("bounceRight");
+          userForms.classList.add("bounceLeft");
+        },
+        false
+      );
+
+      loginButton.addEventListener(
+        "click",
+        () => {
+          userForms.classList.remove("bounceLeft");
+          userForms.classList.add("bounceRight");
+        },
+        false
+      );
+    </script>
+  </body>
 </html>

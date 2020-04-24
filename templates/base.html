@@ -81,31 +81,37 @@
             <div class="none" id="dev-container-content">
                 <center>
                     <div>
-                        <div class="animTopToBottom" style="padding: 0.3em;font-size: 1.5em;background:#1a73e8;margin: 0.2em 0;color: #fff;">
+                        <div class="animTopToBottom developer-top-heading">
                             <b>Website Developer</b>
                         </div>
-                        <div class="animTopToBottom" style="height: 200px;width: 200px;padding: 0 1em;overflow: hidden;padding-bottom: 0.8em;">
-                            <img src="{{ developer.profile_picture }}" alt="Raghav Dhingra | HelloWorld" width="100%" style="border-radius: 50%;padding: 0.2em;border: 0.2em dashed #1a73e8;" />
+                        <div class="animTopToBottom developer-image-container">
+                            <div class="developer-popUp-image" style="background-image: url('{{ developer.profile_picture }}');"></div>
                         </div>
-                        <div class="animTopToBottom" style="padding: 0.5em;margin: 0.2em 1em;font-weight: bold;">
-                            <div class="raghav"> {{developer.first_name}} {{developer.last_name}} </div>
+                        <div class="animTopToBottom">
+                            <a href="https://raghavdhingra.com">
+                                <div class="raghav"> {{developer.first_name}} {{developer.last_name}} </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="animTopToBottom">Know More About me:<Br>
-                        <a href="{{developer.links.facebook}}" title="FACEBOOK"><i style="color: #3b5998;" class="fab fa-facebook"></i></a>                        
-                        <a href="https://www.linkedin.com/in/raghav-dhingra-168a41168/" title="LINKEDIN"><i style="color: #3b5998;" class="fab fa-linkedin"></i></a>                        
-                        <a href="{{developer.links.github}}" title="GITHUB"><i style="color: #3b5998;" class="fab fa-github"></i></a>                        
-                        <a href="{{developer.links.twitter}}" title="INSTAGRAM"><i style="color: #3b5998;" class="fab fa-twitter"></i></a>                        
-                        <a href="mailto:raghav.dhingra15@gmail.com" title="MAIL ME"><i style="color: #3b5998;" class="fas fa-envelope"></i></a>                        
+                    <div class="animTopToBottom">
+                        <div class="developer-know-more-text">Know More About me:</div>
+                        <div class="developer-links">
+                            <a href="https://raghavdhingra.com" title="FACEBOOK"><i class="fas fa-globe"></i></a>                        
+                            <a href="https://www.linkedin.com/in/raghav-dhingra/" title="LINKEDIN"><i class="fab fa-linkedin"></i></a>                        
+                            <a href="{{developer.links.github}}" title="GITHUB"><i class="fab fa-github"></i></a>                        
+                            <a href="{{developer.links.twitter}}" title="INSTAGRAM"><i class="fab fa-twitter"></i></a>                        
+                            <a href="mailto:admin@raghavdhingra.com" title="MAIL ME"><i class="fas fa-envelope"></i></a> 
+                        </div>                       
                     </div>
-                        <Br>
-                    <div class="animTopToBottom" style="background: #1a73e8; padding: 0.5em;color: #fff;">
-                        <span style="font-size: 0.55em;">
-                            If you find any bug or want to suggest some changes, feel free to reach out to us: 
-                        </span><Br>
-                        <span style="font-size: 0.8em;text-transform: lowercase !important;">    
-                            <a href="mailto:developers@helloworldofficial.in" style="color: #eee;text-transform: lowercase !important;" title="Mail Us | developers@helloworldofficial.in">developers@helloworldofficial.in</a>
-                        </span>
+                    <div class="animTopToBottom developer-bottom-section">
+                        <div class="developer-single-hr"></div>
+                        <div>
+                            <div>Want to suggest some changes</div>
+                            <div>feel free to reach out to us</div>
+                            <div class="developer-contact-mail">    
+                                <a href="mailto:developers@helloworldofficial.in" style="color: #eee;text-transform: lowercase !important;" title="Mail Us | developers@helloworldofficial.in">developers@helloworldofficial.in</a>
+                            </div>
+                        </div>
                     </div>
                 </center>
             </div>
@@ -165,9 +171,9 @@
         {% endif %}
 
         <a href="{% url 'team' %}"><li class="drop-active1">Know Our Team</li></a>
-        <a href="{% url 'event' %}"><li class="drop-active2">Upcoming / Past Events</li></a>
+        <a href="{% url 'event' %}"><li class="drop-active2">Events</li></a>
         <a href="{% url 'gallery' %}"><li class="drop-active3">Gallery</li></a>
-        <a href="/hack-gtbit-2.0"><li>HACK-GTBIT 2.0</li></a>
+        <!-- <a href="/hack-gtbit-2.0"><li>HACK-GTBIT 2.0</li></a> -->
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}"><li>Logout</li></a>
         {% else %}
@@ -217,7 +223,7 @@
                 <a href="{% url 'contact' %}" class="mobile_nav_elmt2" title="CONTACT"><i class="fas fa-user"></i> Contact</a>
                 <a href="{% url 'team' %}" class="mobile_nav_elmt2" title="TEAM"><i class="fas fa-users"></i> Team</a>
                 <a href="{% url 'gallery' %}" class="mobile_nav_elmt2" title="GALLERY"><i class="fas fa-image"></i> Gallery</a>
-                <a href="{% url 'event' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="fas fa-clipboard-check"></i> Upcoming / Past Events</a>
+                <a href="{% url 'event' %}" class="mobile_nav_elmt2" title="EVENTS"><i class="fas fa-clipboard-check"></i>Events</a>
 
                 {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="mobile_nav_elmt2" title="Profile"><i class="far fa-id-card"></i> My Account</a>
@@ -298,7 +304,7 @@
                 <hr width="75%"/>
                 <div class="spacing-1"></div>
                 <span style="font-size: 0.8em;">
-                    &copy; HelloWorld 2019. All Rights Reserved.
+                    &copy; HelloWorld 2020. All Rights Reserved.
                     <br class="next-line2">
                     <br class="next-line2">
                     <br class="next-line2">
