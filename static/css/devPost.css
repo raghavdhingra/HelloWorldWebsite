@@ -1,3 +1,10 @@
+.developer-top-heading{
+    padding: 0.3em;
+    font-size: 1.2em;
+    margin: 0.5em;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
 .dev-container-overlay{
     position: fixed;
     top: 0;
@@ -9,13 +16,28 @@
     text-transform: capitalize;
     background: rgba(0,0,0,0.5);
 }
+
+.developer-image-container{
+    margin: 0.5em auto 0 auto;
+    width: max-content;
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+.developer-popUp-image{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .dev-container{
     height: 540px;
     width: 300px;
     position: fixed;
     top: 50%;
     overflow: hidden;
-    background: #fff;
+    background: #1a73e8;
     left: 50%;
     transform: translate(-50%,-50%) scaleX(0.05) scaleY(0.05);
     font-family: google-sans-light,Arial, Helvetica, sans-serif;
@@ -35,17 +57,50 @@
 }
 
 .raghav{
+    color: #fff;
+    margin: 0.5em;
+    font-size: 1.5em;
     font-family: google-sans-bold,Arial, Helvetica, sans-serif;
 }
 
-.raghav::before, .raghav::after{
+.raghav::before{
     content: "";
-    height: 0.2em;
-    margin: 0.2em;
-    width: 50px;
-    background: #1a73e8;
+    height: 3px;
+    margin: 0.2em auto;
+    width: 75px;
+    background: #71B3FF;
     display: block;
-    transform: translateX(-100%);
+}
+.developer-know-more-text{
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+    color: rgb(197, 224, 255);
+}
+.developer-links a{
+    color: #fff;
+    transition: 0.2s;
+    margin: 0 0.5em;
+}
+.developer-links a:hover{
+    opacity: 0.7;
+}
+.developer-single-hr{
+    border-top: 1px solid #71B3FF;
+    margin: 1em 0;
+}
+.developer-bottom-section{
+    text-align: center;
+    display: grid;
+    padding: 0.5em 0;
+    grid-template-rows: 1fr auto;
+    font-size: 0.8em;
+    color: #fff;
+}
+.developer-contact-mail{
+    margin: 3px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: lowercase;
 }
 
 .animTopToBottom{

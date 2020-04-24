@@ -15,7 +15,7 @@
     --paleWhite: #ccc;
     --black: #000;
     --navElementColor: rgba(0,0,0,0.15);
-    --navDropColor: rgba(0,0,0,0.55);
+    --navDropColor: rgba(0,0,0,0.1);
     --footer: #eee;
     --footerBack: #0c2538;
 }
@@ -194,6 +194,7 @@ span.nav-logo-text{
 }
 
 ul.nav_element li, ul.nav_element2 li{
+    overflow: hidden;
     display: inline-block;
     text-transform: capitalize;
     margin: 0 0.5em;
@@ -230,13 +231,19 @@ div.nav-drop-down,div.nav-drop-down2{
     padding: 0.5em;
     z-index: 999;
 }
+div.nav-drop-down2{
+    top: 4em;
+}
+div.nav-drop-down{
+    width: 150px;
+}
 
 div.nav-drop-down2{
     transform: translate(0);
 }
 
 div.nav-drop-down li, div.nav-drop-down2 li{
-    padding: 0.5em 1.1em;
+    padding: 0.5em 1em;
     font-size: 1em;
     transition: 0.2s;
 }
@@ -273,7 +280,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     text-align: center;
     width: 100vw;
     z-index: 997;
-    box-shadow: 0 -3px 10px 0 var(--navDropColor);
+    box-shadow: 0 -3px 10px 0 rgba(0,0,0,0.1);
     background: var(--white);
 }
 
@@ -319,7 +326,7 @@ div.nav-drop-down li:last-child, div.nav-drop-down2 li:last-child{
     height: 0;
     width: 100vw;
     z-index: 1001;
-    box-shadow: 0 -3px 10px 0 var(--navDropColor);
+    box-shadow: 0 -3px 10px 0 rgba(0,0,0,0.1);
     background: var(--white);
     position: fixed;
     bottom: 0;
