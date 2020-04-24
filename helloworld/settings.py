@@ -39,7 +39,9 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 
 # Application definition
-
+HONEYBADGER = {
+    'API_KEY': 'f49571b9'
+}
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,6 +61,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'honeybadger.middleware.DjangoHoneybadgerMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -76,7 +79,7 @@ ROOT_URLCONF = 'helloworld.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +89,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries':{
-                'filter_tag':'main.filter_tag',
+                'filter_tag': 'main.filter_tag',
             }
         },
     },
@@ -105,14 +108,14 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 # }
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': <DATABASE_NAME>,
-            'USER': <USER_ID>,
-            'HOST': 'ec2-174-129-226-232.compute-1.amazonaws.com',
-            'PASSWORD':<PASSWORD>,
-            'PORT': '5432',
-        },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6l68agq5jdujc',
+        'USER': 'nyguztgdzutgwd',
+        'HOST': 'ec2-174-129-226-232.compute-1.amazonaws.com',
+        'PASSWORD': 'f588053fedce0524f48ac4145a74cd29f1ef26829593744a801ce1128a83394a',
+        'PORT': '5432',
+    },
 }
 
 REST_FRAMEWORK = {
@@ -140,9 +143,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 cloudinary.config(
-    cloud_name = <NAME>,
-    api_key = <API_KEY>,
-    api_secret = <API_SECRET_KEY>,
+    cloud_name="raghavdhingra",
+    api_key="676478377368971",
+    api_secret="FjnMXXangAmt1JwsC76eykQXU-k",
 )
 
 # Internationalization
@@ -165,20 +168,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 WHITENOISE_ROOT = os.path.join(BASE_DIR, 'static', 'root')
 
 django_heroku.settings(locals())
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = <EMAIL_ID>
-EMAIL_HOST_PASSWORD = <EMAIL_PASSWORD>
+EMAIL_HOST_USER = 'hideano123@gmail.com'
+EMAIL_HOST_PASSWORD = 'RaGhAv1.'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = <DEFAULT_EMAIL_ID>
+DEFAULT_FROM_EMAIL = 'hideano123@gmail.com'

@@ -53,8 +53,8 @@ urlpatterns = [
     path('privacy-policy', mainView.privacy_policy,name="privacy"),
     path('frequently-ask-questions', mainView.faqs,name="faq"),
 
-    path(teampi, mainView.MemberList.as_view()),
-    path(eventapi, mainView.EventList.as_view()),
+    # path(teampi, mainView.MemberList.as_view()),
+    # path(eventapi, mainView.EventList.as_view()),
     path('mailing-list',mainView.MailingList.as_view()),
     path('teamapi/id=<int:UserId>', mainView.SingleMember.get),
     path('authorization',loginView.auth, name="auth"),
