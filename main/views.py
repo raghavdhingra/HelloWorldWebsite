@@ -23,7 +23,7 @@ auth_user_list = auth_user
 
 def uploadFile(file):
     resp = cloudinary.uploader.upload(file)
-    return resp['url']
+    return resp['secure_url']
 
 
 def home(request):
@@ -36,13 +36,23 @@ def home(request):
     # print(mailList)
     # meme = TeamMember.objects.all()
     # for mem in meme:
-    #     if mem.contact['email'] in mailList:
-    #         print("None")
-    #     else:
-    #         newMail = []
-    #         newMail.append(mem.contact['email'])
-    #         print(newMail)
-    #         mailList+=newMail
+    #     try:
+    #         if mem.contact['email'] not in mailList:
+    #             print("None")
+    #         else:
+    #             newMail = []
+    #             newMail.append(mem.contact['email'])
+    #             print(newMail)
+    #             mailList+=newMail
+    #     except:
+    #         if mem.contact[0]['email'] in mailList:
+    #             print("None")
+    #         else:
+    #             newMail = []
+    #             newMail.append(mem.contact[0]['email'])
+    #             print(newMail)
+    #             mailList+=newMail
+    # print(mailList)
     # Email.objects.filter(name = 'raghav').update(
     #     email = mailList
     # )
@@ -59,7 +69,7 @@ def home(request):
         if username == '':
             username = request.user.username
     
-    events = Events.objects.all()
+    events = Events.objects.all().order_by('-date')[:]
     for ent in events:
         if ent.upcoming == True:
             up_event.append(ent)
@@ -204,7 +214,7 @@ def event(request):
         if username == '':
             username = request.user.username
 
-    events = Events.objects.all()
+    events = Events.objects.all().order_by('-date')[:]
     for ent in events:
         if ent.upcoming == True:
             up_event.append(ent)
