@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!xs$*+7(*-*@bnvb#dvg3*=2-(xzgje8=lf@(+kom9k$#xfn5y'
+SECRET_KEY = '<Django_Secret_key>'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -40,7 +40,7 @@ CSRF_COOKIE_SECURE = False
 
 # Application definition
 HONEYBADGER = {
-    'API_KEY': 'f49571b9'
+    'API_KEY': '<API_KEY>'
 }
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -109,12 +109,12 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd6l68agq5jdujc',
-        'USER': 'nyguztgdzutgwd',
-        'HOST': 'ec2-174-129-226-232.compute-1.amazonaws.com',
-        'PASSWORD': 'f588053fedce0524f48ac4145a74cd29f1ef26829593744a801ce1128a83394a',
-        'PORT': '5432',
+        'ENGINE': '<DATABASE_ENGINE>',
+        'NAME': '<DATABASE_NAME>',
+        'USER': '<DATABASE_USER>',
+        'HOST': '<DATABASE_HOST>',
+        'PASSWORD': '<DATABASE_PASSWORD>',
+        'PORT': '<DATABASE_PORT>',
     },
 }
 
@@ -143,9 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 cloudinary.config(
-    cloud_name="raghavdhingra",
-    api_key="676478377368971",
-    api_secret="FjnMXXangAmt1JwsC76eykQXU-k",
+    <CLOUDINARY_SET_UP>
 )
 
 # Internationalization
@@ -170,7 +168,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -178,10 +175,4 @@ WHITENOISE_ROOT = os.path.join(BASE_DIR, 'static', 'root')
 
 django_heroku.settings(locals())
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'hideano123@gmail.com'
-EMAIL_HOST_PASSWORD = 'RaGhAv1.'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'hideano123@gmail.com'
+EMAIL_BACKEND = '<EMAIL_BACKEND SET_UP>'
