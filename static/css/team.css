@@ -1,24 +1,41 @@
-
 .MainTeamDiv{
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
 }
-
 .teamMemberDiv{
     margin: 20px;
     margin-bottom: 30px !important;
 }
 
-.memberImage{
-    overflow: hidden;
-    height: 230px;
-    width: 230px;
-    border-radius: 50% 50% 50% 0;
-}
 
 .memberImageInner{
-    background: #1a73e8;
+    padding: 0.2em;
+    box-sizing: border-box;
+    border-radius: 50% 50% 50% 0;
+    background: #fff;
+    border: 2px solid #1a73e8;
+}
+.member-image-container{
+    height: 225px;
+    width: 225px;
+    border-radius: 50% 50% 50% 0;
+    /* border-radius: 50%; */
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #999;
+    background-repeat: no-repeat;
+}
+.team-page-member-name{
+    font-family: google-sans-bold;
+    font-size: 1.5em;
+    text-decoration: underline;
+    color: #666;
+}
+.team-page-member-desc{
+    color: #1a73e8;
+    font-family: google-sans-bold;
+    max-width:200px;
 }
 
 @media screen and (max-width: 600px){
