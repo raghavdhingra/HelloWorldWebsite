@@ -19,7 +19,7 @@ mock==3.0.5
 oauth2client==3.0.0
 pathlib2==2.1.0
 Pillow==6.1.0
-protobuf==3.9.0
+protobuf==3.18.3
 psutil==5.6.7
 psycopg2==2.8.4
 psycopg2-binary==2.7.5
